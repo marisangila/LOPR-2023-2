@@ -12,13 +12,8 @@ Inicio
    leia(ano)
 
    se ((ano mod 4 = 0) e (ano mod 100 = 1)) ou ano mod 400 = 0 entao
-      escreval("O ano È bissexto")
+      escreval("O ano √© bissexto")
    senao
-      escreval("O ano n„o È bissexto")
+      escreval("O ano n√£o √© bissexto")
    fimse
-
-
-
-fimse
-
 Fimalgoritmo
