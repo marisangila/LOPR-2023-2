@@ -1,4 +1,6 @@
 Algoritmo "semnome"
+// Disciplina   : [Linguagem e Lógica de Programação]
+// Professor   : Antonio Carlos Nicolodi
 
 Var
    numeroA, numeroB, numeroC:real
@@ -11,9 +13,18 @@ Inicio
    leia(numeroB)
    escreval("Digite o terceiro:")
    leia(numeroC)
-   
-   SE (numeroA > numeroB) e (numeroB > numeroC) entao
+
+   SE (numeroA > numeroB) e (numeroA > numeroC) ENTAO
       escreva("O maior numero é ", numeroA)
+   SENAO
+      SE (numeroB > numeroA) e (numeroB > numeroC)ENTAO
+         escreva("O maior numero é ", numeroA)
+      SENAO
+         SE (numeroC > numeroA) e (numeroC > numeroB)ENTAO
+            escreva("O maior numero é ", numeroC)
+         FIMSE
+      FIMSE
+   FIMSE
 
 
 
