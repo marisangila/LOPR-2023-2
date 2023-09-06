@@ -1,6 +1,6 @@
 Algoritmo "questão14"
 
-// POSTO DE GASOLINA
+// POSTO DE GASOLINA CÁLCULO
 
 Var
 
