@@ -1,27 +1,24 @@
-Algoritmo "questão7"
-// Disciplina   : [Linguagem e Lógica de Programação]
-// Professor   : Antonio Carlos Nicolodi 
-// Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Nome do(a) aluno(a)
-// Data atual  : 05/09/2023
+Algoritmo "questï¿½o7"
+
 Var
-salário: real
+salario: real
 valorPrestacao: real
 credito: real
 
 
 Inicio
 
-escreva ("Qual o valor do seu salário bruto? ")
+escreval ("Qual o valor do seu salÃ¡rio bruto? ")
 leia (salario)
-escreva ("Qual o valor da prestação?")
+escreva ("Qual o valor da prestaÃ§Ã£o? ")
 leia (valorPrestacao)
-credito <- 0.3 * salario
+credito <- salario * 0.3
 
-SE
-ENTAO
+SE (valorPrestacao > credito) ENTAO
+    escreval ("O emprÃ©stimo nÃ£o pode ser concedido pois ultrapassa 30% do seu salÃ¡rio. ")
+SENAO 
+    escreval ("O empreÅ›timo pode ser concedido!")
 FIMSE
-
 
 
 Fimalgoritmo
