@@ -1,12 +1,12 @@
 Algoritmo "exercicio1"
 Var
-   numero: inteiro
+   numero: real
 Inicio
    escreval("digite um número: ")
    leia(numero)
-   SE numero >= 0 ENTAO
-      escreva("Este número é positivo")
-   SENAO
-      escreva("Este número é negativo")
-   FIMSE
+   se (numero >= 0) entao
+      escreval ("este é um número positivo.")
+   senao
+      escreval ("este é um número negativo.")
+   fimse
 Fimalgoritmo

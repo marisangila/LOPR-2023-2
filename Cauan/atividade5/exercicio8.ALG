@@ -1,17 +1,16 @@
 algoritmo "exercicio8"
-// Disciplina  :  [Linguagem e Lógica de Programação]
-// Professor   : [Nome do Professor]
-// Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Nome do(a) aluno(a)
-// Data atual  : DATA_ATUAL/MES_ATUAL/ANO_ATUAL
 var
-
-teste: caractere
-
+   idade: inteiro
 inicio
-
-teste <- "Este é um teste."
-escreval ("Variável Teste")
-escreva ("O valor da variável TESTE é: " + teste)
-
+   escreval("qual a sua idade? ")
+   leia(idade)
+   se idade >= 18 entao
+      escreval("você é um eleitor obrigatório")
+   senao
+      se idade >= 65 entao
+         escreval("você é um eleitor facultativo")
+      senao
+         escreval("você não é um eleitor ainda")
+      fimse
+   fimse
 fimalgoritmo

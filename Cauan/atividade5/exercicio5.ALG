@@ -12,5 +12,5 @@ inicio
       valorDoAtraso <- 2.5
    fimse
    totalDoMulta <- valorDoAtraso * diasDeAtraso
-   escreval("O valor da sua multa será de:",totalDoMulta)
+   escreval("O valor da sua multa será de: R$",totalDoMulta,",00")
 fimalgoritmo

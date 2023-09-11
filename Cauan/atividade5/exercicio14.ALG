@@ -1,17 +1,41 @@
 algoritmo "exercicio14"
-// Disciplina  :  [Linguagem e Lógica de Programação]
-// Professor   : [Nome do Professor]
-// Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Nome do(a) aluno(a)
-// Data atual  : DATA_ATUAL/MES_ATUAL/ANO_ATUAL
 var
-
-teste: caractere
-
+   tipoDeCombustivel: caractere
+   quantidadeDeL: inteiro
+   desconto: real
+   valorDoCombustivel: real
+   valorTotal: real
 inicio
-
-teste <- "Este é um teste."
-escreval ("Variável Teste")
-escreva ("O valor da variável TESTE é: " + teste)
-
+   escreval("qual o tipo de combustível? A-Álcool, G-Gasolina")
+   leia(tipoDeCombustivel)
+   se (tipoDeCombustivel = "A") entao
+      valorDoCombustivel <- 2.90
+   senao
+      se (tipoDeCombustivel = "G") entao
+         valorDoCombustivel <- 3.30
+      senao
+         escreval ("tipo de combustível invalido")
+      fimse
+   fimse
+   escreval("qual a quantidade do combustível em litros?")
+   leia(quantidadeDeL)
+   se (tipoDeCombustivel = "A") e (quantidadeDeL <= 20) entao
+      desconto <- 0.3 * quantidadeDeL
+   senao
+      se(tipoDeCombustivel = "A") e (quantidadeDeL > 20) entao
+         desconto <- 0.5 * quantidadeDeL
+      senao
+         se (tipoDeCombustivel = "G") e (quantidadeDeL <= 20) entao
+            desconto <- 0.4 * quantidadeDeL
+         senao
+            se(tipoDeCombustivel = "G") e (quantidadeDeL > 20) entao
+               desconto <- 0.6 * quantidadeDeL
+            senao
+               escreval("Tipo de combustível inválido")
+            fimse
+         fimse
+      fimse
+   fimse
+   valorTotal <- (quantidadeDeL * valorDoCombustivel) - desconto
+   escreval("o valor a ser pago será: ",valorTotal)
 fimalgoritmo

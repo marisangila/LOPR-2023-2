@@ -1,17 +1,26 @@
 algoritmo "exercicio12"
-// Disciplina  :  [Linguagem e Lógica de Programação]
-// Professor   : [Nome do Professor]
-// Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Nome do(a) aluno(a)
-// Data atual  : DATA_ATUAL/MES_ATUAL/ANO_ATUAL
 var
-
-teste: caractere
-
+   valorA: inteiro
+   valorB: inteiro
+   valorC: inteiro
 inicio
-
-teste <- "Este é um teste."
-escreval ("Variável Teste")
-escreva ("O valor da variável TESTE é: " + teste)
-
+   escreval("digite um valor A: ")
+   leia(valorA)
+   escreval("digite um valor B: ")
+   leia(valorB)
+   escreval("digite um valor C: ")
+   leia(valorC)
+   se (valorA = valorC) e (valorA = valorC) entao
+      escreval ("estes valores formam um triângulo equilátero")
+   senao
+      se (valorA = valorB) e (valorA <> valorC) entao
+         escreval("estes valores formam um triângulo isósceles.")
+      senao
+         se (valorA <> valorB) e (valorA <> valorC) entao
+            escreval ("estes valores formam um triângulo escaleno.")
+         senao
+            escreval ("estes valores não formam um triângulo.")
+         fimse
+      fimse
+   fimse
 fimalgoritmo

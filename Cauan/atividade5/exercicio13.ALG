@@ -1,17 +1,12 @@
 algoritmo "exercicio13"
-// Disciplina  :  [Linguagem e Lógica de Programação]
-// Professor   : [Nome do Professor]
-// Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Nome do(a) aluno(a)
-// Data atual  : DATA_ATUAL/MES_ATUAL/ANO_ATUAL
 var
-
-teste: caractere
-
+   ano: inteiro
 inicio
-
-teste <- "Este é um teste."
-escreval ("Variável Teste")
-escreva ("O valor da variável TESTE é: " + teste)
-
+   escreval("informe um ano: ")
+   leia(ano)
+   se (ano % 4 = 0) e nao(ano % 100 = 0) ou (ano % 400 = 0) entao
+      escreval ("este é um ano bissexto")
+   senao
+      escreval ("este não é um ano bissexto")
+   fimse
 fimalgoritmo

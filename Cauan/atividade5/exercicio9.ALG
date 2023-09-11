@@ -1,17 +1,22 @@
 algoritmo "exercicio9"
-// Disciplina  :  [Linguagem e Lógica de Programação]
-// Professor   : [Nome do Professor]
-// Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Nome do(a) aluno(a)
-// Data atual  : DATA_ATUAL/MES_ATUAL/ANO_ATUAL
 var
-
-teste: caractere
-
+   numeroA: real
+   numeroB: real
+   numeroC: real
 inicio
-
-teste <- "Este é um teste."
-escreval ("Variável Teste")
-escreva ("O valor da variável TESTE é: " + teste)
-
+   escreval ("digite um número A: ")
+   leia(numeroA)
+   escreval ("digite um número B: ")
+   leia(numeroB)
+   escreval ("digite um número C: ")
+   leia(numeroC)
+   se (numeroA > numeroB) e (numeroA > numeroC) entao
+      escreva("o maior número é o número A: ",numeroA)
+   senao
+      se (numeroB > numeroA) e (numeroB > numeroC) entao
+         escreva("o maior número é o número B: ",numeroB)
+      senao
+         escreva("o maior número é o número C: ",numeroC)
+      fimse
+   fimse
 fimalgoritmo
