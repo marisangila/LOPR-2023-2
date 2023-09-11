@@ -29,7 +29,20 @@ inicio
 
     escreval("The value of sale is:",value_sale)
 
-                
-
-
 fimalgoritmo
+
+// algoritmo "Nome do Programa"
+
+// var
+
+//     n1: inteiro
+//     n2: inteiro
+
+// inicio
+
+//     n1 <- 2
+//     n2 <- 2
+
+//     escreval(n1 + n2)
+
+// fimalgoritmo
