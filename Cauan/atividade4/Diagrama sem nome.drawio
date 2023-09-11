@@ -1,0 +1,45 @@
+<mxfile host="app.diagrams.net" modified="2023-08-29T20:07:29.130Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="DIvMmAtfSIzh5B0CTN64" version="21.7.0" type="google">
+  <diagram name="Página-1" id="mVhU1Q5KfrbtOKBD_uJz">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CBTaAmUrz683N0ETkyCv-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="CBTaAmUrz683N0ETkyCv-1" target="CBTaAmUrz683N0ETkyCv-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CBTaAmUrz683N0ETkyCv-1" value="início" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="80" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="CBTaAmUrz683N0ETkyCv-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.465;entryY=0.018;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="CBTaAmUrz683N0ETkyCv-2" target="CBTaAmUrz683N0ETkyCv-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CBTaAmUrz683N0ETkyCv-2" value="insira um número" style="shape=manualInput;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="260" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="CBTaAmUrz683N0ETkyCv-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="CBTaAmUrz683N0ETkyCv-4" target="CBTaAmUrz683N0ETkyCv-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CBTaAmUrz683N0ETkyCv-4" value="antecessor=numero-1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="450" width="270" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="CBTaAmUrz683N0ETkyCv-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="CBTaAmUrz683N0ETkyCv-7" target="CBTaAmUrz683N0ETkyCv-13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CBTaAmUrz683N0ETkyCv-7" value="aparece na tela:antecessor;numero;sucessor" style="shape=display;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="310" width="300" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="CBTaAmUrz683N0ETkyCv-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.6;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="CBTaAmUrz683N0ETkyCv-9" target="CBTaAmUrz683N0ETkyCv-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CBTaAmUrz683N0ETkyCv-9" value="sucessor=numero +1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="570" width="270" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="CBTaAmUrz683N0ETkyCv-13" value="fim" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="80" width="210" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
