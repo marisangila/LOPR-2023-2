@@ -17,7 +17,7 @@ Inicio
     escreval("Eleitor.")
    FIMSE
 
-   SE idade > 65 ENTAO
+   SE idade >= 65 ENTAO
     escreval("Eleitor facultativo.")
    FIMSE
 

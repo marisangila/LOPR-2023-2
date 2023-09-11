@@ -13,19 +13,19 @@ Inicio
    leia(lGasolina)
 
    SE lGasolina < 20 ENTAO
-      escreval("Desconto de 4%.")
-   FIMSE
-
-   SE lGasolina > 20 ENTAO
-      escreval("Desconto de 6%.")
+     escreval("Desconto de 4% para ",lGasolina,"l de gasolina.")
+     SENAO
+       SE lGasolina > 20 ENTAO
+          escreval("Desconto de 6% para ",lGasolina,"l de gasolina.")
+       FIMSE
    FIMSE
 
    SE lAlcool < 20 ENTAO
-      escreval("Desconto de 3%.")
-   FIMSE
-
-   SE lAlcool > 20 ENTAO
-      escreval("Desconto de 5%.")
+      escreval("Desconto de 3% para ",lAlcool,"l de alcool.")
+      SENAO
+       SE lAlcool > 20 ENTAO
+          escreval("Desconto de 5% para ",lAlcool,"l de alcool.")
+       FIMSE
    FIMSE
 
    leia(ok)

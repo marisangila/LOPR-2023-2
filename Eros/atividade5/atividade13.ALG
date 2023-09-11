@@ -15,17 +15,6 @@ Inicio
       escreval("O ano nao e bissexto.")   
    FIMSE
 
-   SE (ladoA = ladoB) OU (ladoA = ladoC) ENTAO
-     SE (ladoC = ladoA) OU (ladoC = ladoB) ENTAO
-        escreval("Triangulo Isosceles")
-     FIMSE
-   FIMSE
-
-   SE (ladoA <> ladoB) E (ladoA <> ladoC) ENTAO
-      SE (ladoB <> ladoA) E (ladoB <> ladoC)
-        escreval("Triangulo Escaleno")
-   FIMSE
-
    leia(ok)
    limpatela
 FIMPROCEDIMENTO

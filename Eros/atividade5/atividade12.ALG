@@ -1,8 +1,9 @@
 Algoritmo "atividade12"
 
 var
-   valCompra: real
-   lucro: real
+   ladoA: real
+   ladoB: real
+   ladoC: real
    ok: logico
 
 PROCEDIMENTO "insira"
@@ -18,15 +19,30 @@ Inicio
       escreval("Triangulo Equilatero.")
    FIMSE
 
-   SE (ladoA = ladoB) OU (ladoA = ladoC) ENTAO
-     SE (ladoC = ladoA) OU (ladoC = ladoB) ENTAO
-        escreval("Triangulo Isosceles")
-     FIMSE
+   SE (ladoA = ladoC) E (ladoA <> ladoB) ENTAO
+     escreval("Triangulo Isosceles")
+   FIMSE
+
+   SE (ladoB = ladoA) E (ladoB <> ladoC) ENTAO
+     escreval("Triangulo Isosceles")
+   FIMSE
+
+   SE (ladoB = ladoC) E (ladoB <> ladoA) ENTAO
+     escreval("Triangulo Isosceles")
+   FIMSE
+
+   SE (ladoC = ladoA) E (ladoC <> ladoB) ENTAO
+     escreval("Triangulo Isosceles")
+   FIMSE
+
+   SE (ladoC = ladoA) E (ladoC <> ladoB) ENTAO
+     escreval("Triangulo Isosceles")
    FIMSE
 
    SE (ladoA <> ladoB) E (ladoA <> ladoC) ENTAO
-      SE (ladoB <> ladoA) E (ladoB <> ladoC)
+      SE (ladoB <> ladoA) E (ladoB <> ladoC) ENTAO
         escreval("Triangulo Escaleno")
+      FIMSE
    FIMSE
 
    leia(ok)

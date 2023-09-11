@@ -14,11 +14,11 @@ Inicio
       lucro <- 0.7
    FIMSE
 
-   SE (valCompra <= 10) E (valCompra < 30) ENTAO
+   SE (valCompra >= 10) E (valCompra < 30) ENTAO
       lucro <- 0.5
    FIMSE
 
-   SE (valCompra <= 30) E (valCompra < 50) ENTAO
+   SE (valCompra >= 30) E (valCompra < 50) ENTAO
       lucro <- 0.4
    FIMSE
 
