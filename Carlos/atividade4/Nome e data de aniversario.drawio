@@ -1,0 +1,50 @@
+<mxfile host="app.diagrams.net" modified="2023-08-29T20:25:58.525Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="tiHrX006jDpSLsFaVWMa" version="21.7.0" type="google">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-2" value="" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="120" as="sourcePoint" />
+            <mxPoint x="220" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l0Z_RdXtM1-ihW3jWqQt-1" value="Inicio" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="170" y="80" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="l0Z_RdXtM1-ihW3jWqQt-2" value="Fim" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="170" y="600" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="l0Z_RdXtM1-ihW3jWqQt-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="l0Z_RdXtM1-ihW3jWqQt-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l0Z_RdXtM1-ihW3jWqQt-3" value="Informe seu nome" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;labelPosition=center;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="170" y="170" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l0Z_RdXtM1-ihW3jWqQt-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="l0Z_RdXtM1-ihW3jWqQt-6" target="l0Z_RdXtM1-ihW3jWqQt-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l0Z_RdXtM1-ihW3jWqQt-6" value="Informe sua data de nascimento" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=card;whiteSpace=wrap;size=20;arcSize=12;labelPosition=center;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="170" y="290" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l0Z_RdXtM1-ihW3jWqQt-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="l0Z_RdXtM1-ihW3jWqQt-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l0Z_RdXtM1-ihW3jWqQt-7" value="Processar os dados informados" style="whiteSpace=wrap;html=1;arcSize=12;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="160" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="l0Z_RdXtM1-ihW3jWqQt-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="l0Z_RdXtM1-ihW3jWqQt-12" target="l0Z_RdXtM1-ihW3jWqQt-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l0Z_RdXtM1-ihW3jWqQt-12" value="O programa retorna &quot;Seu nome é fulano e você nasceu em xx/xx/xxxx&quot;" style="shape=display;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="120" y="490" width="200" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
