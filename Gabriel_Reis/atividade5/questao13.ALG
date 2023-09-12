@@ -1,15 +1,15 @@
 Algoritmo "semnome"
-// Disciplina   : [Linguagem e Lógica de Programação]
-// Professor   : Antonio Carlos Nicolodi
+
 Var
    anoBissexto:caractere
    comprimento:inteiro
    convertido:inteiro
-   ano:inteiro
+   loopCode: logico
 Inicio
+
+
    escreval("Para saber se o ano é bissexto, insira um ano usando 4 digitos")
    leia(anoBissexto)
-
    comprimento <- compr(anoBissexto)
    enquanto comprimento <> 4 faca
       escreval("O numero digitado tem que ter 4 caractere")
@@ -24,6 +24,10 @@ Inicio
       escreval("O ano de", convertido, " nao e bissexto.")
    fimse
 
+   escreval("Deseja continuar?")
+   leia(loopCode)
+
+   retorne(calculo)
 
 
 
