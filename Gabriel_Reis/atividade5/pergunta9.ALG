@@ -1,4 +1,6 @@
 Algoritmo "pergunta9"
+// Disciplina   : [Linguagem e Lógica de Programação] 
+// Professor   : Antonio Carlos Nicolodi 
 
 
 Var

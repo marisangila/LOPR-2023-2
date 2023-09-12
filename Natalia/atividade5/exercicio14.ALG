@@ -5,7 +5,7 @@ Var
    combustivel: caractere
 
 Inicio
-   escreval("Informe a letra A para álcool ou G para gasolina")
+   escreval("Informe a letra A para Ã¡lcool ou G para gasolina")
    leia(combustivel)
    escreval("Informe a quantidade de litros:")
    leia(litros)
@@ -16,23 +16,23 @@ Inicio
    se(combustivel = "A")entao
       se litros <= 20 entao
          precoDesconto <- precoAlcool - (precoAlcool * 0.03)
-         valorFinal <- precoAlcool * litros
-         escreval("O valor final a ser pago é de R$:", valorFinal)
+         valorFinal <- precoDesconto * litros
+         escreval("O valor final a ser pago Ã© de R$:", valorFinal)
       senao
          precoDesconto <- precoAlcool - (precoAlcool * 0.05)
-         valorFinal <- precoAlcool * litros
-         escreval("O valor final a ser pago é de R$:", valorFinal)
+         valorFinal <- precoDesconto * litros
+         escreval("O valor final a ser pago Ã© de R$:", valorFinal)
       fimse
    senao
       se(combustivel = "G")entao
          se litros <= 20 entao
             precoDesconto <- precoGasolina - (precoGasolina * 0.04)
-            valorFinal <- precoGasolina * litros
-            escreval("O valor final a ser pago é de R$:", valorFinal)
+            valorFinal <- precoDesconto * litros
+            escreval("O valor final a ser pago Ã© de R$:", valorFinal)
          senao
             precoDesconto <- precoGasolina - (precoGasolina * 0.06)
-            valorFinal <- precoGasolina * litros
-            escreval("O valor final a ser pago é de R$:", valorFinal)
+            valorFinal <- precoDesconto * litros
+            escreval("O valor final a ser pago Ã© de R$:", valorFinal)
          fimse
       fimse
    fimse
