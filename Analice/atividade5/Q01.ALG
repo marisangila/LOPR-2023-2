@@ -1,4 +1,4 @@
-Algoritmo "questão1"
+Algoritmo "questï¿½o1"
 
 Var
 
@@ -6,13 +6,13 @@ Var
 
 Inicio
 
-    escreva ("Digite um número:")
+    escreval ("Digite um nÃºmero:")
     leia (numero)
 
     SE (numero >= 1) ENTAO
-    escreva ("Número positivo!")
+    escreval ("NÃºmero positivo!")
     SENAO
-    escreva ("Número negativo!")
+    escreval ("NÃºmero negativo!")
 
     FIMSE
 
