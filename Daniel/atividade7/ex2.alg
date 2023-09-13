@@ -10,7 +10,7 @@ inicio
     escreval("Digite o último número da sua placa.")
     leia(ultimo_numero_placa)
     
-    escreva("O dia o qual você não poderá ir as ruas será ")
+    escreva("O dia o qual você não poderá ir as ruas será")
     escolha ultimo_numero_placa
         caso 0 e 5
             escreval("Segunda-feira")
