@@ -32,7 +32,7 @@ Inicio
       escreval("________________")
       escreval("O resultado é ", resultado)
    caso 3
-      Se (numeroA <> 0) e (numeroB<>0) entao
+      Se (numeroB<>0) entao
          resultado <- numeroA / numeroB
          escreval("________________")
          escreval("O resultado é ", resultado)
