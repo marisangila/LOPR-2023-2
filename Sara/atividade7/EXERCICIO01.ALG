@@ -5,6 +5,9 @@ Var
    valor: real
 Inicio
       escreva("Digite o código do produto: ")
+      escreva("1254 - Sanduiche de presunto")
+      escreva("5698 - Churros")
+      escreva("7114 - Suco de laranja que parece de limão mas é de tamarindo")
       leia(codigo)
       escolha(codigo)
                     caso 1254
