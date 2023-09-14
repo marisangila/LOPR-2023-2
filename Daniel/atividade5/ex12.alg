@@ -19,8 +19,8 @@ inicio
         senao
             se (a = b) ou (a = c) ou (c = b) entao
                 escreval("This triangle is isosceles!")
-            else
-                escreval("This triangle is isosceles!")
+            senao
+                escreval("This triangle is scalene!")
             fimse
         fimse
     senao
