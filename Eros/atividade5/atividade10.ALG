@@ -6,8 +6,12 @@ var
 
 PROCEDIMENTO "insira"
 Inicio
-   escreva("Digite a idade do competidor: ")
-   leia(idade)
+   escreva("Digite o primeiro numero: ")
+   leia(numero1)
+   escreva("Digite o segundo numero: ")
+   leia(numero2)
+   escreva("Digite o terceiro numero: ")
+   leia(numero3)
 
    SE (idade >= 5) E (idade <= 7) ENTAO
       escreval("O competidor entra na categoria Infantil A.")

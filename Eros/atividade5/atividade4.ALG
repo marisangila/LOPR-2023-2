@@ -8,22 +8,19 @@ var
 
 PROCEDIMENTO "insira"
 Inicio
-   escreva("Digite o primeiro numero: ")
-   leia(numero1)
-   escreva("Digite o segundo numero: ")
-   leia(numero2)
+   escreva("Digite um numero: ")
+   leia(numero)
 
-
-   SE numero1 > numero2 ENTAO
+   SE numero1 < numero2 ENTAO
      escreval("O numero ",numero1," e o maior.")
    FIMSE
 
-   SE numero2 > numero1 ENTAO
+   SE numero2 < numero1 ENTAO
      escreval("O numero ",numero2," e o maior.")
    FIMSE
 
    SE numero1 = numero2 ENTAO
-     escreval("Os numeros sao iguais.")
+     escreval("Os numeros ",numero1," e ",numero2," sao iguais.")
    FIMSE   
 
    leia(ok)

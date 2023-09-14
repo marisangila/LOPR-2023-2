@@ -15,7 +15,7 @@ Inicio
    escreva("Digite o terceiro numero: ")
    leia(numero3)
 
-   SE numero1 > numero2 ENTAO
+   SE num1 > num2 ENTAO
      SE numero1 > numero3 ENTAO
        escreval(numero1," é o maior.")
      FIMSE

@@ -5,7 +5,6 @@ var
    nota2: real
    nota3: real
    nota4: real
-   media: real
    ok: logico
 
 PROCEDIMENTO "insira"
@@ -29,7 +28,7 @@ Inicio
     escreval("Em exame.")
    FIMSE
 
-   SE media <= 2 ENTAO
+   SE media <= 7 ENTAO
     escreval("Reprovado.")
    FIMSE
 

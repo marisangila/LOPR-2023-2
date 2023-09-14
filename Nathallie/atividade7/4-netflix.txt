@@ -1,0 +1,58 @@
+Algoritmo "Netflix"
+
+Var
+categoria: inteiro
+subcategoria: inteiro
+Inicio
+escreval ("Qual categoria gostaria de assistir? ")
+escreval("[1] Filmes")
+escreval("[2] Séries")
+escreval("[3] Documentarios")
+escreval("Selecione uma das opções: ")
+leia (categoria)
+
+ESCOLHA (categoria)
+
+CASO 1
+    escreval("Selecione a subcategoria: ")
+    escreval("[1] Suspense")
+    escreval("[2] Ação")
+    leia (subcategoria)
+
+ESCOLHA (subcategoria)
+
+CASO 1
+    escreval ("A sugestão de fime é A Orfã.")
+CASO 2
+    escreval ("A sugestão de filme é Batman: O cavaleiro das trevas.")
+
+FIMESCOLHA
+
+CASO 2
+      escreval ("Escolha entre as opções abaixo: ")
+      escreval ("[1] Drama")
+      escreval ("[2] Comédia")
+      leia (subcategoria)
+
+      escolha (subcategoria)
+      caso 1
+         escreval ("Sugestão: Revenge.")
+      caso 2
+         escreval ("Sugestão: How I Met Your Mother.")
+FIMESCOLHA
+
+CASO 3
+      escreval ("Escolha entre as opções abaixo: ")
+      escreval ("[1] Investigação")
+      escreval ("[2] Ciência")
+      leia (subcategoria)
+
+      escolha (subcategoria)
+      caso 1
+         escreval ("Sugestão: Deep Web.")
+      caso 2
+         escreval ("Sugestão: Terra.")
+FIMESCOLHA
+
+FIMESCOLHA
+Fimalgoritmo

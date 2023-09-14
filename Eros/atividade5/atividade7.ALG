@@ -14,7 +14,7 @@ Inicio
    SE emprestimo > salario*0.3 ENTAO
     escreval("Ta bancando o caloteiro, hein?")
    SENAO
-    escreval("Emprestimo disponivel.")
+    escreval("Emprestimo indisponivel.")
    FIMSE
 
    leia(ok)

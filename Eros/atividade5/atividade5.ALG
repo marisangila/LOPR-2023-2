@@ -7,8 +7,8 @@ var
 
 PROCEDIMENTO "insira"
 Inicio
-   escreva("Digite a quantidade de dias em atraso: ")
-   leia(dias)
+   escreva("Digite um numero: ")
+   leia(numero)
 
    SE (dias >= 7) ENTAO
      multa <- 5.0
@@ -16,7 +16,7 @@ Inicio
      multa <- 2.5
    FIMSE
 
-   escreval("A multa atual e de R$",multa*dias,".")
+   escreval("A multa atual e de R$",multa,".")
 
    leia(ok)
    limpatela

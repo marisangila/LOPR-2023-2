@@ -14,7 +14,7 @@ Inicio
    SE resto = 0 ENTAO
      escreval("O numero e par.")
    SENAO
-     escreval("O numero e impar.")
+     escreval("O numero nao e par.")
    FIMSE
 
    leia(ok)
