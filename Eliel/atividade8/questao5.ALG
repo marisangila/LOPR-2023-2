@@ -1,25 +1,25 @@
 Algoritmo "semnome"
 //
 //
-// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Descriï¿½ï¿½o   : Aqui vocï¿½ descreve o que o programa faz! (funï¿½ï¿½o)
 // Autor(a)    : Nome do(a) aluno(a)
 // Data atual  : 14/09/2023
 Var
-   // Seção de Declarações das variáveis
+   // Seï¿½ï¿½o de Declaraï¿½ï¿½es das variï¿½veis
    i: inteiro
    valorMes, valorMedia, valorTotal, valorGasto, gastoMes, saldo: real
 Inicio
-   // Seção de Comandos, procedimento, funções, operadores, etc...
+   // Seï¿½ï¿½o de Comandos, procedimento, funï¿½ï¿½es, operadores, etc...
    escreval ("---Identificando saldo, ganhos e gastos de uma empresa---")
 
    para i de 1 ate 3 faca
-      escreval ("Informe o valor recebido em cada mês: ")
+      escreval ("Informe o valor recebido em cada mï¿½s: ")
       leia (valorMes)
       escreval ()
    fimpara
 
    para i de 1 ate 3 faca
-      escreval ("Informe o valor gasto em cada mês:  ")
+      escreval ("Informe o valor gasto em cada mï¿½s:  ")
       leia (gastoMes)
       escreval ()
       valorTotal <- valorTotal + valorMes
@@ -28,21 +28,21 @@ Inicio
       saldo <- valorTotal - valorGasto
    fimpara
 
-   escreval ("O valor total bruto recebido é de R$: ",  valorTotal:2:2)
+   escreval ("O valor total bruto recebido ï¿½ de R$: ",  valorTotal:2:2)
    escreval ()
-   escreval ("A média de lucro mensal é de R$: ", valorMedia:2:2)
+   escreval ("A mï¿½dia de lucro mensal ï¿½ de R$: ", valorMedia:2:2)
    escreval ()
-   escreval ("O valor total gasto é de R$: ", valorGasto:2:2)
+   escreval ("O valor total gasto ï¿½ de R$: ", valorGasto:2:2)
    escreval ()
 
    se (valorGasto > valorTotal) entao
-      escreva ("Você obteve um prejuízo de R$ : ", saldo)
+      escreva ("Vocï¿½ obteve um prejuï¿½zo de R$ : ", saldo)
       escreval ()
    senao
       se (valorGasto < valorTotal) entao
-         escreva ("Você obteve um lucro de R$: ", saldo)
+         escreva ("Vocï¿½ obteve um lucro de R$: ", saldo)
       senao
-         escreval ("Você não obteve lucros nem prejuízos!")
+         escreval ("Vocï¿½ nï¿½o obteve lucros nem prejuï¿½zos!")
          fimse
       fimse
 

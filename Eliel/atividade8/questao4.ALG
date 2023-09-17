@@ -1,17 +1,17 @@
 Algoritmo "questao4"
 //
 //
-// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Descriï¿½ï¿½o   : Aqui vocï¿½ descreve o que o programa faz! (funï¿½ï¿½o)
 // Autor(a)    : Nome do(a) aluno(a)
 // Data atual  : 14/09/2023
 Var
-   // Seção de Declarações das variáveis
+   // Seï¿½ï¿½o de Declaraï¿½ï¿½es das variï¿½veis
    i:  inteiro
 
 Inicio
-   // Seção de Comandos, procedimento, funções, operadores, etc...
-   escreval ("---Exibindo números de 0 a 100 com um intervalo de 5 números---")
-   para i de 0 ate 100 passo 5 faça
+   // Seï¿½ï¿½o de Comandos, procedimento, funï¿½ï¿½es, operadores, etc...
+   escreval ("---Exibindo nï¿½meros de 0 a 100 com um intervalo de 5 nï¿½meros---")
+   para i de 0 ate 100 passo 5 faï¿½a
       escreval (i)
    fimpara
 

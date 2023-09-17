@@ -1,0 +1,41 @@
+Algoritmo "calculadora"
+
+Var
+numero1: inteiro
+numero2: inteiro
+opcao: caractere
+resultado: real
+Inicio
+escreva("Escolha um número")
+leia(numero1)
+escreva("Escolha outro número")
+leia(numero2)
+
+escreva("Escolha uma operação:")
+escreva("[A] Adição")
+escreva("[B] Subtração")
+escreva("[C] Divisão")
+escreva("[D] Multiplicação")
+leia(opcao)
+ ESCOLHA(opcao)
+ CASO "A"
+   resultado <- numero1 + numero2
+    escreva("Seu resultado é", resultado)
+ CASO "B"
+   resultado <- numero1 - numero2
+    escreva("Seu resultado é", resultado)
+ CASO "C"
+    SE(numero2 = 0) ENTAO
+     escreva("Impossivel realizar essa operação")
+      SENAO
+       resultado <- numero1 / numero2
+        escreva("Seu resultado é", resultado)
+         FIMSE
+ CASO "D"
+  resultado <- numero1 * numero2
+    escreva("Seu resultado é", resultado)
+  OUTROCASO
+   escreva("Opção inexistente")
+  FIMESCOLHA
+   
+Fimalgoritmo

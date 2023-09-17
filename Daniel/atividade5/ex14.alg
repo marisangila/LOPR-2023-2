@@ -29,7 +29,7 @@ inicio
                 valor_total <- numero_litros * (preco_gasolina - desconto)
             fimse
         senao
-            se numero_litro <= 20 entao
+            se numero_litros <= 20 entao
                 desconto <- preco_gasolina * 0.4
                 valor_total <- numero_litros * (preco_gasolina - desconto)
             senao
