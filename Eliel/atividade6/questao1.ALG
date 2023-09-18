@@ -1,30 +1,30 @@
 Algoritmo "questao1"
 //
 //
-// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Descriï¿½ï¿½o   : Aqui vocï¿½ descreve o que o programa faz! (funï¿½ï¿½o)
 // Autor(a)    : Nome do(a) aluno(a)
 // Data atual  : 12/09/2023
 Var
-   // Seção de Declarações das variáveis
+   // Seï¿½ï¿½o de Declaraï¿½ï¿½es das variï¿½veis
    codigoProduto: inteiro
 
 Inicio
-   // Seção de Comandos, procedimento, funções, operadores, etc...
+   // Seï¿½ï¿½o de Comandos, procedimento, funï¿½ï¿½es, operadores, etc...
    escreval ("---Identificando produto---")
-   escreval ("Informe o código do produto: ")
+   escreval ("Informe o cï¿½digo do produto: ")
    escreval ("[1254]")
    escreval ("[5698]")
    escreval ("[7114]")
    leia (codigoProduto)
    escolha (codigoProduto)
    caso 1254
-      escreva ("Sanduíche de presunto - R$8")
+      escreva ("Sanduï¿½che de presunto - R$8")
    caso 5678
       escreva ("Churros - R$3,50")
    caso 7114
-      escreva ("Suco de laranja que parece de limão mas tem gosto de tamarindo - R$5,00")
+      escreva ("Suco de laranja que parece de limï¿½o mas tem gosto de tamarindo - R$5,00")
    outrocaso
-      escreva ("Opção Inválida! Tente novamente.")
+      escreva ("Opï¿½ï¿½o Invï¿½lida! Tente novamente.")
    fimescolha
 
 
