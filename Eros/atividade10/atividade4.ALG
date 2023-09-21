@@ -18,8 +18,8 @@ Inicio
   escreval
 
   PARA i DE 1 ATE 4 FACA
-    escreva(" ")
     escreva(num[i])
+    escreva(" ")
   FIMPARA
 
   PARA i DE 1 ATE 4 FACA
