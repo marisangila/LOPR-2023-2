@@ -1,17 +1,17 @@
 Algoritmo "questao2"
 //
 //
-// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Descriï¿½ï¿½o   : Aqui vocï¿½ descreve o que o programa faz! (funï¿½ï¿½o)
 // Autor(a)    : Nome do(a) aluno(a)
 // Data atual  : 12/09/2023
 Var
-   // Seção de Declarações das variáveis
+   // Seï¿½ï¿½o de Declaraï¿½ï¿½es das variï¿½veis
    placaCarro: inteiro
 
 Inicio
-   // Seção de Comandos, procedimento, funções, operadores, etc...
+   // Seï¿½ï¿½o de Comandos, procedimento, funï¿½ï¿½es, operadores, etc...
    escreval ("---Identificando carros permitidos a circular---")
-   escreval ("Informe qual opção se encaixa ao dígito final da placa do seu veículo: ")
+   escreval ("Informe qual opï¿½ï¿½o se encaixa ao dï¿½gito final da placa do seu veï¿½culo: ")
    escreval ("[1] 0 ou 5")
    escreval ("[2] 1 ou 6")
    escreval ("[3] 2 ou 7")
@@ -20,16 +20,16 @@ Inicio
    leia (placaCarro)
    escolha (placaCarro)
    caso 1
-      escreva ("Seu veículo não pode circular na segunda-feira!")
+      escreva ("Seu veï¿½culo nï¿½o pode circular na segunda-feira!")
    caso 2
-      escreva ("Seu veículo não pode circular na terça-feira!")
+      escreva ("Seu veï¿½culo nï¿½o pode circular na terï¿½a-feira!")
    caso 3
-      escreva ("Seu veículo não pode circular na quarta-feira!")
+      escreva ("Seu veï¿½culo nï¿½o pode circular na quarta-feira!")
    caso 4
-      escreva ("Seu veículo não pode circular na quinta-feira!")
+      escreva ("Seu veï¿½culo nï¿½o pode circular na quinta-feira!")
    caso 5
-      escreva ("Seu veículo não pode circular na sexta-feira!")
+      escreva ("Seu veï¿½culo nï¿½o pode circular na sexta-feira!")
    outrocaso
-      escreva ("Opção inválida! Tente novamente.")
+      escreva ("Opï¿½ï¿½o invï¿½lida! Tente novamente.")
    fimescolha
 Fimalgoritmo

@@ -1,60 +1,60 @@
 Algoritmo "questao4"
 //
 //
-// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Descriï¿½ï¿½o   : Aqui vocï¿½ descreve o que o programa faz! (funï¿½ï¿½o)
 // Autor(a)    : Nome do(a) aluno(a)
 // Data atual  : 12/09/2023
 Var
-   // Seção de Declarações das variáveis
+   // Seï¿½ï¿½o de Declaraï¿½ï¿½es das variï¿½veis
    opcaoCategoria, opcaoGenero: inteiro
 
 Inicio
-   // Seção de Comandos, procedimento, funções, operadores, etc...
-   escreval ("---Recomendações Netflix---")
-   escreval ("Escolha entre as opções abaixo: ")
+   // Seï¿½ï¿½o de Comandos, procedimento, funï¿½ï¿½es, operadores, etc...
+   escreval ("---Recomendaï¿½ï¿½es Netflix---")
+   escreval ("Escolha entre as opï¿½ï¿½es abaixo: ")
    escreval ("[1] Filmes")
-   escreval ("[2] Séries")
-   escreval ("[3] Documentários")
+   escreval ("[2] Sï¿½ries")
+   escreval ("[3] Documentï¿½rios")
    leia (opcaoCategoria)
    escolha (opcaoCategoria)
 
    caso 1
-      escreval ("Escolha entre as opções abaixo: ")
+      escreval ("Escolha entre as opï¿½ï¿½es abaixo: ")
       escreval ("[1] Suspense")
-      escreval ("[2] Ação")
+      escreval ("[2] Aï¿½ï¿½o")
       leia (opcaoGenero)
 
       escolha (opcaoGenero)
       caso 1
-         escreval ("Sugestão: A órfã.")
+         escreval ("Sugestï¿½o: A ï¿½rfï¿½.")
       caso 2
-         escreval ("Sugestão: Batman: O cavaleiro das trevas.")
+         escreval ("Sugestï¿½o: Batman: O cavaleiro das trevas.")
       fimescolha
 
    caso 2
-      escreval ("Escolha entre as opções abaixo: ")
+      escreval ("Escolha entre as opï¿½ï¿½es abaixo: ")
       escreval ("[1] Drama")
-      escreval ("[2] Comédia")
+      escreval ("[2] Comï¿½dia")
       leia (opcaoGenero)
 
       escolha (opcaoGenero)
       caso 1
-         escreval ("Sugestão: Revenge.")
+         escreval ("Sugestï¿½o: Revenge.")
       caso 2
-         escreval ("Sugestão: How I Met Your Mother.")
+         escreval ("Sugestï¿½o: How I Met Your Mother.")
       fimescolha
 
    caso 3
-      escreval ("Escolha entre as opções abaixo: ")
-      escreval ("[1] Investigação")
-      escreval ("[2] Ciência")
+      escreval ("Escolha entre as opï¿½ï¿½es abaixo: ")
+      escreval ("[1] Investigaï¿½ï¿½o")
+      escreval ("[2] Ciï¿½ncia")
       leia (opcaoGenero)
 
       escolha (opcaoGenero)
       caso 1
-         escreval ("Sugestão: Deep Web.")
+         escreval ("Sugestï¿½o: Deep Web.")
       caso 2
-         escreval ("Sugestão: Terra.")
+         escreval ("Sugestï¿½o: Terra.")
       fimescolha
 
    fimescolha
