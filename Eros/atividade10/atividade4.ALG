@@ -3,29 +3,37 @@ Algoritmo "atividade4"
 var
    num:vetor[0..4] de inteiro
    maior:inteiro
+   menor:inteiro
    i:inteiro
    ok: logico
 
 PROCEDIMENTO "insira"
 Inicio
   PARA i de 1 ATE 4 FACA
-    escreval("Digite o número (",i,"/4):")
+    escreva("Digite o número (",i,"/4): ")
     leia(num[i])
+    escreval
   FIMPARA
 
   escreval
 
   PARA i DE 1 ATE 4 FACA
-    escreval
-    escreval(num[i])
+    escreva(" ")
+    escreva(num[i])
   FIMPARA
 
   PARA i DE 1 ATE 4 FACA
     SE (num[i]) < (num[i-1]) ENTAO
+      menor <- num[i]
+    FIMSE
+    SE (maior) < (num[i]) ENTAO
       maior <- num[i]
     FIMSE
   FIMPARA
 
+  escreval
+  escreval("Menor número: ",menor)
+  escreval("Maior número: ",maior)
   leia(ok)
   limpatela
 FIMPROCEDIMENTO
