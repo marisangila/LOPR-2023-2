@@ -26,9 +26,9 @@ inicio
     fimpara
 
     se l = falso entao
-        escreval("Número não encontrado")
+        escreval("Número ",numeroTentativa," não foi encontrado")
     senao
-        escreval("Número encontrado")
+        escreval("Número ",numeroTentativa," foi encontrado")
     fimse
 
 fimalgoritmo
