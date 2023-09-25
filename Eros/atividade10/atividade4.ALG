@@ -34,10 +34,13 @@ Inicio
   FIMPARA
 
   escreval
-  escreval("Menor número: ",menor)
-  escreval("Maior número: ",maior)
-  leia(ok)
-  limpatela
+  PARA i de 1 até 5
+    SE num[i] < 
+    escreval()
+    escreval("Maior número: ",maior)
+    leia(ok)
+    limpatela
+  FIMPARA
 FIMPROCEDIMENTO
 
 Inicio
