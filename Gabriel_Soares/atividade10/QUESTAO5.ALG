@@ -24,7 +24,7 @@ Inicio
          interrompa
       fimse
    fimpara
-   
+
    se encontrado = falso entao
       escreval("O número informado não foi encontrado.")
    fimse
