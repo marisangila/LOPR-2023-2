@@ -1,18 +1,18 @@
 Algoritmo "semnome"
 //
 //
-// Descrição   : Aqui você descreve o que o programa faz! (função)
+// DescriÃ§Ã£o   : Aqui vocÃª descreve o que o programa faz! (funÃ§Ã£o)
 // Autor(a)    : Nome do(a) aluno(a)
 // Data atual  : 17/09/2023
 Var
-   // Seção de Declarações das variáveis
+   // SeÃ§Ã£o de DeclaraÃ§Ãµes das variÃ¡veis
    i, opcao: inteiro
    numero, par, impar, negativo: real
 
 Inicio
-   // Seção de Comandos, procedimento, funções, operadores, etc...
+   // SeÃ§Ã£o de Comandos, procedimento, funÃ§Ãµes, operadores, etc...
    para i de 1 ate 10 faca
-      escreval ("Informe o", i, "º número: " )
+      escreval ("Informe o", i, "Âº nÃºmero: " )
       leia (numero)
       se numero < 0 entao
          negativo <- negativo+1
@@ -24,17 +24,19 @@ Inicio
          fimse
       fimse
    fimpara
-   escreval ("[1] Números Pares")
-   escreval ("[2] Números Ímpares")
-   escreval ("[3] Números Negativos")
+   escreval ("[1] NÃºmeros Pares")
+   escreval ("[2] NÃºmeros Ãmpares")
+   escreval ("[3] NÃºmeros Negativos")
    leia (opcao)
    escolha opcao
    caso 1
-      escreva(par, " número(s) são par(es)")
+      escreva(par, " nÃºmero(s) sÃ£o par(es)")
    caso 2
-      escreva(impar, " número(s) são ímpar(es).")
+      escreva(impar, " nÃºmero(s) sÃ£o Ã­mpar(es).")
    caso 3
-      escreva(negativo, " número(s)são negativo(s).")
+      escreva(negativo, " nÃºmero(s)sÃ£o negativo(s).")
+   outrocaso
+      escreva ("OpÃ§Ã£o invÃ¡lida! Tente novamente!")
    fimescolha
 
 
