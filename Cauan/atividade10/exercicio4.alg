@@ -6,6 +6,7 @@ var
    menor: inteiro
    posicaoMaior: inteiro
    posicaoMenor: inteiro
+
 inicio
    maior <- 0
    menor <- 100
@@ -26,8 +27,8 @@ inicio
         menor <- numero[i]
         posicaoMenor <- i
       fimse
-
    fimpara
+   
    escreval("O maior número é o: ",maior," e sua posição é: ",posicaoMaior)
    escreval("O menor número é o: ",menor," e sua posição é: ",posicaoMenor)
 
