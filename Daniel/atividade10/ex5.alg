@@ -2,7 +2,7 @@ Algoritmo "semnome"
 
 Var
    vet_number: vetor[0..9] de inteiro
-   i, number, cont: inteiro
+   i, number, cont: inteir
 Inicio
 
    para i de 0 ate 9 faca
@@ -16,7 +16,7 @@ Inicio
    cont <- 0
    para i de 0 ate 9 faca
       se vet_number[i] = number entao
-      escreval("")
+         escreval("")
          escreval("The number",number," is in the list in",i,"º position.")
       senao
          cont <- cont + 1
