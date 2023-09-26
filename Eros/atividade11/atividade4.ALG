@@ -48,6 +48,7 @@ Inicio
       FIMSE
    FIMPARA
    escreva(num)
+   num <- 0
    escreval
 
    escreva("2) Soma do primeiro e último valor:")
@@ -58,20 +59,25 @@ Inicio
    escreva("3) Soma da segunda linha:")
    PARA lin DE MIN ATE MAX FACA
       SE lin = 2 ENTAO
-         PARA col DE 1 ATE 3 FACA
+         PARA col DE MIN ATE MAX FACA
             num <- num + matrix[lin,col]
          FIMPARA
       FIMSE
-   FIMPARA   
+   FIMPARA
    escreva(num)
+   num <- 0
    escreval
 
    escreva("4) Soma da diagonal principal:")
    PARA lin DE MIN ATE MAX FACA
       PARA col DE MIN ATE MAX FACA
+         SE lin = col ENTAO
+           num <- num + matrix[lin,col]
+         FIMSE
       FIMPARA
    FIMPARA
-   escreva()
+   escreva(num)
+   num <- 0
    escreval
 
    leia(ok)
