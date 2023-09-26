@@ -1,18 +1,14 @@
 Algoritmo "questao8"
 
 Var
-   i, j, numero: inteiro
+   i, numero: inteiro
    vetA : vetor [1..10] de inteiro
-   vetB : vetor [1..10] de inteiro
 
 Inicio
-   j <- 10
    para i de 1 ate 10 faca
       escreva("Digito o" , i , "° numero: ")
       leia(numero)
       vetA[i] <- numero
-      vetB[j] <- vetA[i]
-      j <- j-1
    fimpara
    escreval
    escreval("Ordem digitada: ")
@@ -22,8 +18,8 @@ Inicio
    escreval
    escreval
    escreval("Ordem inversa: ")
-   para j de 1 ate 10 faca
-      escreva(vetB[j], "")
+   para i de 10 ate 1 passo -1 faca
+      escreva(vetA[i], "")
    fimpara
 
 
