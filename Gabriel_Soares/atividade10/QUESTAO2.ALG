@@ -24,9 +24,9 @@ Inicio
    escreval
    escreval("Valores acima da média: ")
    para i de 1 ate 10 faca
-        se vet[i] > media entao
-           escreva(vet[i] , "")
-        fimse
+      se vet[i] > media entao
+         escreva(vet[i] , "")
+      fimse
    fimpara
 
 Fimalgoritmo
