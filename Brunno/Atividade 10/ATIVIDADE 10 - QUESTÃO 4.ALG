@@ -7,7 +7,7 @@ Algoritmo "ATIVIDADE 10 - QUESTÃO 4"
 Var
    numeros: vetor [0..11] de inteiro
    i, j: inteiro
-   menor, maior: inteiro
+   menor, maior, posicaoA, posicaoB: inteiro
 
 Inicio
    para i de 0 ate 11 faca
@@ -23,20 +23,29 @@ Inicio
       escreval(numeros[i])
    fimpara
 
-   //maior:=numeros[0]
-   //menor:=numeros[0]
+   maior <- numeros[0]
+   menor <- numeros[0]
+   
+   i <- 0
 
-   //para i de 2 ate 11 faca
-   //   se (menor > numeros[i]) entao
-   //      menor <- numeros[i]
-   //posicaoA <- i
-   //  senao
-   //      se (maior < numeros[i]) entao
-   //         maior := numeros[j]
-   //posicaoB <- i
-   //      fimse
-   //   fimse
-   //fimpara
-   //escreval("O maior número é: ",maior," posicionado em: ",i)
-   //escreval("O menor número é: ",menor," posicionado em: ",j)
+   para i de 0 ate 11 faca
+      se (menor > numeros[i]) entao
+         menor <- numeros[i]
+         se numeros[i] = menor entao
+            posicaoA <- i
+            fimse
+     senao
+         se (maior < numeros[i]) entao
+            maior <- numeros[i]
+            se numeros[i] = maior entao
+               posicaoB <- i
+               fimse
+         fimse
+      fimse
+   escreval("O ", i + 1, "° numero digitado foi: ", numeros[i])
+   fimpara
+   
+   
+   escreval("O maior número é: ",maior," posicionado em: ",posicaoB + 1)
+   escreval("O menor número é: ",menor," posicionado em: ",posicaoA + 1)
 Fimalgoritmo
