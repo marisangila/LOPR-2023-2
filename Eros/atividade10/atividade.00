@@ -1,0 +1,30 @@
+Algoritmo "atividade1"
+
+var
+   matrix:vetor[0..3,0..3] de caractere
+   i:inteiro
+   col:inteiro
+   lin:inteiro
+   ok: logico
+
+PROCEDIMENTO "insira"
+Inicio
+  PARA lin de 1 ATE 3 FACA
+    PARA col DE 1 ATE 3 FACA
+      matrix[lin,col]
+      escreva(matrix[lin,col])
+    FIMPARA
+    escreval
+  FIMPARA
+
+  leia(ok)
+  limpatela
+FIMPROCEDIMENTO
+
+Inicio
+
+REPITA
+   insira
+ATE (ok <> "")
+
+Fimalgoritmo
