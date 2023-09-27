@@ -9,6 +9,7 @@ Var
    i, j: inteiro
    sumArray: inteiro
 Inicio
+   //Armazenando os valores e realizano a soma de todos os valores.
    para i de 0 ate 1 faca
       para j de 0 ate 2 faca
          escreval("Enter a value to position","[",i,",",j,"]:")
@@ -16,8 +17,8 @@ Inicio
          sumArray <- sumArray + arrayValue[i,j]
       fimpara
    fimpara
-   
+
+   //Escrevendo a soma de todos os valores do array
    escreval("")
    escreval("The sum of all values of array is",sumArray)
-
 Fimalgoritmo
