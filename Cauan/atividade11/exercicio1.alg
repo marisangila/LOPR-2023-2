@@ -19,7 +19,7 @@ Inicio
       leia(rodada)
       //variável decorativa
       para j de 0 ate 2 faca
-         escreval(j," Qual foi a pontuação do time na partida?")
+         escreval(j+1," Qual foi a pontuação do time na partida?")
          leia(pontuacao[i,j])
          valorTotal[i] <- valorTotal[i] + pontuacao[i,j]
       fimpara
