@@ -47,6 +47,9 @@ Inicio
          FIMPARA
       FIMSE
    FIMPARA
+   escreval
+   escreval("")
+
    escreva(num)
    num <- 0
    escreval

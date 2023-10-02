@@ -6,6 +6,7 @@ var
    Nmaior:inteiro
    NNmaior:inteiro
    final:inteiro
+   Scol:inteiro
    mRodada:inteiro
    mJogo:inteiro
    col:inteiro
@@ -86,18 +87,23 @@ Inicio
 
   SE (maior >= Nmaior) E (maior >= NNmaior) ENTAO
      final <- maior
+     Scol <- 1
   FIMSE
 
   SE (Nmaior > maior) E (Nmaior > NNmaior)  ENTAO
      final <- Nmaior
+     Scol <- 2
   FIMSE
 
   SE (NNmaior < Nmaior) E (NNmaior > maior) ENTAO
      final <- NNmaior
+     Scol <- 3
   FIMSE
 
   escreval
-  escreval("O jogo com maior pontuação em todas as rodadas foi:",final)
+  escreval("O jogo com maior pontuação em")
+  escreval("todas as rodadas foi:",final,",")
+  escreval("ao fim do",Scol"º jogo")
 
 
   leia(ok)
