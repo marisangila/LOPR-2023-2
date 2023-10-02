@@ -1,9 +1,9 @@
 algoritmo "exercicio3"
-// Disciplina  :  [Linguagem e Lógica de Programação]
-// Professor   : [Nome do Professor]
-// Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Nome do(a) aluno(a)
-// Data atual  : DATA_ATUAL/MES_ATUAL/ANO_ATUAL
+// Disciplina  : [Linguagem e Lógica de Programação]
+// Professor   : Marisangela
+// Descrição   : Programa que pede números aleatórios e gera uma matriz, e pede uma linha de matriz e devolve os respectivos números daquela linha na matriz.
+// Autor(a)    : Cauan de Souza Moreira
+// Data atual  : 26/09/2023
 var
    // Seção de Declarações das variáveis
    numeros: vetor[1..3,1..3] de inteiro
