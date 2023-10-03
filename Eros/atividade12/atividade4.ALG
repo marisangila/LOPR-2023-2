@@ -1,4 +1,4 @@
-Algoritmo "Atividade2"
+Algoritmo "Atividade4"
 
 Var
    ok:logico
