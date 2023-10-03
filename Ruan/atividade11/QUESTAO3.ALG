@@ -1,4 +1,4 @@
-Algoritmo "questão3"
+Algoritmo "questao3"
 Var
    numero: vetor [1..3, 1..3] de inteiro
    i, j: inteiro
