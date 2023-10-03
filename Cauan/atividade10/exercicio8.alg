@@ -1,7 +1,9 @@
-algoritmo "Nome do Programa"
+algoritmo "exercicio10"
 var
-     sA: vetor[0..9] de inteiro
+     sA: vetor[1..10] de inteiro
      i: inteiro
+     comeco: inteiro
+     fim: inteiro
 inicio
     para i de 1 ate 10 faca
         escreval(i,"Digite um número para uma sequência: ")
@@ -11,13 +13,15 @@ inicio
 
    escreval("-----------------------------------------")
 
-    para i de 10 ate 1 faca
-        escreval (sA[i])
-    fimpara
-fimalgoritmo
+   comeco <- 1
+   fim <- 10
+   i <- 10
 
-//i <- 10
-    //repita
-        //escreval (sA[i])
-         //i <- i - 1
-    //ate i = 0
+    repita 
+          sA[comeco] <- sA[i]
+          escreval(sA[comeco])
+          comeco <- comeco + 1
+          i <- i - 1
+    ate comeco = fim
+
+fimalgoritmo 
