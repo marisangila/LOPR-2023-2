@@ -10,14 +10,14 @@ var
    ehPrimo: logico
 
 inicio
+   ehPrimo <- VERDADEIRO
+
    para i de 2 até candidato-1 faça
       se candidato mod i = 0 entao
-         retorne falso
-         interrompa
-      senao
-         retorne verdadeiro
+         ehPrimo <- FALSO
       fimse
    fimpara
+   retorne ehPrimo
 fimfuncao
 
 Inicio
