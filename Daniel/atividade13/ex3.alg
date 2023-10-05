@@ -1,14 +1,14 @@
 Algoritmo "semnome"
 // Disciplina   : [Linguagem e Lógica de Programação]
-// Professor   : Antonio Carlos Nicolodi
-// Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Nome do(a) aluno(a)
+// Professor   : Marisangela e Everton
+// Descrição   : Retorna o menor número de uma matriz
+// Autor(a)    : Daniel Lima
 // Data atual  : 03/10/2023
 Var
    matrix: vetor[0..2,0..2] de inteiro
    i, j: inteiro
 
-PROCEDIMENTO smallestValue()
+FUNCAO smallestValue():inteiro
 var
    smallestNumber: inteiro
 inicio
@@ -24,9 +24,9 @@ inicio
          fimse
       fimpara
    fimpara
-   
-   escreval(smallestNumber)
-FIMPROCEDIMENTO
+
+   retorne smallestNumber
+FIMFUNCAO
 
 Inicio
 
@@ -36,5 +36,6 @@ Inicio
       fimpara
    fimpara
 
-   smallestValue()
+   escreval(smallestValue())
 Fimalgoritmo
+

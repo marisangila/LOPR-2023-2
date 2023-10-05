@@ -1,14 +1,14 @@
 Algoritmo "semnome"
 // Disciplina   : [Linguagem e Lógica de Programação]
-// Professor   : Antonio Carlos Nicolodi
-// Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Nome do(a) aluno(a)
+// Professor   : Marisangela e Everton
+// Descrição   : Retorna um valor digitado pelo usuário por um número de vezes escolhido por ele
+// Autor(a)    : Daniel Lima
 // Data atual  : 03/10/2023
 Var
 
    rolls_number_global: inteiro
 
-PROCEDIMENTO   writeText(RollsNumber: inteiro)
+PROCEDIMENTO writeText(RollsNumber: inteiro)
 var
    i:inteiro
    text: caractere
