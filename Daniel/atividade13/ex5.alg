@@ -34,16 +34,12 @@ Inicio
    escreval("---------------------------------------------------")
 
    cont <- 0
-   enquanto verdadeiro faca
+   enquanto cont = n faca
       k <- k + 1
       ifPrimeGlobal <- primeNumbers(k)
       se ifPrimeGlobal = verdadeiro entao
          escreval(k)
          cont <- cont + 1
-      fimse
-
-      se cont = n entao
-         interrompa
       fimse
    fimenquanto
 Fimalgoritmo
