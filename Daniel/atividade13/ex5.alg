@@ -5,7 +5,7 @@ Algoritmo "semnome"
 // Autor(a)    : Daniel Lima
 // Data atual  : 03/10/2023
 Var
-   k, n, j: inteiro
+   k, n: inteiro
    i: inteiro
    cont: inteiro
    ifPrimeGlobal: logico
@@ -41,9 +41,9 @@ Inicio
          escreval(k)
          cont <- cont + 1
       fimse
+
       se cont = n entao
          interrompa
       fimse
-
    fimenquanto
 Fimalgoritmo

@@ -18,7 +18,7 @@ inicio
    para j de 2 ate number-1 faca
       se number % j = 0 entao
          ifPrime <- falso
-         //interrompa
+         interrompa
       fimse
    fimpara
    retorne ifPrime
@@ -37,6 +37,5 @@ Inicio
          escreval(i)
       fimse
    fimpara
-
 
 Fimalgoritmo
