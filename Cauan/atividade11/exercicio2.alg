@@ -11,8 +11,7 @@ var
    soma: inteiro
 inicio
    // Seção de Comandos, procedimento, funções, operadores, etc...
-   i <- 0
-   j <- 0
+   soma <- 0
    para i de 0 ate 1 faca
       escreval(i)
       para j de 0 ate 2 faca
