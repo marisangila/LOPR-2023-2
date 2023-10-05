@@ -12,7 +12,7 @@ Var
 Funcao verificaVetor(igual: logico):logico
 Var
 Inicio
-   para i de 1 até 3 faça
+   para i de 1 até 4 faça
       se vetA[i] = vetB[i] entao
          retorne VERDADEIRO
       senao
