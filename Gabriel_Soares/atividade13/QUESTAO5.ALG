@@ -1,7 +1,7 @@
 Algoritmo "questao5"
 // Disciplina   : Lógica de Programação
 // Professores   : Marisangila e Éwerton
-// Descrição   :
+// Descrição   :  Opcional
 // Autor(a)    : Gabriel Lucas Soares
 // Data atual  : 05/10/2023
 Var
@@ -29,7 +29,7 @@ Inicio
    leia(n)
    escreva("Informe desde quando os números serão mostrados: ")
    leia(k)
-   para i de 1 ate n faca
+   para i de 2 ate n faca
       vet[i] <- i
    fimpara
    para i de k+1 ate n faca

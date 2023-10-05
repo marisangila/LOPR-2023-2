@@ -31,7 +31,7 @@ Inicio
    para i de 1 ate n faca
       vet[i] <- i
    fimpara
-   para i de 1 ate n faca
+   para i de 2 ate n faca
       se verificarPrimo(i) entao
          escreva(i)
       fimse
