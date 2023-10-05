@@ -1,4 +1,4 @@
-Algoritmo "semnome"
+Algoritmo "ex5"
 // Disciplina   : Lógica de Programação
 // Professor   : Marisangela e Everton
 // Descrição   : Retorna os "n" números primos após um número informado
@@ -8,7 +8,6 @@ Var
    k, n: inteiro
    i: inteiro
    cont: inteiro
-   ifPrimeGlobal: logico
 
 FUNCAO primeNumbers(number: inteiro):logico
 var
@@ -34,10 +33,9 @@ Inicio
    escreval("---------------------------------------------------")
 
    cont <- 0
-   enquanto cont = n faca
+   enquanto cont <> n faca
       k <- k + 1
-      ifPrimeGlobal <- primeNumbers(k)
-      se ifPrimeGlobal = verdadeiro entao
+      se primeNumbers(k) entao
          escreval(k)
          cont <- cont + 1
       fimse
