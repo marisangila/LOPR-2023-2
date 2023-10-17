@@ -3,7 +3,7 @@ var
    matrix:vetor[0..2,0..2]de inteiro
    menor: inteiro
 
-funcao menorMatrix(): inteiro
+funcao encontrarMenorMatrix(): inteiro
 var
    i:  inteiro
    j:  inteiro
@@ -25,5 +25,5 @@ inicio
 fimfuncao
 
 inicio
-   escreval(menorMatrix())
+   escreval(encontrarMenorMatrix())
 fimalgoritmo

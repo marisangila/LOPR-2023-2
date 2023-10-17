@@ -3,7 +3,6 @@ var
 
    n: inteiro
    k: inteiro
-   cont: logico
    numero: inteiro
    fim: inteiro
 
@@ -11,7 +10,6 @@ funcao exibirPrimo(numero: inteiro): logico
 var
    i: inteiro
    ehPrimo: logico
-   nPrimosDepoisPrimo: inteiro
 inicio
 
    numero <- k
@@ -32,15 +30,11 @@ inicio
    escreval("Digite o numero de vezes que aparecerão numeros primos sucessores ao primeiro número")
    leia(n)
 
-   enquanto verdadeiro faca
+   enquanto fim <> n faca
       k <- k + 1
-      cont <- exibirPrimo(k)
-      se cont = verdadeiro entao
+      se exibirPrimo(k) entao
          escreval(k)
          fim <- fim + 1
-      fimse
-      se fim = n entao
-         interrompa
       fimse
    fimenquanto
 
