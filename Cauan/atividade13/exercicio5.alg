@@ -31,11 +31,11 @@ inicio
    leia(n)
 
    enquanto fim <> n faca
-      k <- k + 1
       se exibirPrimo(k) entao
          escreval(k)
          fim <- fim + 1
       fimse
+       k <- k + 1
    fimenquanto
 
 fimalgoritmo
