@@ -2,36 +2,50 @@ Algoritmo "Atividade2"
 
 Var
    ok:logico
-   num1:vetor[1..4] de inteiro
-   num2:vetor[1..4] de inteiro
+   x:logico
+   num1:vetor[1..2] de inteiro
+   num2:vetor[1..2] de inteiro
 
 PROCEDIMENTO insira
 Inicio
-   escreval("Algoritmo iniciado.")
-   escreval
-   escreva(iguais())
+   num1[1] <- 2
+   num1[2] <- 4
+   num2[1] <- 3
+   num2[2] <- 5
+
+   escreval(iguais())
+
+   SE x = VERDADEIRO ENTAO
+      escreval("A matriz possui valores em comum.")
+   SENAO
+      escreval("A matriz não possui valores em comum.")
+   FIMSE
+
 
    leia(ok)
 FIMPROCEDIMENTO
 
-FUNCAO iguais():logico
+FUNCAO iguais():caractere
+Var
+   i:inteiro
+   j:inteiro
 Inicio
-   SE (num1[1] = num2[1]) E (num1[2] = num2[2]) E (num1[3] = num2[3]) E (num1[4] = num2[4]) ENTAO
-      
-   FIMSE
+PARA i DE 1 ATE 2 FACA
+   PARA j DE 1 ATE 2 FACA
+      SE (num1[i] = num2[j]) ENTAO
+         x <- VERDADEIRO
+         RETORNE ("Algoritmo iniciado.")
+      SENAO
+         RETORNE ("Algoritmo iniciado.")
+      FIMSE
+   FIMPARA
+FIMPARA
 FIMFUNCAO
 
 Inicio
-num1[1] <- 10
-num1[2] <- 5
-num1[3] <- 2
-num1[4] <- 7
-num2[1] <- 3
-num2[2] <- 2
-num2[3] <- 10
-num2[4] <- 8
 
 REPITA
+   x <- FALSO
    insira
 ATE ok != ""
 

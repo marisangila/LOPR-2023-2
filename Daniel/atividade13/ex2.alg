@@ -1,8 +1,8 @@
 Algoritmo "semnome"
 // Disciplina   : [Linguagem e Lógica de Programação]
-// Professor   : Antonio Carlos Nicolodi
-// Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Nome do(a) aluno(a)
+// Professor   : Marisangela e Everton
+// Descrição   : verifica se um vetor é igual ao outro
+// Autor(a)    : Daniel Lima
 // Data atual  : 03/10/2023
 Var
    vectorA: vetor[0..2] de inteiro
