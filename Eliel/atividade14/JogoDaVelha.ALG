@@ -27,9 +27,9 @@ procedimento alternar
 inicio
    se turno = 1 entao
       escreval ("Jogador X")
-      escreval ("Informe o número que corresponde a linha a ser jogada: ")
+      escreval ("Informe o nÃºmero que corresponde a linha a ser jogada: ")
       leia (x)
-      escreval ("Informe o número que corresponde a coluna a ser jogada: ")
+      escreval ("Informe o nÃºmero que corresponde a coluna a ser jogada: ")
       leia (y)
 
       jogoVelha[x,y] <- "X"
@@ -39,9 +39,9 @@ inicio
 
    se turno = 2 entao
       escreval ("Jogador O")
-      escreval ("Informe o número que corresponde a linha a ser jogada: ")
+      escreval ("Informe o nÃºmero que corresponde a linha a ser jogada: ")
       leia (x)
-      escreval ("Informe o número que corresponde a coluna a ser jogada: ")
+      escreval ("Informe o nÃºmero que corresponde a coluna a ser jogada: ")
       leia (y)
 
       jogoVelha[x,y] <- "O"
