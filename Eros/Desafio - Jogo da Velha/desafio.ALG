@@ -9,7 +9,9 @@ Var
    prossegueTurno1:logico
    prossegueTurno2:logico
    marcacoes:inteiro
-   rodada:inteiro
+   empate:inteiro
+   rodadaX:inteiro
+   rodadaO:inteiro
    pontuacaoX:inteiro
    pontuacaoO:inteiro
 
@@ -18,7 +20,7 @@ Inicio
    prossegueTurno1 <- FALSO
    prossegueTurno2 <- FALSO
    vez <- 1
-   rodada <- 0
+   marcacoes <- 0
 
    PARA lin DE 1 ATE 3 FACA
       PARA col DE 1 ATE 3 FACA
@@ -31,7 +33,11 @@ PROCEDIMENTO desenhaTabuleiro
 Inicio
    limpatela
    escreval("JOGO DA VELHA!!")
-   escreval("(RODADA: ",rodada,")")
+   escreval
+   escreval("  EMPATE: ",empate)
+   escreval("PONTOS X: ",rodadaX)
+   escreval("PONTOS O: ",rodadaO)
+   escreval
    escreval
    PARA lin DE 1 ATE 3 FACA
       PARA col DE 1 ATE 3 FACA
@@ -48,7 +54,9 @@ Inicio
    SE pontuacaoX >= 3 ENTAO
       escreval
       escreval("Jogador X venceu!")
+      rodadaX <- rodadaX +1
       leia(ok)
+      limparCampos
       JogoDaVelha
    FIMSE
 FIMPROCEDIMENTO
@@ -58,8 +66,9 @@ Inicio
    SE pontuacaoO >= 3 ENTAO
       escreval
       escreval("Jogador O venceu!")
+      rodadaO <- rodadaO +1
       leia(ok)
-      rodada <- rodada +1
+      limparCampos
       JogoDaVelha
    FIMSE
 FIMPROCEDIMENTO
@@ -69,34 +78,54 @@ Inicio
    pontuacaoO <- 0
    pontuacaoX <- 0
 
-PARA lin DE 1 ATE 3 FACA
-   PARA col DE 1 ATE 3 FACA
-      SE tabuleiro[lin,col] = "x" ENTAO
-         pontuacaoX <- pontuacaoX +1
-      FIMSE
-   FIMPARA
-   vitoriaX
-   pontuacaoX <- 0
-FIMPARA
+ PARA lin DE 1 ATE 3 FACA
+    PARA col DE 1 ATE 3 FACA
+       SE tabuleiro[lin,col] = "x" ENTAO
+          pontuacaoX <- pontuacaoX +1
+       FIMSE
+    FIMPARA
+    vitoriaX
+    pontuacaoX <- 0
+ FIMPARA
+ 
+ PARA lin DE 1 ATE 3 FACA
+    col <- lin
+    SE tabuleiro[lin,col] = "x" ENTAO
+       pontuacaoX <- pontuacaoX +1
+    FIMSE
+ FIMPARA
+ vitoriaX
+ pontuacaoX <- 0
+ 
+ PARA lin DE 1 ATE 3 FACA
+    PARA col DE 1 ATE 3 FACA
+       SE tabuleiro[lin,col] = "o" ENTAO
+          pontuacaoO <- pontuacaoO +1
+       FIMSE
+    FIMPARA
+    vitoriaO
+    pontuacaoO <- 0
+ FIMPARA
+ 
+ PARA col DE 1 ATE 3 FACA
+    PARA lin DE 1 ATE 3 FACA
+       SE tabuleiro[lin,col] = "x" ENTAO
+          pontuacaoX <- pontuacaoX +1
+       FIMSE
+    FIMPARA
+    vitoriaX
+    pontuacaoX <- 0
+ FIMPARA
 
-PARA lin DE 1 ATE 3 FACA
-   PARA col DE 1 ATE 3 FACA
-      SE tabuleiro[lin,col] = "o" ENTAO
-         pontuacaoO <- pontuacaoO +1
-      FIMSE
-   FIMPARA
-   vitoriaO
-   pontuacaoO <- 0
-FIMPARA
-
-    marcacoes <- marcacoes +1
-   SE marcacoes = 9 ENTAO
-      escreval
-      escreval("Deu velha!")
-      leia(ok)
-      limparCampos
-      JogoDaVelha
-   FIMSE
+ marcacoes <- marcacoes +1
+ SE marcacoes = 9 ENTAO
+    escreval
+    escreval("Deu velha!")
+    empate <- empate +1
+    leia(ok)
+    limparCampos
+    JogoDaVelha
+ FIMSE
 FIMPROCEDIMENTO
 
 PROCEDIMENTO zeraTurno
@@ -231,8 +260,9 @@ PROCEDIMENTO JogoDaVelha
 Inicio
 
 
-    zeraTurno
    desenhaTabuleiro
+    checaTabuleiro
+    zeraTurno
    REPITA
     turno1
    ATE (prossegueTurno1 = VERDADEIRO) E (prossegueTurno2 = VERDADEIRO)
@@ -243,10 +273,9 @@ Inicio
    marcarTabuleiro
    trocaTurno1
 
-   checaTabuleiro
-
-    zeraTurno
    desenhaTabuleiro
+    checaTabuleiro
+    zeraTurno
    REPITA
     turno2
    ATE (prossegueTurno1 = VERDADEIRO) E (prossegueTurno2 = VERDADEIRO)
@@ -255,8 +284,6 @@ Inicio
    ATE (prossegueTurno1 = VERDADEIRO) E (prossegueTurno2 = VERDADEIRO)
    marcarTabuleiro
    trocaTurno2
-
-   checaTabuleiro
 FIMPROCEDIMENTO
 
 Inicio
