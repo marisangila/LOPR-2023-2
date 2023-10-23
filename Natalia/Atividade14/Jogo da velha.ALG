@@ -1,12 +1,23 @@
 Algoritmo "Jogo da velha"
-
+//Implemente um jogo da velha.
+//Regras:
+//O tabuleiro é uma matriz 3x3;
+//Dois jogadores, 'X' e 'O', jogam alternadamente;
+//Os jogadores devem digitar a posição de sua jogada no formato "linha,coluna"
+//(por exemplo, "1,2" para a segunda linha e terceira coluna);
+//O tabuleiro deverá ser preenchido e exibido na tela com o novo estado;
+//Isso deve se repetir a cada nova jogada;
+//O jogo pode ser encerrado a qualquer momento quando um jogador escolher
+//a opção "sair".
 Var
+
    matrizJogo: vetor [1..3, 1..3] de caractere
    linha, coluna, turno: inteiro
    sair: caractere
 
 procedimento tabuleiroInterface
 inicio
+//Interface gráfica do jogo da velha
    limpatela
    escreval ("   JOGO DA VELHA   ")
    escreval
@@ -23,7 +34,7 @@ fimprocedimento
 
 procedimento turnos
 inicio
-
+//Procedimento para jogadas de cada usuário (O e X)
 se turno = 1 entao
    escreval
    escreval("Jogador [X]")
@@ -53,6 +64,7 @@ fimprocedimento
 
 procedimento pergunta
 inicio
+//Procedimento para continuar ou não no jogo
    escreval("Você deseja continuar jogando?")
    escreval("[S] para continuar")
    escreval("[N] para sair")
@@ -65,12 +77,8 @@ inicio
    turnos
 fimprocedimento
 
-procedimento vitoria
-inicio
-
-
 Inicio
-
+//Inicialização do jogo da velha
    turno <- 1
    para linha de 1 ate 3 faca
       para coluna de 1 ate 3 faca
