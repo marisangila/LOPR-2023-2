@@ -19,7 +19,6 @@ PROCEDIMENTO limparCampos
 Inicio
    prossegueTurno1 <- FALSO
    prossegueTurno2 <- FALSO
-   vez <- 1
    marcacoes <- 0
 
    PARA lin DE 1 ATE 3 FACA
@@ -97,6 +96,16 @@ Inicio
  vitoriaX
  pontuacaoX <- 0
  
+ PARA col DE 1 ATE 3 FACA
+    PARA lin DE 1 ATE 3 FACA
+       SE tabuleiro[lin,col] = "x" ENTAO
+          pontuacaoX <- pontuacaoX +1
+       FIMSE
+    FIMPARA
+    vitoriaX
+    pontuacaoX <- 0
+ FIMPARA
+
  PARA lin DE 1 ATE 3 FACA
     PARA col DE 1 ATE 3 FACA
        SE tabuleiro[lin,col] = "o" ENTAO
@@ -107,14 +116,23 @@ Inicio
     pontuacaoO <- 0
  FIMPARA
  
+ PARA lin DE 1 ATE 3 FACA
+    col <- lin
+    SE tabuleiro[lin,col] = "o" ENTAO
+       pontuacaoO <- pontuacaoO +1
+    FIMSE
+ FIMPARA
+ vitoriaO
+ pontuacaoO <- 0
+ 
  PARA col DE 1 ATE 3 FACA
     PARA lin DE 1 ATE 3 FACA
-       SE tabuleiro[lin,col] = "x" ENTAO
-          pontuacaoX <- pontuacaoX +1
+       SE tabuleiro[lin,col] = "o" ENTAO
+          pontuacaoO <- pontuacaoO +1
        FIMSE
     FIMPARA
-    vitoriaX
-    pontuacaoX <- 0
+    vitoriaO
+    pontuacaoO <- 0
  FIMPARA
 
  marcacoes <- marcacoes +1
@@ -258,8 +276,6 @@ FIMPROCEDIMENTO
 
 PROCEDIMENTO JogoDaVelha
 Inicio
-
-
    desenhaTabuleiro
     checaTabuleiro
     zeraTurno
@@ -287,6 +303,9 @@ Inicio
 FIMPROCEDIMENTO
 
 Inicio
+
+vez <- 1
+
  limparCampos
    REPITA
       JogoDaVelha
