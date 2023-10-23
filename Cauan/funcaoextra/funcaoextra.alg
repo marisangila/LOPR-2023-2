@@ -187,7 +187,6 @@ inicio
          interrompa
       fimse
       se (velha = verdadeiro) entao
-         escreval("pinto")
          fimalgoritmo
       fimse
    fimenquanto
