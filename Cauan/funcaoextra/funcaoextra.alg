@@ -23,6 +23,7 @@ inicio
       opcao <- verdadeiro
    caso 2
       opcao <- falso
+      fimalgoritmo
    outrocaso
       opcao <- falso
    fimescolha
@@ -187,6 +188,7 @@ inicio
          interrompa
       fimse
       se (velha = verdadeiro) entao
+         escreval("pinto")
          fimalgoritmo
       fimse
    fimenquanto
