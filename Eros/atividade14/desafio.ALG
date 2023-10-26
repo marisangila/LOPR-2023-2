@@ -15,6 +15,7 @@ Var
    pontuacaoX:inteiro
    pontuacaoO:inteiro
 
+//Limpa todos os campos para (re)iniciar o jogo
 PROCEDIMENTO limparCampos
 Inicio
    prossegueTurno1 <- FALSO
@@ -28,6 +29,7 @@ Inicio
    FIMPARA
 FIMPROCEDIMENTO
 
+// Sempre que o tabuleiro for atualizado, este procedimento será chamado
 PROCEDIMENTO desenhaTabuleiro
 Inicio
    limpatela
@@ -48,6 +50,10 @@ Inicio
    escreval
 FIMPROCEDIMENTO
 
+// Cada marcação "X" é um ponto
+// Se a linha não possuir 3 pontos,
+// é zerado e o teste vai para coluna
+// e assim por diante
 PROCEDIMENTO vitoriaX
 Inicio
    SE pontuacaoX >= 3 ENTAO
@@ -55,11 +61,16 @@ Inicio
       escreval("Jogador X venceu!")
       rodadaX <- rodadaX +1
       leia(ok)
+      vez <- 1
       limparCampos
       JogoDaVelha
    FIMSE
 FIMPROCEDIMENTO
 
+// Cada marcação "O" é um ponto
+// Se a linha não possuir 3 pontos,
+// é zerado e o teste vai para coluna
+// e assim por diante
 PROCEDIMENTO vitoriaO
 Inicio
    SE pontuacaoO >= 3 ENTAO
@@ -67,16 +78,21 @@ Inicio
       escreval("Jogador O venceu!")
       rodadaO <- rodadaO +1
       leia(ok)
+      vez <- 1
       limparCampos
       JogoDaVelha
    FIMSE
 FIMPROCEDIMENTO
 
+// Checa cada espaço preenchido no
+// tabuleiro para definir a pontuação
+// e iniciar o Procedimento VitoriaX/O
 PROCEDIMENTO checaTabuleiro
 Inicio
    pontuacaoO <- 0
    pontuacaoX <- 0
 
+ // Checa vitória por linha
  PARA lin DE 1 ATE 3 FACA
     PARA col DE 1 ATE 3 FACA
        SE tabuleiro[lin,col] = "x" ENTAO
@@ -87,6 +103,7 @@ Inicio
     pontuacaoX <- 0
  FIMPARA
  
+ // Checa vitória por diagonal descendente para X
  PARA lin DE 1 ATE 3 FACA
     col <- lin
     SE tabuleiro[lin,col] = "x" ENTAO
@@ -95,7 +112,27 @@ Inicio
  FIMPARA
  vitoriaX
  pontuacaoX <- 0
- 
+
+ // Checa diagonal ascendente para X
+ lin <- 3
+ col <- lin
+ SE tabuleiro[lin,col] = "x" ENTAO
+    pontuacaoX <- pontuacaoX +1
+ FIMSE
+ lin <- 2
+ col <- lin
+ SE tabuleiro[lin,col] = "x" ENTAO
+    pontuacaoX <- pontuacaoX +1
+ FIMSE
+ lin <- 1
+ col <- lin
+ SE tabuleiro[lin,col] = "x" ENTAO
+    pontuacaoX <- pontuacaoX +1
+ FIMSE
+ vitoriaX
+ pontuacaoX <- 0
+
+ // Checa vitória por coluna para X
  PARA col DE 1 ATE 3 FACA
     PARA lin DE 1 ATE 3 FACA
        SE tabuleiro[lin,col] = "x" ENTAO
@@ -106,6 +143,7 @@ Inicio
     pontuacaoX <- 0
  FIMPARA
 
+ // Checa vitória por linha para O
  PARA lin DE 1 ATE 3 FACA
     PARA col DE 1 ATE 3 FACA
        SE tabuleiro[lin,col] = "o" ENTAO
@@ -115,7 +153,8 @@ Inicio
     vitoriaO
     pontuacaoO <- 0
  FIMPARA
- 
+
+ // Checa vitória por diagonal ascendente para O
  PARA lin DE 1 ATE 3 FACA
     col <- lin
     SE tabuleiro[lin,col] = "o" ENTAO
@@ -124,7 +163,27 @@ Inicio
  FIMPARA
  vitoriaO
  pontuacaoO <- 0
- 
+
+ // Checa diagonal ascendente para O
+ lin <- 3
+ col <- lin
+ SE tabuleiro[lin,col] = "OU" ENTAO
+    pontuacaoO <- pontuacaoO +1
+ FIMSE
+ lin <- 2
+ col <- lin
+ SE tabuleiro[lin,col] = "o" ENTAO
+    pontuacaoO <- pontuacaoO +1
+ FIMSE
+ lin <- 1
+ col <- lin
+ SE tabuleiro[lin,col] = "o" ENTAO
+    pontuacaoO <- pontuacaoO +1
+ FIMSE
+ vitoriaO
+ pontuacaoO <- 0
+
+ // Checa vitória por linha para O
  PARA col DE 1 ATE 3 FACA
     PARA lin DE 1 ATE 3 FACA
        SE tabuleiro[lin,col] = "o" ENTAO
@@ -135,12 +194,14 @@ Inicio
     pontuacaoO <- 0
  FIMPARA
 
+ // Deu velha!
  marcacoes <- marcacoes +1
  SE marcacoes = 9 ENTAO
     escreval
     escreval("Deu velha!")
     empate <- empate +1
     leia(ok)
+    vez <- 1
     limparCampos
     JogoDaVelha
  FIMSE
