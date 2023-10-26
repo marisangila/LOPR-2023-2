@@ -1,8 +1,5 @@
-Algoritmo "Hash"
-// Disciplina   : [Linguagem e Lógica de Programação]
-// Professor   : Marisangela
-// Descrição   : Exercício 4 -> Criar uma matriz 4x4 e realizar operações nela
-// Data atual  : 19/10/2023
+Algoritmo "semnome"
+
 Var
    matrix: vetor[0..2,0..2] de inteiro
    exit: inteiro
@@ -77,11 +74,13 @@ inicio
          fimse
       fimse
    fimse
-   retorne matrix[colunm,positionPlay-1]
+   //retorne matrix[colunm,positionPlay-1]
 fimfuncao
 
 PROCEDIMENTO verifyHash(p1,p2,p3:inteiro)
 var
+   iVerifyHash, jVerifyHash: inteiro
+   ifExist: logico
 inicio
    se (p1 <> 0) e (p2 <> 0) e (p3<>0) entao
       se (p1 = p2) e (p2 = p3) entao
@@ -90,7 +89,18 @@ inicio
          escreval("player",verifyPlayer(RoundOfPlayer)+1," win!")
          resetHash()
       senao
-         escreval("Continue the game")
+         para iVerifyHash de 0 ate 2 faca
+            para jVerifyHash de 0 ate 2 faca
+               se matrix[iVerifyHash, jVerifyHash] = 0 entao
+                  ifExist <- verdadeiro
+               fimse
+            fimpara
+         fimpara
+         se ifExist = falso entao
+            limpatela
+            escreval("Got old!")
+            resetHash()
+         fimse
       fimse
    fimse
 FIMPROCEDIMENTO
@@ -109,23 +119,41 @@ inicio
    verifyHash(matrix[0,0], matrix[1,1], matrix[2,2])
    verifyHash(matrix[0,2], matrix[1,1], matrix[2,0])
 FIMFUNCAO
-Inicio
-   escreval("Hash")
-   RoundOfPlayer <- 0
-   enquanto exit <> 1 faca
 
-      para i de 0 ate 2 faca
-         para j de 0 ate 2 faca
-            escreva(matrix[i,j])
-         fimpara
-         escreval()
+PROCEDIMENTO writeHash()
+var
+inicio
+   para i de 0 ate 2 faca
+      para j de 0 ate 2 faca
+         escreva("  ",matrix[i,j])
       fimpara
+      escreval()
+   fimpara
+FIMPROCEDIMENTO
 
+PROCEDIMENTO writeTitle()
+var
+inicio
+   escreval("---------------")
+   escreval("     Hash")
+   escreval("---------------")
+   escreval()
+FIMPROCEDIMENTO
+Inicio
+
+   RoundOfPlayer <- 0
+
+   enquanto exit <> 1 faca
+      writeTitle()
+      writeHash()
+      escreval()
       escreval("Enter a position of play:")
       leia(positionPlay)
       RoundOfPlayer <- RoundOfPlayer + 1
       escreval(toPlayHash(positionPlay))
-      
+      limpatela
+      writeTitle()
+      writeHash()
       escreval(verifyResultOfHash())
 
       escreval("Do you want continue?")
@@ -133,6 +161,7 @@ Inicio
       escreval("[0] Continue game!")
       escreva("Your response: ")
       leia(exit)
+      limpatela
    fimenquanto
 Fimalgoritmo
 
