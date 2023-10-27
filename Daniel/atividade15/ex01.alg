@@ -16,6 +16,7 @@ tipo
    fimregistro
 Var
    passengers: vetor[1..44] de ticket
+   date: vetor[1..44] de caractere
    cont: inteiro
    opcaoMenu: inteiro
    numberTicketGlobal: inteiro
