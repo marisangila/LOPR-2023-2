@@ -19,13 +19,14 @@ Var
    cont: inteiro
    opcaoMenu: inteiro
    numberTicketGlobal: inteiro
+   hora: inteiro
 
 procedimento titleStyle(title:caractere)
 var
 inicio
-   escreval("---------------------------------------------")
-   escreval("                 ",title)
-   escreval("---------------------------------------------")
+   escreval("          ---------------------------------------------")
+   escreval("                           ",title)
+   escreval("          ---------------------------------------------")
 fimprocedimento
 
 procedimento verifySeat(seatChoice: inteiro)
@@ -98,21 +99,22 @@ var
    i: inteiro
    passengerExist: logico
 inicio
+   limpatela
    passengerExist <- falso
    escreva("Enter a ticekt number of passenger:")
    leia(ticketNumber)
 
    para i de 1 ate 44 faca
       se passengers[i].numberOfTicket = ticketNumber entao
-         escreval("Passenger", passengers.numberOfTicket)
-         escreval("------------------------------------")
-         escreval("ORIGEM: ",passengers.origem)
-         escreval("DESTINY: ",passengers.destiny)
-         escreval("DATE: ",passengers.date)
-         escreval("SCHEDULE: ",passengers.schedule)
-         escreval("PLACE: ",passengers.place)
-         escreval("DISTANCE: ",passengers.distance)
-         escreval("------------------------------------")
+         escreval("                        PASSENGER", passengers.numberOfTicket)
+         escreval("              ------------------------------------")
+         escreval("                        ORIGEM: ",passengers.origem)
+         escreval("                        DESTINY: ",passengers.destiny)
+         escreval("                        DATE: ",passengers.date)
+         escreval("                        SCHEDULE: ",passengers.schedule)
+         escreval("                        PLACE: ",passengers.place)
+         escreval("                        DISTANCE: ",passengers.distance)
+         escreval("              ------------------------------------")
          passengerExist <- verdadeiro
       fimse
    fimpara
@@ -127,14 +129,15 @@ var
    i_showAllPassengers_procedimento: inteiro
 inicio
    limpatela
-   escreval("---------------------------------------------")
+   escreval("          ---------------------------------------------")
+   escreva("         "
    para i_showAllPassengers_procedimento de 1 ate 44 faca
       se passengers[i_showAllPassengers_procedimento].numberOfTicket <> 0 entao
          escreva(" ",passengers[i_showAllPassengers_procedimento].place)
       fimse
    fimpara
    escreval()
-   escreval("---------------------------------------------")
+   escreval("          ---------------------------------------------")
 fimprocedimento
 
 Inicio
@@ -142,12 +145,13 @@ Inicio
 
    repita
       titleStyle("Register pass")
-      escreval("[1] - Add passenger.")
-      escreval("[2] - View a passenger.")
-      escreval("[3] - Show all passengers.")
-      escreval("[4] - Exit.")
-
-      escreva("Your response: ")
+      escreval()
+      escreval("                     [1] - Add passenger.")
+      escreval("                     [2] - View a passenger.")
+      escreval("                     [3] - Show seats busy.")
+      escreval("                     [4] - Exit.")
+      escreval()
+      escreva("                      Your response: ")
       leia(opcaoMenu)
       enquanto (opcaoMenu > 4) ou (opcaoMenu < 1) faca
          escreval("Enter a valid option")
