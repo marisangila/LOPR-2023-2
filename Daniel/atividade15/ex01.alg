@@ -14,6 +14,13 @@ tipo
       place: inteiro
       distance: real
    fimregistro
+
+   dateRegistro=registro
+      day: inteiro
+      mounth: inteiro
+      year: inteiro
+   fimregistro
+
 Var
    passengers: vetor[1..44] de ticket
    date: vetor[1..44] de caractere
