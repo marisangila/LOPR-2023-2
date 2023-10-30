@@ -1,5 +1,7 @@
 Algoritmo "questao1"
 Tipo
+
+   //Declaração do registro
    bilhete = registro
       numeroBilhete: inteiro
       origem: caractere
@@ -11,22 +13,25 @@ Tipo
    fimregistro
 
 Var
+   //Declaração de variáveis globais
    numeroBilhetes: inteiro
    bilhetes: vetor [1..44] de bilhete
    verificarOpcao: caractere
 
+   //Procedimento para coletar os dados do bilhete
 procedimento preencherBilhete
 
 Var
+   //Declaração de variáveis do procedimento
    i: inteiro
 
 Inicio
+
    limpatela
-   escreval ("Informe quantos bilhetes que deseja preencher: ")
+   escreval ("Informe quantos bilhetes deseja preencher: ")
    leia (numeroBilhetes)
 
    enquanto (numeroBilhetes < 1) ou (numeroBilhetes > 44) faca
-      limpatela
       escreval ("Quantidade Inválida! Digite uma quantidade válida de bilhetes: ")
       leia(numeroBilhetes)
    fimenquanto
@@ -55,8 +60,10 @@ Inicio
    fimpara
 fimprocedimento
 
+   //Procedimento para exibir os dados coletados
 procedimento exibirRegistro
 Var
+   //Declaração de variáveis do procedimento
    i: inteiro
 
 inicio
@@ -76,6 +83,7 @@ inicio
 fimprocedimento
 Inicio
 
+   //Bloco principal
    preencherBilhete
    exibirRegistro
    repita

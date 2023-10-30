@@ -15,7 +15,7 @@ Tipo
 Var
    i,j,k: inteiro
    menu: inteiro
-   playlist: vetor[0..9999] de musica
+   playlist: vetor[0..500] de musica
    verificar: caractere
 
 Procedimento abrirMenu()
@@ -28,12 +28,15 @@ Inicio
    escreval("Selecione uma opção: ")
    escreval("[1] Inserir Músicas ")
    escreval("[2] Mostrar Músicas ")
+   escreval("[3] Sair ")
    leia(menu)
    escolha menu
    caso 1
       inserirMusicas()
    caso 2
       mostrarMusicas()
+   caso 3
+      interrompa
    fimescolha
 Fimprocedimento
 
@@ -48,7 +51,7 @@ Inicio
    se verificar = "FIM" entao
       abrirMenu()
    senao
-   j <- j + 1
+      j <- j + 1
    fimse
 Fimprocedimento
 
@@ -68,7 +71,7 @@ Procedimento inserirMusicas()
 Var
 
 Inicio
-j <- 0
+   j <- 0
    para i de j ate 9999 faca
       limpatela
       escreval("---------------------")
@@ -93,7 +96,7 @@ Var
 Inicio
    escreval("---------------------")
    escreval("Lista de Músicas: ")
-   para i de 0 ate 9999 faca
+   para i de 0 ate j faca
       escreval("---------------------")
       escreval("Nome da música: ")
       escreval(playlist[i].nome)
@@ -103,8 +106,8 @@ Inicio
       escreval(playlist[i].cantorBanda)
       escreval("Duração da música: ")
       escreval(playlist[i].duracao)
-      popupListagem()
    fimpara
+   popupListagem()
 Fimprocedimento
 
 Inicio
