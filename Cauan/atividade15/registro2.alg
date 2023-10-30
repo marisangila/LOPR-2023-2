@@ -1,8 +1,8 @@
 algoritmo "ex2"
-// Disciplina  :  [Linguagem e Lógica de Programação]
-// Professor   : [Nome do Professor]
-// Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Nome do(a) aluno(a)
+// Disciplina  :  [Linguagem e Lï¿½gica de Programaï¿½ï¿½o]
+// Professor   : Marisangela e Ewerton
+// DescriÃ§Ã£o  : Aqui vocï¿½ descreve o que o programa faz! (funï¿½ï¿½o)
+// Autor(a)    : Cauan de Souza Moreira
 // Data atual  : DATA_ATUAL/MES_ATUAL/ANO_ATUAL
 tipo
    musica=registro
@@ -18,7 +18,6 @@ var
    numeroDeMusicaEscolhida: inteiro
    musicaEscolhida: caractere
    playlist: vetor[0..44]de caractere
-   //tamanhoPlaylist: inteiro
    candidatoPlaylist: caractere
    x: inteiro
    opcao: caractere
@@ -27,21 +26,21 @@ var
 procedimento perguntarMusica()
 var
 inicio
-   escreval("Quantas músicas serão informadas?")
+   escreval("Quantas mï¿½sicas serï¿½o informadas?")
    leia(numeroTotalDeMusicas)
    limpatela
    para i de 1 ate numeroTotalDeMusicas faca
 
-      escreval ("Informe o nome da música:")
+      escreval ("Informe o nome da mï¿½sica:")
       leia(musicas[i].nome)
 
-      escreval ("informe o genero da sua música:")
+      escreval ("informe o genero da sua mï¿½sica:")
       leia(musicas[i].genero)
 
       escreval ("informe o cantor ou banda:")
       leia(musicas[i].cantorBanda)
 
-      escreval ("informe a duração da música (em min):")
+      escreval ("informe a duraï¿½ï¿½o da mï¿½sica (em min):")
       leia(musicas[i].duracao)
 
       limpatela
@@ -53,10 +52,10 @@ procedimento mostrarMusica()
 var
 inicio
    limpatela
-   escreval("Digite o número de musicas que você quer ver: ")
+   escreval("Digite o nï¿½mero de musicas que vocï¿½ quer ver: ")
    leia(numeroDeMusicaEscolhida)
    escreval("-----------------------------------------------------------------")
-   escreval("Digite o nome da música que você quer ver: ")
+   escreval("Digite o nome da mï¿½sica que vocï¿½ quer ver: ")
    leia(musicaEscolhida)
 
    para i de 1 ate numeroTotalDeMusicas faca
@@ -64,9 +63,9 @@ inicio
       se (musicaEscolhida = musicas[i].nome) entao
          escreval("                          ",musicas[i].nome)
          escreval("-----------------------------------------------------------")
-         escreval("Genêro músical: ",musicas[i].genero)
+         escreval("Genï¿½ro mï¿½sical: ",musicas[i].genero)
          escreval("Cantor/Banda: ",musicas[i].cantorBanda)
-         escreval("A duração: ",musicas[i].duracao)
+         escreval("A duraï¿½ï¿½o: ",musicas[i].duracao)
       fimse
    fimpara
 
@@ -76,7 +75,7 @@ inicio
 
          musicaEscolhida<- ""
          escreval("-----------------------------------------------------------")
-         escreval("Qual o nome da música que você quer ver?")
+         escreval("Qual o nome da mï¿½sica que vocï¿½ quer ver?")
          leia(musicaEscolhida)
          escreval("-----------------------------------------------------------")
 
@@ -85,9 +84,9 @@ inicio
             se (musicaEscolhida = musicas[i].nome) entao
                escreval("                          ",musicas[i].nome)
                escreval("-----------------------------------------------------------")
-               escreval("Genêro músical: ",musicas[i].genero)
+               escreval("Genï¿½ro mï¿½sical: ",musicas[i].genero)
                escreval("Cantor/Banda: ",musicas[i].cantorBanda)
-               escreval("A duração: ",musicas[i].duracao)
+               escreval("A duraï¿½ï¿½o: ",musicas[i].duracao)
                numeroDeMusicaEscolhida <- numeroDeMusicaEscolhida - 1
             fimse
          fimpara
@@ -102,7 +101,7 @@ inicio
    opcao <- ""
    enquanto opcao <> "fim" faca
       escreval("--------------------------------------------------------------")
-      escreval("Digite o nome da música que você deseja inserir na playlist:")
+      escreval("Digite o nome da mï¿½sica que vocï¿½ deseja inserir na playlist:")
       leia(candidatoPlaylist)
       para i de 1 ate numeroTotalDeMusicas faca
          se candidatoPlaylist = musicas[i].nome entao
@@ -110,8 +109,8 @@ inicio
          fimse
       fimpara
       escreval("---------------------------------------------------------------")
-      escreval("Você quer adicionar outra musica a playlist?")
-      escreval("caso não digite:fim ")
+      escreval("Vocï¿½ quer adicionar outra musica a playlist?")
+      escreval("caso nï¿½o digite:fim ")
       leia(opcao)
       se opcao = "fim" entao
          fimDaPlaylist <- x
@@ -128,7 +127,7 @@ inicio
    escreval("                    Playlist")
    escreval("-------------------------------------------------------------")
    para i de 1 ate fimDaPlaylist faca
-      escreval("o membro ",i," da playlist é: ",playlist[i])
+      escreval("o membro ",i," da playlist ï¿½: ",playlist[i])
    fimpara
 fimprocedimento
 //-------------------------------------------------------------------------------------------------//

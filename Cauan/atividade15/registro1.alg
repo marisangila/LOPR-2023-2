@@ -1,6 +1,6 @@
 algoritmo "ex1"
 // Disciplina  : [Linguagem e Lógica de Programação]
-// Professor   : Marisangela
+// Professor   : Marisangela e Ewerton
 // Descrição   : Peça ao usuário para preencher os dados de N bilhetes e, ao final, imprima todos os campos do vetor de estruturas.
 // Autor(a)    : Cauan de Souza Moreira
 // Data atual  : 26/10/2023
