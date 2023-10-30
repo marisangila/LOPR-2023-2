@@ -1,8 +1,6 @@
 Algoritmo "Questão 01"
-
 Tipo
-
-   Passagem = registro
+   passagens = registro
       numeroBilhete: inteiro
       origem: caractere
       destino: caractere
@@ -11,116 +9,105 @@ Tipo
       poltrona: inteiro
       distancia: real
    fimregistro
-
 Var
-   passagens: vetor[1..44] de Passagem
-   opcaoMenu: inteiro
-   qntPassagens: inteiro
-   i,j: inteiro
-   poltronaInvalida: logico
-   data: inteiro
-   horario: inteiro
-
+   passagem:vetor[1..44] de passagens
+   quantPassagens:inteiro
+   i:inteiro
+   j:inteiro
+   passInvalido:logico
+   
 procedimento titulo()
 inicio
-   escreval("Rodoviária 9 3/4")
-
+   escreval("                      _________________")
+   escreval()
+   escreval("                       Rodoviária 9 3/4")
+   escreval("                      _________________")
+   escreval()
+   escreval()
 fimprocedimento
 
 procedimento menu()
 inicio
+   limpatela
    titulo()
-   escreval("[1] Criar nova passagem")
-   escreval("[2] Ver passagens")
-   escreval("[0] Sair")
-   escreval("Opção: ")
-   leia(opcaoMenu)
-
-   escolha opcaoMenu
-   caso 1
-      criarPassagem()
-   caso 2
-      //Inserir Visualização de Passagens
-
-   fimescolha
+   escreval("             Quantas passagens você quer preencher?")
+   se passInvalido entao
+      escreval("                Opção inválida, digite novamente")
+   fimse
+   escreval()
+   escreva("                           -> ")
+   leia(quantPassagens)
+   enquanto (quantPassagens < 1) ou (quantPassagens > 44) faca
+      passInvalido <- VERDADEIRO
+      menu()
+   fimenquanto
+   preencherPassagens()
+fimprocedimento
+procedimento simulacaoArmazenamento()
+var
+cont:inteiro
+inicio
+   timer 150
+   escreval("                      Salvando informações")
+   escreva ("                          ")
+   para cont de 1 ate 10 faca
+      escreva(".")
+   fimpara
+   timer 0
 fimprocedimento
 
-procedimento criarPassagem()
+procedimento preencherPassagens()
 inicio
-   escreval("Quantas passagens serão criadas?")
-   leia(qntPassagens)
-
-   para i de 1 até qntPassagens faça
-      geraNumeroBilhete()
-      escreval("Número do bilhete: ", passagens[i].numeroBilhete)
-      escreva("Local de origem: ")
-      leia(passagens[i].origem)
-      escreva("Local de destino:")
-      leia(passagens[i].destino)
-      escreva("Data: ")
-      leia(data)
-      formatarData()
-      escreva("Horário: ")
-      leia(horario)
-      formatarHorario()
-      escreva("Poltrona: ")
-      leia(passagens[i].poltrona)
-      verificaPoltrona()
-      escreva("Distância: ")
-      leia(passagens[i].distancia)
-
+   para i de 1 ate quantPassagens faca
+      limpatela
+      titulo()
+      escreval("                  Preenchendo passagem",i," de",quantPassagens)
+      escreval()
+      escreva("         | Número do Bilhete:. ")
+      leia(passagem[i].numeroBilhete)
+      escreva("         | Local de Origem:... ")
+      leia(passagem[i].origem)
+      escreva("         | Local de Destino:.. ")
+      leia(passagem[i].destino)
+      escreva("         | Data da viagem:.... ")
+      leia(passagem[i].data)
+      escreva("         | Horário da viagem:. ")
+      leia(passagem[i].horario)
+      escreva("         | Poltrona:.......... ")
+      leia(passagem[i].poltrona)
+      escreva("         | Distância:......... ")
+      leia(passagem[i].distancia)
    fimpara
 
+   mostrarPassagens()
 fimprocedimento
 
-procedimento geraNumeroBilhete()
-var
-   temp: inteiro
+procedimento mostrarPassagens()
 inicio
-   temp <- randi(1000) + 1
-   para j de 1 até 44 faça
-      se passagens[j].numeroBilhete = 0 entao
-         passagens[i].numeroBilhete <- temp
+   para i de 1 ate quantPassagens faca
+      limpatela
+      titulo()
+      escreval("                  Exibindo passagem",i," de",quantPassagens)
+      escreval
+      escreval("         | Número do Bilhete:.",passagem[i].numeroBilhete)
+      escreval("         | Local de Origem:...",passagem[i].origem)
+      escreval("         | Local de Destino:..",passagem[i].destino)
+      escreval("         | Data da viagem:....",passagem[i].data)
+      escreval("         | Horário da viagem:.",passagem[i].horario)
+      escreval("         | Poltrona:..........",passagem[i].poltrona)
+      escreval("         | Distância:.........",passagem[i].distancia)
+      escreval
+      escreval
+      se i = quantPassagens entao
+         escreval("                     [Aperte F9 para sair]")
+      senao
+         escreval("                    [Aperte F9 para avançar]")
       fimse
+      pausa
    fimpara
-fimprocedimento
 
-{procedimento formatarData()
-var
-   temp1: caractere
-   temp2: caractere
-   temp3: caractere
-inicio
-   temp1 <- copia(passagens[i].data,1,2)
-   temp2 <- copia(passagens[i].data,3,2)
-   temp3 <- copia(passagens[i].data,5,4)
-
-   passagens[i].data <- temp1+"/"+temp2+"/"+temp3
-fimprocedimento
-
-procedimento formatarHorario()
-var
-   temp1: caractere
-   temp2: caractere
-inicio
-   temp1 <- copia(passagens[i].horario,1,2)
-   temp2 <- copia(passagens[i].horario,3,2)
-   passagens[i].horario <- temp1+":"+temp2+" Hrs"
-   fimprocedimento}
-
-procedimento verificaPoltrona()
-var
-   cont: inteiro
-   
-inicio
-   para cont de 1 até assentos faça
-      se passagens[i].poltrona = passagens[cont].poltrona entao
-         poltronaInvalida <- VERDADEIRO
-      fimse
-   fimpara
 fimprocedimento
 
 Inicio
    menu()
-
 Fimalgoritmo
