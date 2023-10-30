@@ -55,7 +55,6 @@ inicio
       escreval("Gênero: ",musica[j].genero)
       escreval("Cantor: ",musica[j].cantor)
       escreval("Banda: ",musica[j].banda)
-      escreval("Duração: ",musica[j].duracao)
    fimpara
 fimprocedimento
 
