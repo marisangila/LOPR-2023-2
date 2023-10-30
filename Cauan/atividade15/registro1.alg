@@ -1,11 +1,11 @@
 algoritmo "ex1"
-// Disciplina  : [Linguagem e LÛgica de ProgramaÁ„o]
+// Disciplina  : [Linguagem e L√≥gica de Programa√ß√£o]
 // Professor   : Marisangela e Ewerton
-// DescriÁ„o   : PeÁa ao usu·rio para preencher os dados de N bilhetes e, ao final, imprima todos os campos do vetor de estruturas.
+// Descri√ß√£o   : Pe√ßa ao usu√°rio para preencher os dados de N bilhetes e, ao final, imprima todos os campos do vetor de estruturas.
 // Autor(a)    : Cauan de Souza Moreira
 // Data atual  : 26/10/2023
 tipo
-   passagem=registro //declaraÁ„o de registro//
+   passagem=registro //declara√ß√£o de registro//
 
       numeroBilhete: inteiro
       origem: caractere
@@ -18,25 +18,25 @@ tipo
    fimregistro
    //---------------------------------------------------------------------------------------------//
 var
-   bilhete: vetor[0..44]de passagem // declaraÁ„o de variavel //
+   bilhete: vetor[0..44]de passagem // declara√ß√£o de variavel //
    i: inteiro //contador
-   numeroTotalDeBilhetes: inteiro //define o n˙mero total de bilhetes//
-   numeroDeBilheteEscolhido: inteiro //define quanos bilhetes ser„o mostrados //
-   bilheteEscolhido: inteiro //define qual bilhete ser· mostrado //
+   numeroTotalDeBilhetes: inteiro //define o n√∫mero total de bilhetes//
+   numeroDeBilheteEscolhido: inteiro //define quanos bilhetes ser√£o mostrados //
+   bilheteEscolhido: inteiro //define qual bilhete ser√° mostrado //
    //------------------------------------------------------------------------------------------//
 procedimento perguntarBilhete()
-// procedimento que faz o usu·rio definir o n˙mero de bilhetes e seu conte˙do//
+// procedimento que faz o usu√°rio definir o n√∫mero de bilhetes e seu conte√∫do//
 var
 inicio
-   escreval("Quantos bilhetes ser„o informados?")
+   escreval("Quantos bilhetes ser√£o informados?")
    leia(numeroTotalDeBilhetes)
    limpatela
    para i de 1 ate numeroTotalDeBilhetes faca
 
 
       bilhete[i].numeroBilhete <- i
-      escreval("O n˙mero do seu bilhete È: ",bilhete[i].numeroBilhete)
-      //O n˙mero do bilhete È deinido automaticamente//
+      escreval("O n√∫mero do seu bilhete √©: ",bilhete[i].numeroBilhete)
+      //O n√∫mero do bilhete √© deinido automaticamente//
 
       escreval ("Informe a sua origem:")
       leia(bilhete[i].origem)
@@ -47,13 +47,13 @@ inicio
       escreval ("informe a data de hoje:")
       leia(bilhete[i].data)
 
-      escreval ("informe o hor·rio:")
+      escreval ("informe o hor√°rio:")
       leia(bilhete[i].horario)
 
       escreval ("informe sua poltrona")
       leia(bilhete[i].poltrona)
 
-      escreval ("informe a dist‚ncia que ir· percorrer:")
+      escreval ("informe a dist√¢ncia que ir√° percorrer:")
       leia(bilhete[i].distancia)
       limpatela
    fimpara
@@ -61,26 +61,26 @@ inicio
 fimprocedimento
 //------------------------------------------------------------------------------------------//
 procedimento mostrarBilhete()
-//procedimento que mostra o(s) n˙mero(s) do(s) bilhete(s) que o usu·rio pede//
+//procedimento que mostra o(s) n√∫mero(s) do(s) bilhete(s) que o usu√°rio pede//
 var
 inicio
    limpatela
-   escreval("Digite o n˙mero de bilhetes que vocÍ quer ver: ")
+   escreval("Digite o n√∫mero de bilhetes que voc√™ quer ver: ")
    leia(numeroDeBilheteEscolhido)
    escreval("-----------------------------------------------------------------")
-   escreval("Qual o n˙mero do bilhete que vocÍ quer ver?")
+   escreval("Qual o n√∫mero do bilhete que voc√™ quer ver?")
    leia(bilheteEscolhido)
 
    para i de 1 ate numeroTotalDeBilhetes faca
       se (bilheteEscolhido = bilhete[i].numeroBilhete) entao
          escreval("                          ",bilhete[i].numeroBilhete)
          escreval("-----------------------------------------------------------")
-         escreval("A origem do bilhete È: ",bilhete[i].origem)
-         escreval("O destino do bilhete È: ",bilhete[i].destino)
-         escreval("A data do bilhete È: ",bilhete[i].data)
-         escreval("O hor·rio È: ",bilhete[i].horario)
-         escreval("O n˙mero da poltrona È: ",bilhete[i].poltrona," poltrona")
-         escreval("A dist‚ncia percorrida È: ",bilhete[i].distancia," km")
+         escreval("A origem do bilhete √©: ",bilhete[i].origem)
+         escreval("O destino do bilhete √©: ",bilhete[i].destino)
+         escreval("A data do bilhete √©: ",bilhete[i].data)
+         escreval("O hor√°rio √©: ",bilhete[i].horario)
+         escreval("O n√∫mero da poltrona √©: ",bilhete[i].poltrona," poltrona")
+         escreval("A dist√¢ncia percorrida √©: ",bilhete[i].distancia," km")
       fimse
    fimpara
 
@@ -89,7 +89,7 @@ inicio
 
          bilheteEscolhido <- 0
          escreval("-----------------------------------------------------------")
-         escreval("Qual o n˙mero do bilhete que vocÍ quer ver?")
+         escreval("Qual o n√∫mero do bilhete que voc√™ quer ver?")
          leia(bilheteEscolhido)
          escreval("-----------------------------------------------------------")
 
@@ -98,12 +98,12 @@ inicio
             se (bilheteEscolhido = bilhete[i].numeroBilhete) entao
                escreval("                          ",bilhete[i].numeroBilhete)
                escreval("-----------------------------------------------------")
-               escreval("A origem do bilhete È: ",bilhete[i].origem)
-               escreval("O destino do bilhete È: ",bilhete[i].destino)
-               escreval("A data do bilhete È: ",bilhete[i].data)
-               escreval("O hor·rio È: ",bilhete[i].horario)
-               escreval("O n˙mero da poltrona È: ",bilhete[i].poltrona," poltrona")
-               escreval("A dist‚ncia percorrida È: ",bilhete[i].distancia," km")
+               escreval("A origem do bilhete √©: ",bilhete[i].origem)
+               escreval("O destino do bilhete √©: ",bilhete[i].destino)
+               escreval("A data do bilhete √©: ",bilhete[i].data)
+               escreval("O hor√°rio √©: ",bilhete[i].horario)
+               escreval("O n√∫mero da poltrona √©: ",bilhete[i].poltrona," poltrona")
+               escreval("A dist√¢ncia percorrida √©: ",bilhete[i].distancia," km")
                numeroDeBilheteEscolhido <- numeroDeBilheteEscolhido - 1
             fimse
          fimpara
