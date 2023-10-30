@@ -8,16 +8,15 @@ TIPO
    fimregistro
 VAR
    opcao, quantidade, i: inteiro
-   musicas: vetor[0..99] de musica
+   musicas: vetor[1..100] de musica
+   resposta, j: inteiro
 
 procedimento inserirMusica
-VAR
-   musicas: vetor[0..99] de musica
-   i: inteiro
-   resposta: inteiro
+
 INICIO
    resposta <- 1
    quantidade <- 0
+   i <- 1
    enquanto resposta = 1 faca
       escreval("-----------------------------")
       escreval("Digite o nome da musica: ")
@@ -33,19 +32,18 @@ INICIO
       quantidade <- quantidade + 1
    fimenquanto
    se resposta = 3 entao
-   escreval ("Playlist finalizada com sucesso!")
+      escreval ("Playlist finalizada com sucesso!")
    senao
-   mostrarMusicas()
+      mostrarMusicas()
    fimse
 fimprocedimento
 
 procedimento mostrarMusicas
-VAR
-   n, i:inteiro
+
 INICIO
- escreval("------------------------------")
-      escreval("Dados da Playlist")
-   para i de 1 ate quantidade faca
+   escreval("------------------------------")
+   escreval("Dados da Playlist")
+   para j de 1 ate quantidade faca
       escreval("------------------------------")
       escreval(musicas[i].nome)
       escreval(musicas[i].genero)
