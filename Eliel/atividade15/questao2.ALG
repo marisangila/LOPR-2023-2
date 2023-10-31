@@ -37,7 +37,7 @@ inicio
       j <- i
       leia (verificarOpcao)
       se verificarOpcao = "FIM" entao
-         menuDois()
+         menu()
       fimse
       j <- j+1
    fimpara
@@ -46,28 +46,17 @@ fimprocedimento
 //Procedimento criador de menu
 procedimento menu()
 Var
-   escolher: caractere
+   escolher: inteiro
 inicio
-   escreval("[1]Inserir músicas        [2]Mostra músicas.")
+   escreval("[1]Inserir músicas [2]Mostra músicas [ESC]Sair")
    leia (escolher)
    escolha escolher
-   caso "1"
+   caso 1
       inserirMusicas()
-   caso "2"
+   caso 2
       exibirMusicas()
-   fimescolha
-fimprocedimento
-
-//Procedimento criador de menu alternativo (apenas para o final)
-procedimento menuDois()
-Var
-   escolher: caractere
-inicio
-   escreval("[2]Mostra músicas.")
-   leia (escolher)
-   escolha escolher
-   caso "2"
-      exibirMusicas()
+   outrocaso
+      interrompa
    fimescolha
 fimprocedimento
 
