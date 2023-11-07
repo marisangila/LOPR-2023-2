@@ -1,27 +1,27 @@
 Algoritmo "ATIVIDADE 16 - QUESTÃO 1"
 // Linguagem e Lógica de Programação
-// Professora: Marisângela Alves
+// Professora: Marisângila Alves
 // Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Brunno Pedro de Oliveira e Eliel Eletrocutar da Silva Schubert
+// Autor(a)    : Brunno Pedro de Oliveira e Eliel Schubert
 // Data atual  : 06/11/2023
 Tipo
-   jogador= registro
+   jogador = registro
       nome: caractere
       pontuacao: inteiro
    fimregistro
 
-   pergunta= registro
-      enunciado: caractere
-      resposta: caractere
+   pergunta = registro
+      questionamento: caractere
+      resolucao: caractere
    fimregistro
 Var
-   i,j,k: inteiro
    menu: inteiro
+   pontos: inteiro
    adminLogin: caractere
    adminSenha: caractere
-   questoes: vetor[1..10] de pergunta
-   respostas: vetor[1..10] de pergunta
-   jogadores: vetor[1..4] de jogador
+   questoes: vetor[1..5] de pergunta
+   respostas: vetor[1..5] de pergunta
+   jogadores: jogador
    pontuacao: inteiro
    entradaAdmin: caractere
    entradaSenhaAdmin: caractere
@@ -32,9 +32,7 @@ Procedimento abrirMenu()
 Var
 Inicio
    limpatela
-   para k de 1 ate numeroJogadores faca
-   escreval("Olá, ",jogadores[k].nome,"!")
-   fimpara
+      escreval("Olá, ",jogadores.nome,"!")
    escreval()
    escreval("--- Menu Principal ---")
    escreval("Selecione uma opção: ")
@@ -55,19 +53,18 @@ Inicio
    fimescolha
 Fimprocedimento
 
-Procedimento verificaResposta()
+Procedimento verificaResposta(i: inteiro)
 Var
 Inicio
-   se questoes[i].resposta <> respostas[i].resposta entao
-      escreval("Resposta errada! burro. ")
+   se questoes[i].resolucao <> respostas[i].resolucao entao
+      escreval("Infelizmente você errou! ")
       escreval()
       escreval("Resposta correta: ")
-      escreval(respostas[i].resposta)
+      escreval(respostas[i].resolucao)
    senao
-      escreval("Achei facil melhorem gg izi noobs")
+      escreval("Certa resposta! ")
       pontuacao <- pontuacao + 1
    fimse
-        abrirMenu()
    limpatela
 Fimprocedimento
 
@@ -109,9 +106,11 @@ Inicio
    limpatela
    se adminLogin <> entradaAdmin entao
       escreval("Usuário incorreto! ")
+      abrirMenu()
    senao
       se adminSenha <> entradaSenhaAdmin entao
          escreval("Senha incorreta! ")
+         abrirMenu()
       senao
          escreval("Login efetuado com sucesso! ")
       fimse
@@ -122,29 +121,35 @@ Fimprocedimento
 
 Procedimento resolverQuestoes()
 Var
+i: inteiro
 Inicio
    limpatela
-   escreval("Vez do jogador: ",jogadores[randi(numeroJogadores)+1].nome)
-   para k de j ate 10 faca
-      escreval(questoes[k].enunciado)
-      leia(questoes[k].resposta)
-      verificaResposta()
-      j <- j + 1
+   para i de 1 ate 5 faca
+      escreval(questoes[i].questionamento)
+      leia(questoes[i].resolucao)
+      verificaResposta(i)
+      pontos <- pontos + 1
       escreval("Pontuação: ",pontuacao)
    fimpara
+   limpatela
+   escreval("Fim do Quiz! ")
+   escreval("Pontuação: ",pontuacao)
 Fimprocedimento
 
 Procedimento inserirQuestoes()
 Var
+i: inteiro
 Inicio
    limpatela
    escreval()
-   para i de 1 ate 10 faca
+   para i de 1 ate 5 faca
       escreval("Digite a",i,"ª questão: ")
-      leia(questoes[i].enunciado)
+      escreval
+      leia(questoes[i].questionamento)
       limpatela
       escreval("Digite a resposta da questão: ")
-      leia(respostas[i].resposta)
+      escreval
+      leia(respostas[i].resolucao)
       limpatela
    fimpara
    abrirMenu()
@@ -154,15 +159,10 @@ Procedimento entradaUsuarioAResponder()
 Var
 Inicio
    timer(50)
-   escreval("Quantos jogadores irão jogar? ")
-   leia(numeroJogadores)
-   limpatela
-   para k de 1 ate numeroJogadores faca
-   escreval("Qual seu nome? ")
-   leia(jogadores[k].nome)
-   limpatela
-   fimpara
-   
+      escreval("Qual seu nome? ")
+      leia(jogadores.nome)
+      limpatela
+
    limpatela
    escreval(" ____  _____ __  __    __     _____ _   _ ____   ___  ____  ")
    escreval("| __ )| ____|  \/  |   \ \   / /_ _| \ | |  _ \ / _ \/ ___| ")
@@ -173,7 +173,5 @@ Inicio
 Fimprocedimento
 
 Inicio
-   i <- 1
-   j <- 1
    entradaUsuarioAResponder()
 Fimalgoritmo
