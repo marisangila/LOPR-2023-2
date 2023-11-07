@@ -57,12 +57,12 @@ Procedimento verificaResposta(i: inteiro)
 Var
 Inicio
    se questoes[i].resolucao <> respostas[i].resolucao entao
-      escreval("Resposta errada! burro. ")
+      escreval("Infelizmente você errou! ")
       escreval()
       escreval("Resposta correta: ")
       escreval(respostas[i].resolucao)
    senao
-      escreval("Achei facil melhorem gg izi noobs")
+      escreval("Certa resposta! ")
       pontuacao <- pontuacao + 1
    fimse
    limpatela
