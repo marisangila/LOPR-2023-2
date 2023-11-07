@@ -131,6 +131,9 @@ Inicio
       pontos <- pontos + 1
       escreval("Pontuação: ",pontuacao)
    fimpara
+   limpatela
+   escreval("Fim do Quiz! ")
+   escreval("Pontuação: ",pontuacao)
 Fimprocedimento
 
 Procedimento inserirQuestoes()
