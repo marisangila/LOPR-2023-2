@@ -1,1 +1,1 @@
-Executar o programa no shell, ou em algum interpretador de comandos baseado em Unix.
+Executar o programa no PowerShell, ou em algum interpretador baseado no windows.
