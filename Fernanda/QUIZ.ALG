@@ -20,6 +20,35 @@ Var
    pergunta,resposta,respostaJogador:caractere
    contador:inteiro
 
+procedimento adminAba()
+inicio
+escreva("Digite o usuário:")
+leia(usuarioAdmin)
+escreva("Digite a senha:")
+leia(senhaAdmin)
+escreval
+se (usuarioAdmin = "admin") e (senhaAdmin = "admin123") entao
+   adicaoPerguntas()
+senao
+   escreva("Usuário ou senha incorreto")
+fimse
+fimprocedimento
+
+procedimento jogadorAba()
+inicio
+escreva("Digite o nome:")
+leia(Jogador.nome)
+PARA i de 0 ate 2 FACA
+   escreva("Pergunta nº1: ",quantPerguntas.pergunta[i])
+   escreval
+   escreva("Digite a sua resposta: ")
+   leia(respostaJogador)
+   escreval
+   contagemPontos()
+FIMPARA
+escreva("Sua pontuação final foi:",contador)
+fimprocedimento
+
 procedimento menu()
 inicio
    escreval("           ====== QUIZ ======           ")
@@ -32,28 +61,9 @@ inicio
    escreval
    escolha opcaoEscolha
    caso 1
-      escreva("Digite o usuário:")
-      leia(usuarioAdmin)
-      escreva("Digite a senha:")
-      leia(senhaAdmin)
-      escreval
-      se (usuarioAdmin = "admin") e (senhaAdmin = "admin123") entao
-         adicaoPerguntas()
-      senao
-         escreva("Usuário ou senha incorreto")
-      fimse
+      adminAba()
    caso 2
-      escreva("Digite o nome:")
-      leia(Jogador.nome)
-      PARA i de 0 ate 2 FACA
-         escreva("Pergunta nº1: ",quantPerguntas.pergunta[i])
-         escreval
-         escreva("Digite a sua resposta: ")
-         leia(respostaJogador)
-         escreval
-         contagemPontos()
-      FIMPARA
-      escreva("Sua pontuação final foi:",contador)
+      jogadorAba()
    fimescolha
 fimprocedimento
 
@@ -62,7 +72,7 @@ inicio
    se respostaJogador = quantPerguntas.resposta[i] entao
       contador <- contador + 1
    fimse
-   fimprocedimento
+fimprocedimento
 
 procedimento adicaoPerguntas()
 inicio
