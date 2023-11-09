@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "recursividade",
+            "request": "launch",
+            "mainClass": "atividade17.recursividade",
+            "projectName": "Cauan_9fe67a33"
+        },
+        {
             "type": "delegua",
             "request": "launch",
             "name": "Executar arquivo aberto",

@@ -6,10 +6,10 @@ algoritmo "recursividade"
 // Data atual  : 09/11/2023
 var
 i : inteiro
-n: inteiro
+n: real
 s : real
 
-funcao  calcularFracao(n:inteiro):real
+funcao  calcularFracao(n:real):real
 inicio
 	se n = 1 entao
     		retorne 1
