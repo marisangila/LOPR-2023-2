@@ -8,7 +8,7 @@ Tipo
 Var
    ok:logico
 
-PROCEDIMENTO insira
+PROCEDIMENTO nome
 Inicio
 
 FIMPROCEDIMENTO
