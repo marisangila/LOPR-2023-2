@@ -1,11 +1,7 @@
-Algoritmo "ATIVIDADE 15 - QUESTÃO 2"
-// Linguagem e Lógica de Programação
-// Professora: Marisângela Alves
-// Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Nome do(a) aluno(a)
-// Data atual  : 26/10/2023
+Algoritmo "atividade02"
+
 Tipo
-   musica= registro
+   musica = registro
       nome: caractere
       genero: caractere
       cantorBanda: caractere
@@ -18,7 +14,7 @@ Var
    playlist: vetor[0..500] de musica
    verificar: caractere
 
-Procedimento abrirMenu()
+Procedimento mostrarMenu()
 Var
 Inicio
    limpatela
@@ -26,44 +22,41 @@ Inicio
    escreval()
    escreval("--- Menu Principal ---")
    escreval("Selecione uma opção: ")
-   escreval("[1] Inserir Músicas ")
-   escreval("[2] Mostrar Músicas ")
-   escreval("[3] Sair ")
+   escreval("1) Inserir Músicas ")
+   escreval("2) Mostrar Músicas ")
    leia(menu)
    escolha menu
    caso 1
       inserirMusicas()
    caso 2
       mostrarMusicas()
-   caso 3
-      interrompa
    fimescolha
 Fimprocedimento
 
-Procedimento popupVerificacao()
+Procedimento verificacao()
 Var
 Inicio
    limpatela
    escreval()
    escreval("---------------------")
-   escreval("Deseja continuar? Pressione [ENTER] para continuar, digite [FIM] para sair")
+   escreval("Deseja continuar? Pressione 'ENTER' para continuar, digite 'FIM' para sair")
    leia(verificar)
    se verificar = "FIM" entao
-      abrirMenu()
+      mostrarMenu()
    senao
-      j <- j + 1
+   j <- j + 1
    fimse
 Fimprocedimento
 
-Procedimento popupListagem()
+Procedimento listagem()
 Var
 Inicio
    escreval()
    escreval("---------------------")
-   escreval("Deseja continuar listagem? Pressione [ENTER] para continuar, digite [FIM] para sair")
+   escreval("Deseja continuar listagem? Pressione 'ENTER' para continuar, digite 'FIM' para sair")
    leia(verificar)
    se verificar = "FIM" entao
-      abrirMenu()
+      mostrarMenu()
    fimse
 Fimprocedimento
 
@@ -71,7 +64,7 @@ Procedimento inserirMusicas()
 Var
 
 Inicio
-   j <- 0
+j <- 0
    para i de j ate 9999 faca
       limpatela
       escreval("---------------------")
@@ -87,7 +80,7 @@ Inicio
       leia(playlist[i].duracao)
       j <- i
       limpatela
-      popupVerificacao()
+      verificacao()
    fimpara
 Fimprocedimento
 
@@ -107,10 +100,10 @@ Inicio
       escreval("Duração da música: ")
       escreval(playlist[i].duracao)
    fimpara
-   popupListagem()
+   listagem()
 Fimprocedimento
 
 Inicio
    j <- 1
-   abrirMenu()
+   mostrarMenu()
 Fimalgoritmo

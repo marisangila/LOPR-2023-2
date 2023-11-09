@@ -82,6 +82,7 @@ inicio
    escreval ("------------------------------------------------")
 fimprocedimento
 Inicio
+
    //Bloco principal
    preencherBilhete
    exibirRegistro
