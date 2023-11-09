@@ -1,35 +1,35 @@
 algoritmo "ex1"
 // Disciplina  : [Linguagem e Lógica de Programação]
-// Professor   : Marisangela e Ewerton
-// Descrição   : Peça ao usuário para preencher os dados de N bilhetes e, ao final, imprima todos os campos do vetor de estruturas.
-// Autor(a)    : Cauan de Souza Moreira
-// Data atual  : 26/10/2023
+    // Professor   : Marisangela e Ewerton
+ // Descrição   : Peça ao usuário para preencher os dados de N bilhetes e, ao final, imprima todos os campos do vetor de estruturas.
+  // Autor(a)    : Cauan de Souza Moreira
+  // Data atual  : 26/10/2023
 tipo
    passagem=registro //declaração de registro//
 
-      numeroBilhete: inteiro
-      origem: caractere
-      destino: caractere
+    numeroBilhete: inteiro
+origem: caractere
+    destino: caractere
       data: caractere
       horario: caractere
-      poltrona: inteiro
-      distancia: inteiro
+   poltrona: inteiro
+    distancia: inteiro
 
    fimregistro
    //---------------------------------------------------------------------------------------------//
 var
    bilhete: vetor[0..44]de passagem // declaração de variavel //
-   i: inteiro //contador
-   numeroTotalDeBilhetes: inteiro //define o número total de bilhetes//
+ i: inteiro //contador
+  numeroTotalDeBilhetes: inteiro //define o número total de bilhetes//
    numeroDeBilheteEscolhido: inteiro //define quanos bilhetes serão mostrados //
    bilheteEscolhido: inteiro //define qual bilhete será mostrado //
    //------------------------------------------------------------------------------------------//
-procedimento perguntarBilhete()
-// procedimento que faz o usuário definir o número de bilhetes e seu conteúdo//
-var
+  procedimento perguntarBilhete()
+ // procedimento que faz o usuário definir o número de bilhetes e seu conteúdo//
+  var
 inicio
-   escreval("Quantos bilhetes serão informados?")
-   leia(numeroTotalDeBilhetes)
+ escreval("Quantos bilhetes serão informados?")
+ leia(numeroTotalDeBilhetes)
    limpatela
    para i de 1 ate numeroTotalDeBilhetes faca
 
