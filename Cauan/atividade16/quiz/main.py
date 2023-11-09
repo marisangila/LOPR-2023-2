@@ -18,7 +18,7 @@ participantesDoJogo = quantidadeJogadores()
 questoes = Questoes()
 menu(participantesDoJogo, questoes, senha)
 
-os.system("clear")
+os.system("cls")
 cont = 0
 print("-" * 30)
 print()

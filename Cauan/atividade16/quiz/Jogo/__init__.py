@@ -5,7 +5,7 @@ from Entidades import Jogadores
 
 #funcão de jogo
 def jogar(questoes, participantesDoJogo):
-  os.system("clear")
+  os.system("cls")
   time.sleep(0.5)
 
   cont = 0
@@ -39,7 +39,7 @@ def jogar(questoes, participantesDoJogo):
     if cont == 4:
       cont = 0
 
-    os.system("clear")
+    os.system("cls")
     time.sleep(0.5)
 
 
@@ -93,14 +93,14 @@ def quantidadeJogadores():
     """)
     opcaoEscolhida = int(input("Sua escolha: "))
 
-    os.system("clear")
+    os.system("cls")
 
     if opcaoEscolhida > 3 or opcaoEscolhida < 1:
       print()
       print("\033[1;31mDigite uma opção valida!!\033[m")
 
     time.sleep(1)
-    os.system("clear")
+    os.system("cls")
 
     #A partir daqui o programa gera a opção de cadastro a partir da opção acima
     #---------------------------------------------------------------------------------

@@ -17,7 +17,7 @@ class Jogadores:
     senha = input("Digite a senha: ")
 
     self.jogadores.append([nome, senha, 0])
-    os.system("clear")
+    os.system("cls")
     time.sleep(0.5)
 
 #classe de Questões
