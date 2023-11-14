@@ -1,8 +1,8 @@
 Algoritmo "semnome"
 // Disciplina   : [Linguagem e Lógica de Programação]
-// Professor   : Antonio Carlos Nicolodi
-// Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Nome do(a) aluno(a)
+// Professor   : Ewerton e Marisangela
+// Descrição   : É uma atividade que busca ser um simulador de playlist, com direito a adicionar e visualizar musicas.
+// Autor(a)    : Daniel Lima
 // Data atual  : 26/10/2023
 tipo
    musics=registro
