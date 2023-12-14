@@ -1,0 +1,20 @@
+- Criação de Usuário; x
+- Login do Usuário; x
+- Login do Administrador padrão com possibilidade de alteração; x
+    Alterar login de Administrador e descontos; 
+- Solicitação de salário bruto; x
+- Questionamento: é CLT? -> Caso sim, automaticamente faz o cálculo de INSS e IRRF;
+- Switches para seleção de descontos;
+- Cálculo, devolvendo o salario liquido;
+
+Como funciona? 
+
+1 - Tela de Login - Como usuário, como admin ou cadastrar um novo usuário;
+\> 2- Tela de Inicial - Prompt para inserção do cargo e do salário bruto do usuário, além disso terá um botão para acessar o histórico;
+   \                                                                                                                   \ 3 - Telinha de Histórico - Quando houver trazer meses registrados
+    \>4 - Tela de seleção de descontos - Tela onde será selecionado os descontos da folha.
+            Por hora as seleções serão realizadas por números, os números selecionados irão contribuir para um maior desconto da folha de pagamento;
+            Nesta tela também haverá um menu (futuramente uma lista suspensa), no qual o usuário seleciona o mês e o ano que está realizando a consuta, 
+            para que seu histórico seja montado;
+        \> 5 - Tela de Resultados  - Será disponibilizado um menu no qual o salário bruto possa ser consultado, ou o salário líquido ou os descontos.
+                Ainda na tela de resultados, quando a opção descontos forem selecionadas, será possível selecionar algum desconto e receber uma informação prévia sobre ele.                                                                              
