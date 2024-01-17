@@ -36,7 +36,7 @@ inicio
 
     para mes de 1 ate 3 faca
         para semana de 1 ate 4 faca
-            se semana = 1 enquanto (verdadeiro) faca
+            se semana = 1 entao
                 escreval (escreval("Total de vendas na primeira semana do mês ")
             fimse
         fimpara

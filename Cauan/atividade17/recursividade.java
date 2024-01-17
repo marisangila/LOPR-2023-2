@@ -1,5 +1,4 @@
 package atividade17;
-
 import java.util.Scanner;
 
 public class recursividade{
@@ -24,11 +23,5 @@ public class recursividade{
             return 1.0/n + calcularFracao(n-1);
         }
     }
-
-
-
-
-
-
 
 }
