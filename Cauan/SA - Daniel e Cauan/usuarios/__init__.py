@@ -6,8 +6,6 @@ from dados import Dados
 from banco import Banco
 from validacoes import verificarValores, validarValoresNaoPrevisiveis, validarValoresPrevisiveis, validarSenhaFortitude
 import os
-# from noticias import Noticias
-# from tutoriais import Tutoriais
 
 concatenar = ""
 

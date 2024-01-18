@@ -1,7 +1,6 @@
 from pessoaFisica import PessoaFisica
 from pessoaJuridica import Administrador
 from EntradaSaida import escolherOpcao, escolhaEntao
-from banco import Banco
 import os
 
 
@@ -26,15 +25,14 @@ def escolherInicial(pessoa, tipoPessoa):
                     [(), (tipoPessoa, pessoa)]):
       return True
 
+
 def main():
-  bancoDados = Banco()
   pessoa = escolherUsuario()
   os.system('clear')
   escolherInicial(pessoa[0], pessoa[1])
   os.system('clear')
   pessoa[0].verMenu(pessoa[0])
   print("-- END --")
-
 
 # linha de código principal
 if __name__ == "__main__":
