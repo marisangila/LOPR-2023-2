@@ -1,0 +1,2 @@
+readchar==4.0.5
+setuptools==69.0.3
