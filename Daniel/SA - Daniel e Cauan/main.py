@@ -1,7 +1,6 @@
 from pessoaFisica import PessoaFisica
 from pessoaJuridica import Administrador
 from EntradaSaida import escolherOpcao, escolhaEntao
-import os
 from textos import clearr
 
 def EscolhaAdministrador():
@@ -13,21 +12,36 @@ def EscolhaPessoaFisica():
 
 
 def escolherUsuario():
-  escolhido = escolherOpcao("Você é pessoa física ou juridica? ", "Juridica",
-                            "Física")
+  escolhido = escolherOpcao("Você é pessoa física ou juridica? ", "Juridica", "Física")
   return escolhaEntao(escolhido, [EscolhaAdministrador, EscolhaPessoaFisica])
 
 
 def escolherInicial(pessoa, tipoPessoa):
   while True:
     selecao = escolherOpcao("Escolha a opção: ", "Cadastrar", "Login")
-    if escolhaEntao(selecao, [pessoa.cadastrar, pessoa.logar],
-                    [(), (tipoPessoa, pessoa)]):
+    if escolhaEntao(selecao, [pessoa.cadastrar, pessoa.logar], [(), (tipoPessoa, pessoa)]):
       return True
+
 
 
 def main():
   global pessoa_global
+
+  print(
+"""
+
+                                                                              ::::::::      :::     :::::::::: :::::::::
+                                                                              :+:    :+:   :+: :+:   :+:        :+:    :+:
+                                                                              +:+         +:+   +:+  +:+        +:+    +:+
+                                                                              +#++:++#++ +#++:++#++: +#++:++#   +#++:++#:
+                                                                                    +#+ +#+     +#+ +#+        +#+    +#+
+                                                                              #+#    #+# #+#     #+# #+#        #+#    #+#
+                                                                              ########  ###     ### ########## ###    ###
+                                             
+""")
+  
+  input("\n\n...")
+  clearr()
 
   pessoa = escolherUsuario()
   clearr()
@@ -41,4 +55,15 @@ def main():
 if __name__ == "__main__":
   main()
   clearr()
-  print("-- END --")
+  print(
+("""
+
+                                    :::     :::  ::::::::  :::        ::::::::::: ::::::::::     ::::::::  :::::::::: ::::    ::::  :::::::::  :::::::::  ::::::::::
+                                    :+:     :+: :+:    :+: :+:            :+:     :+:           :+:    :+: :+:        +:+:+: :+:+:+ :+:    :+: :+:    :+: :+:
+                                    +:+     +:+ +:+    +:+ +:+            +:+     +:+           +:+        +:+        +:+ +:+:+ +:+ +:+    +:+ +:+    +:+ +:+
+                                    +#+     +:+ +#+    +:+ +#+            +#+     +#++:++#      +#++:++#++ +#++:++#   +#+  +:+  +#+ +#++:++#+  +#++:++#:  +#++:++#
+                                    +#+   +#+  +#+    +#+ +#+            +#+     +#+                  +#+ +#+        +#+       +#+ +#+        +#+    +#+ +#+
+                                      #+#+#+#   #+#    #+# #+#            #+#     #+#           #+#    #+# #+#        #+#       #+# #+#        #+#    #+# #+#
+                                        ###      ########  ##########     ###     ##########     ########  ########## ###       ### ###        ###    ### ##########
+
+"""))

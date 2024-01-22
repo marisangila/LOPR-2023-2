@@ -2,6 +2,8 @@ from EntradaSaida import escolherOpcao, escolhaEntao
 from validacoes import verificarExistencia
 from usuarios import Usuarios
 from textos import clearr
+from tickets_emergencia import Ticket
+from time import sleep
 
 
 class Administrador(Usuarios):
@@ -35,11 +37,19 @@ class Administrador(Usuarios):
 
   #################################################################################
   
+  def verOcorrencias(self):
+    ticket = Ticket(self.dadosUsuario["id"])  
+    ticket.mostrar_tickets()
+    input("...")
+    sleep(2)
+
+  #################################################################################
+  
   def verMenu(self):
     opcao = 0
-    while opcao != 4:
+    while opcao != 5:
       clearr()
-      opcao = escolherOpcao("Menu", "Ver perfil", "Tutoriais", "Portal de Notícias", "Sair")
+      opcao = escolherOpcao("Menu", "Chamados de Emergência", "Ver perfil", "Tutoriais", "Portal de Notícias", "Sair")
       escolhaEntao(opcao,
-          [self.verPerfil, self.opcaoTutoriais, self.opcaoNoticias],
-          [[], [self], [self]])
+          [self.verOcorrencias, self.verPerfil, self.opcaoTutoriais, self.opcaoNoticias],
+          [[], [], [self], [self]])

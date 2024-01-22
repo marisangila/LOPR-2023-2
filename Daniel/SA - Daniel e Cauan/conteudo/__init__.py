@@ -1,7 +1,7 @@
 from textos import titulo, espacos, noticiaTexto, quebrarLinhas, tutorialTexto
 from EntradaSaida import escolherOpcao, escolhaEntao
 from banco import Banco
-from validacoes import validarUsuario, validarValoresNaoPrevisiveis
+from validacoes import validarUsuario, validarValoresNaoPrevisiveis, validar_sem_repetir, validar_sem_clear
 from datetime import date
 from textos import clearr
 
@@ -50,34 +50,41 @@ class Conteudo:
 
     if self.tipo == "noticias" and len(existeNoticia) < 1:
       print("Não há notícias cadastradas")
-      input("...")
+      validar_sem_repetir("...")
       return
     
     if self.tipo == "tutoriais" and len(existeTutorial) < 1:
       print("Não há tutoriais cadastrados")
-      input("...")
+      validar_sem_repetir("...")
       return
     
-
+    idsVerificacao = []
     if self.tipo == "noticias":
       for atributo in existeNoticia:
         noticiaTexto(str(atributo[1]), str(atributo[4]), str(atributo[5]),str(atributo[2]), str(atributo[0]))
+        idsVerificacao.append(atributo[0])
     else:
       for atributo in existeTutorial:
-        tutorialTexto(str(atributo[1]), str(atributo[2]), str(atributo[3]),
-                      str(atributo[4]), str(atributo[5]), str(atributo[0]))
+        tutorialTexto(str(atributo[1]), str(atributo[2]), str(atributo[3]), str(atributo[4]), str(atributo[5]), str(atributo[0]))
+        idsVerificacao.append(atributo[0])
 
     opcao = escolherOpcao(f"{self.tipo}", f"Abrir {self.tipo}", "Sair")
-
-
+    
     if opcao == 1:
-      idConteudo = int(input("Informe o valor do id para ver mais detalhes: "))
-      if self.pessoa.dadosUsuario["tipoUsuario"] == "fisica":
-        clearr()
-        self.inspecionar(idConteudo)
-        input("...")
-      else:
-        self.inspecionar(idConteudo, True)
+      while True:
+        idConteudo = validar_sem_clear("Informe o valor do id para ver mais detalhes: ", int)
+        if idConteudo in idsVerificacao:
+          break
+        print("Digite uma poção válida!!")
+    else:
+      return 
+    
+    if self.pessoa.dadosUsuario["tipoUsuario"] == "fisica":
+      clearr()
+      self.inspecionar(idConteudo)
+      validar_sem_repetir("...")
+    else:
+      self.inspecionar(idConteudo, True)
 
 #################################################################################
 
@@ -99,9 +106,9 @@ class Conteudo:
     opcao = 0
     if editar:
       while opcao != 3:
-        print("[1] - Excluir [2] - Editar  [3] - Voltar".center(80))
+        print("[1] - Excluir [2] - Editar  [3] - Voltar".center(200, ' '))
         print()
-        opcao = int(input("Digite sua opção: "))
+        opcao = validar_sem_clear("Digite sua opção: ", int)
         escolhaEntao(
             opcao, [self.banco.delete, self.editarConteudo],
             [[self.tipo, idConteudo, self.colunas[0][1]], [idConteudo]])
@@ -134,11 +141,9 @@ class Conteudo:
       nomeId = "usuario_noticia"
 
     if contNoticias:
-      self.banco.cursor.execute(
-        f"SELECT * FROM noticias WHERE {nomeId} = {self.pessoa.dadosUsuario['id']}"
-      )
+      self.banco.cursor.execute(f"SELECT * FROM noticias WHERE {nomeId} = {self.pessoa.dadosUsuario['id']}")
     else:
-      print("Você não tem nenhuma publicação")
+      print("Você não tem nenhuma publicação!!")
       return
     noticiasUsuario = self.banco.cursor.fetchall()
 

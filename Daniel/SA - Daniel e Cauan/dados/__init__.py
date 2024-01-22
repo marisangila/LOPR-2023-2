@@ -34,10 +34,10 @@ class Dados:
 
     for i in range(0, len(selectArestas), 2):
       aresta = {
-          "id": selectArestas[i][0],
-          "rua1": selectArestas[i][1],
-          "rua2": selectArestas[i][2],
-          "peso": selectArestas[i][3]
+        "id": selectArestas[i][0],
+        "rua1": selectArestas[i][1],
+        "rua2": selectArestas[i][2],
+        "peso": selectArestas[i][3]
       }
 
       arquivo["arestas"].append(aresta)
@@ -68,6 +68,8 @@ class Dados:
       print(f"[{rua[0]:^5}] - {rua[1]:^40}", end="   ")
       if i % 3 == 0:
         print()
+    
+    return locais
 
   def criarRelacoes(self):
     self.mostrarLocais()

@@ -1,16 +1,15 @@
-from validacoes import verificarExistencia
+from validacoes import verificarExistencia, validar_cpf_cnpj
 from textos import titulo, espacos
 from dijkstra import Grafo
 from conteudo import Conteudo
 from dados import Dados
 from banco import Banco
-from validacoes import verificarValores, validarValoresNaoPrevisiveis, validarValoresPrevisiveis, validarSenhaFortitude
-import os
+from validacoes import verificarValores, validarValoresNaoPrevisiveis, validarValoresPrevisiveis, validarTipo, validarSenhaFortitude, validar_sem_repetir
 from textos import clearr
+from time import sleep
 
 concatenar = ""
 
-#pessoa_global = ''
 class Usuarios:
 
   def __init__(self, tipoUsuario):
@@ -72,21 +71,21 @@ class Usuarios:
 
   def cadastrar(self):
     clearr()
-    self.dadosUsuario["nome"] = validarValoresNaoPrevisiveis(input('Informe o seu nome: \n'), "nome")
+    self.dadosUsuario["nome"] = validarValoresNaoPrevisiveis(input('Nome: \n'), "nome")
     clearr()
 
     tipoUsuario = []
     verificarIdUsuario = ''
     if self.dadosUsuario["tipoUsuario"] == "juridica":
       print("CNPJ:")
-      self.dadosUsuario["cnpj"] = validarValoresPrevisiveis('##.###.###/####-##')
+      self.dadosUsuario["cnpj"] = validar_cpf_cnpj('##.###.###/####-##', "CNPJ")
 
       tipoUsuario = ["NULL", self.dadosUsuario["cnpj"]]
       verificarIdUsuario = "cnpj"
     else:
       print("CPF:")
-      self.dadosUsuario["cpf"] = validarValoresPrevisiveis('###.###.###-##')
-     
+      self.dadosUsuario["cpf"] = validar_cpf_cnpj('###.###.###-##', "CPF") 
+
       tipoUsuario = [self.dadosUsuario["cpf"], "NULL"]
       verificarIdUsuario = "cpf"
     
@@ -102,8 +101,8 @@ class Usuarios:
 
     self.dadosUsuario["senha"] = \
     verificarValores(
-      validarValoresNaoPrevisiveis(input('Informe a senha: \n'), "senha"),
-      validarValoresNaoPrevisiveis(input('Confirme a senha: \n'), "senha"),
+      validarValoresNaoPrevisiveis(validarTipo('Informe a senha: \n', str), "senha"),
+      validarValoresNaoPrevisiveis(validarTipo('Confirme a senha: \n', str), "senha"),
       texto1 = "Informe a senha: ",
       texto2 = "Confirme a senha: "
     )
@@ -130,7 +129,6 @@ class Usuarios:
     clearr()
     pessoaNoticia = Conteudo(pessoa, "noticias")
     pessoaNoticia.acessarConteudo()
-
 
 #################################################################################
 
@@ -189,50 +187,78 @@ class Usuarios:
   #################################################################################
 
   def escolherAbrigo(self, abrigos, rotas, origem):
-    pesoAbrigos = []
-    menorPesoAbrigo = 0
-    for abrigo in abrigos:
-      idAbrigo = abrigo[0]
-      for rota in rotas:
-        if rota[1] != 0 and rota[1][1] != origem[1]:
-          idLocal = rota[1][1][1]
-          if idLocal == idAbrigo:
-            pesoTotalRota = rota[0]
-            nomeAbrigo = rota[1][1][0]
-            pesoAbrigos.append({
-                "id": idLocal,
-                "peso": pesoTotalRota,
-                "nome": nomeAbrigo,
-                "menorPeso": False
-            })
-            if menorPesoAbrigo == 0:
-              menorPesoAbrigo = pesoTotalRota
+    while True:
+      clearr()
+      pesoAbrigos = []
+      menorPesoAbrigo = 0
+      for abrigo in abrigos:
+        idAbrigo = abrigo[0]
+        for rota in rotas:
+          if rota[1] != 0 and rota[1][1] != origem[1]:
+            idLocal = rota[1][1][1]
+            if idLocal == idAbrigo:
+              pesoTotalRota = rota[0]
+              nomeAbrigo = rota[1][1][0]
+              pesoAbrigos.append({
+                  "id": idLocal,
+                  "peso": pesoTotalRota,
+                  "nome": nomeAbrigo,
+                  "menorPeso": False
+              })
+              if menorPesoAbrigo == 0:
+                menorPesoAbrigo = pesoTotalRota
 
-            elif pesoTotalRota <= menorPesoAbrigo:
-              menorPesoAbrigo = pesoTotalRota
+              elif pesoTotalRota <= menorPesoAbrigo:
+                menorPesoAbrigo = pesoTotalRota
 
-    titulo("Abrigos")
-    espacos(1)
-
-    for abrigo in pesoAbrigos:
-      texto = f"[{abrigo['id']}] - Abrigo: {abrigo['nome']} - Distância: {abrigo['peso']} KM".center(
-          80, ' ')
-      print(f"\033[1m{texto}\033[m")
+      titulo("Abrigos")
       espacos(1)
 
-    espacos(2)
-    escolhaUsuario = int(input("Escolha o abrigo: "))
-    return escolhaUsuario
+      opcoesValidas = []
+      for abrigo in pesoAbrigos:
+        texto = f"[{abrigo['id']}] - Abrigo: {abrigo['nome']} - Distância: {abrigo['peso']} KM".center(80, ' ')
+        print((f"\033[1m{texto}\033[m").center(200, ' '))
+        opcoesValidas.append(abrigo['id'])
+        espacos(1)
 
+      espacos(2)
+      try:
+        escolhaUsuario = int(input("Escolha o abrigo: "))
+        if escolhaUsuario in opcoesValidas:
+          return escolhaUsuario
+        clearr()
+        print("Digite uma opcao válida!!")
+      except:
+        clearr()
+        print("Valor inválido!!")
+      sleep(1)
   #################################################################################
 
+  def escolher_origem(self):
+    while True:
+      clearr()
+      titulo("Rotas de Abrigos")
+      dados = Dados()
+      locais = dados.mostrarLocais()
+
+      espacos(2)
+      try: 
+        origemId = int(input("Digite o id da sua localização: "))
+
+        if origemId <= len(locais):
+          return origemId
+        clearr()
+        print("Digite uma opção válida!!")
+      except:
+        clearr()
+        print("Valor inválido!!")
+      
+      sleep(1)
+
+  #################################################################################
+    
   def busqueRotas(self):
-    clearr()
-    titulo("Rotas de Abrigos")
-    dados = Dados()
-    dados.mostrarLocais()
-    espacos(2)
-    origemId = int(input("Digite o id da sua localização: "))
+    origemId = self.escolher_origem()
 
     self.banco.cursor.execute(
         f"SELECT nome, id_locais FROM locais WHERE id_locais = {origemId}")
@@ -245,10 +271,10 @@ class Usuarios:
     caminho = self.mostrarMelhorRota(origem, rotas, destino)
 
     espacos(1)
-    print(caminho.center(80), ' ')
+    print(caminho.center(200, ' '))
     espacos(2)
 
-    input("...")
+    validar_sem_repetir("...")
 
   #################################################################################
 
@@ -265,8 +291,8 @@ class Usuarios:
     if self.dadosUsuario["tipoUsuario"] == "juridica":
       cpf_or_cnpj = 'CNPJ'
 
-    string = (
-f"""
+    print(
+(f"""
 
   Nome: {self.dadosUsuario["nome"]}
   {cpf_or_cnpj}: {self.dadosUsuario["cnpj"]}
@@ -275,8 +301,7 @@ f"""
   Email: {self.dadosUsuario["email"]}
   Tipo de usuário: {self.dadosUsuario["tipoUsuario"]}
   
-""")
+""").center(200, ' '))
 
-    print(string.center(80))
 
-    input("Precione qualquer tecla para continuear... ")
+    validar_sem_repetir("Precione qualquer tecla para continuear... ")

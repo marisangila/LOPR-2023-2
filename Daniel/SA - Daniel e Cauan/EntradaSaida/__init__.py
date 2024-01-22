@@ -1,21 +1,26 @@
-from textos import paragrafos, titulo
-from validacoes import verificarNumero
+from textos import paragrafos, titulo, clearr
+from validacoes import validarTipo
 
 def escolherOpcao(t=None, *opcoes):
+  
+  index = 0
+  if t:
+    titulo(t)
+  for opcao in opcoes:
+    paragrafos(f"{index+1}-{opcao}")
+    index += 1
+    
   while True:
-    index = 0
-    if t:
-      titulo(t)
-    for opcao in opcoes:
-      paragrafos(f"{index+1}-{opcao}")
-      index += 1
-
-    escolhido = 0
-    escolhido = verificarNumero(escolhido,"Sua escolha: ",int)
-    if 0 < escolhido <= len(opcoes):
-      break
-    print("Digite uma opção válida!")
+    try:
+      escolhido = 0
+      escolhido = int(input("Sua escolha: "))
+      if 0 < escolhido <= len(opcoes):
+        break
+      print("Digite uma opção válida!")
+    except:
+      print("Digite um valor válido!")
   return escolhido
+
 
 
 def escolhaEntao(opcao, funcoes, parametros=None):

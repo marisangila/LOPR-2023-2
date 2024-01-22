@@ -3,8 +3,10 @@ from re import compile, match
 from readchar import readkey, key
 from textos import clearr
 
+banco = Banco()
+
 def validarUsuario(pessoa):
-  banco = Banco()
+
   usuarios = banco.select("usuarios","nome")
   
   if pessoa.dadosUsuario['nome'] in usuarios:
@@ -32,27 +34,26 @@ def verificarExistencia(list,dado, mensagem=None):
         return True
     return False
 
-def verificarNumero(valor,msg,tipo):
+def validarTipo(msg,tipo):
   casoInvalido = True
-  while casoInvalido:
-    casoInvalido = False
+  while casoInvalido:    
     try:
       valor = tipo(input(msg))
+      casoInvalido = False
     except:
-      casoInvalido = True
-      clearr()
-      print("ERRO!! Valor inválido.")
+      print(f"ERRO!! valor inválido.")
   return valor
 
 def validarValoresNaoPrevisiveis(valor, chave):
   mascaras = \
   {
-    'nome':{'mask':r'(\s+)?([a-zA-Z]{3,30}\s?)+$', 'message':"Digite somente caracteres alpha(a-z or A-Z)."},
-    'email':{'mask':r'(\s+)?([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-_]+\.[a-zA-Z.]+)$', 'message':'Digite um email válido!(ex: daniel@gmail.com).'},
+    'nome':{'mask':r'(\s+)?([a-zA-Z]{3,30}\s?)+', 'message':"Digite somente caracteres alpha(a-z or A-Z)."},
+    'email':{'mask':r'(\s+)?([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-_]+\.[a-zA-Z.]+)', 'message':'Digite um email válido!(ex: daniel@gmail.com).'},
     #'senha':{'mask':r'(?=.*[\W])(?=.*[a-zA-Z])(?=.*[0-9]){8,20}', 'message':'Sua senha deve ter pelo menos: \n1 caractere especial(@#$%*...)\n1 letra maiúscila\n1 letra minúscula\n1 número'},
     'senha':{'mask':r'([^\s]){8,20}', 'message':'Sua senha não deve conter espaços e deve ter pelo menos 8 caracteres!'},
-    'titulo':{'mask':r'(\s+)?([a-zA-Z0-9]{3,30}\s?)+$', 'message':"Digite apenas caracteres alfanuméricos(a-z or A-Z or 0-9)."},
-    'categoria':{'mask':r'(\s+)?([a-zA-Z]{3,30}\s?)+$', 'message':"Digite somente caracteres alpha(a-z or A-Z)."}
+    'titulo':{'mask':r'(\s+)?([a-zA-Z0-9]{3,30}\s?)+', 'message':"Digite apenas caracteres alfanuméricos(a-z or A-Z or 0-9)."},
+    'categoria':{'mask':r'(\s+)?([a-zA-Z]{3,30}\s?)+', 'message':"Digite somente caracteres alpha(a-z or A-Z)."},
+    'conteudo':{'mask':r'(\s+)?([a-zA-Z0-9\W]{10,}\s?)+', 'message':"Sua ocorrência deve ter pelo menos 10 caracteres!!."},
   }
 
   def verifyValues(text, pattern, correct_text, nome_campo):
@@ -63,7 +64,7 @@ def validarValoresNaoPrevisiveis(valor, chave):
     clearr()
     print(f"\n\033[31;1mERROR! {correct_text}\033[m\n")    
   
-    text = input(f"Digite {nome_campo} novamente: ")
+    text = validarTipo(f"Digite {nome_campo} novamente: \n", str)
   
     return verifyValues(text, pattern, correct_text, nome_campo)
 
@@ -133,3 +134,50 @@ def validarSenhaFortitude(senha):
       achouSimbolo = True
       
   return achouNumero and achouMaiuscula and achouMinuscula and achouSimbolo
+
+
+def validar_cpf_cnpj(mask, cpf_or_cnpj):
+  global banco
+
+  
+  while True:
+    try:
+      valor = validarValoresPrevisiveis(mask)
+
+      banco.cursor.execute(f"SELECT cpf FROM usuarios WHERE cpf = {valor}")
+      jaExiste = banco.cursor.fetchall()
+    
+      if not len(jaExiste) > 0:
+        return valor
+
+
+      print(f"{cpf_or_cnpj} já cadastrado!")
+    except Exception:
+       print("Digite um valor válido")  
+    
+def validar_sem_repetir(texto):
+  try:
+    valor = input(texto)
+    return valor 
+  except:
+    return valor 
+
+def validar_limite(limite, texto):
+    while True:
+      valor = validarTipo(texto, int)
+
+      if valor <= limite:
+         return valor
+      clearr()
+      print("ERRO! Digite uma um opção válida.")
+          
+
+def validar_sem_clear(texto, tipo):
+  while True:
+    try:
+      return tipo(input(texto))
+    except:
+      print("Digite um valor válido")
+
+    
+    

@@ -2,14 +2,14 @@ import platform
 import os
 
 def titulo(texto):
-  print("-="*40)
-  print(texto.center(80, ' '))
-  print("-=" * 40)
+  print(("-="*40).center(200, ' '))
+  print(texto.center(200, ' '))
+  print(("-=" * 40).center(200, ' '))
 
 def paragrafos(texto):
   texto = texto.split('\n')
   for t in texto:
-     print(t.center(80))
+     print(t.center(200))
 
 def espacos(int):
   for i in range(int):
@@ -34,27 +34,27 @@ def quebrarLinhas(texto, limite):
 
 def noticiaTexto(titulo,data,autor,resume,id):
   print()
-  print("="*80)
+  print(("="*80).center(200, ' '))
   paragrafos(f"\033[1m{quebrarLinhas(titulo,77)}\033[m")
-  print("="*80)
-  print(quebrarLinhas(f" data: {data}, autor: {autor} ",77), end=" "*35)
-  print(f"\033[1m[{id}]\033[m")
+  print(("="*80).center(200, ' '))
+  print(quebrarLinhas(f" data: {data}, autor: {autor} ",77).center(200, ' '), end=" "*35)
+  print((f"\033[1m[{id}]\033[m").center(240, ' '))
   espacos(3)
-  print(quebrarLinhas(resume,77))
-  print("-"*80)
+  print(quebrarLinhas(resume,77).center(200, ' '))
+  print(("-"*80).center(200, ' '))
 
 def tutorialTexto(titulo,resume,link,data,categoria,id):
   print()
-  print("="*80)
-  paragrafos(f"\033[1m{(quebrarLinhas(titulo,77))}\033[m")
-  print("="*80)
-  print(quebrarLinhas(f" data: {data}",77), end=" "*35)
-  print(f" categoria: {categoria}")
-  print(f"\033[1m[{id}]\033[m")
+  print(("="*80).center(200, ' '))
+  paragrafos(f"\033[1m{(quebrarLinhas(titulo,77))}\033[m".center(200, ' '))
+  print(("="*80).center(200, ' '))
+  print(quebrarLinhas(f" data: {data}",77).center(200, ' '), end=" "*35)
+  print(f" categoria: {categoria}".center(110, ' '))
+  print(f"\033[1m[{id}]\033[m".center(280, ' '))
   espacos(3)
-  print(quebrarLinhas(resume,77))
-  print(f"link: \033[1m[{link}]\033[m")
-  print("-"*80)
+  print(quebrarLinhas(resume,77).center(200, ' '))
+  print(f"link: \033[1m[{link}]\033[m".center(155, ' '))
+  print(("-"*80).center(200, ' '))
 
 def clearr():
     if platform.system() == "Windows":

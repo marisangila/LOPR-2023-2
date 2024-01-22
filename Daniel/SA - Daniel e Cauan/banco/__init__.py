@@ -1,7 +1,6 @@
 import sqlite3
 
 class Banco:
-
   def __init__(self):
     self.banco = sqlite3.connect('SAER.db')
     self.cursor = self.banco.cursor()

@@ -1,9 +1,9 @@
-from EntradaSaida import escolherOpcao, escolhaEntao, criarMensagem
-from email_chamada import enviarEmail
+from EntradaSaida import escolherOpcao, escolhaEntao
+from tickets_emergencia import enviarEmail
 from usuarios import Usuarios
 from chat.conexao import chamar_atendente
 from textos import clearr
-import os
+from tickets_emergencia import Ticket
 
 
 class PessoaFisica(Usuarios):
@@ -34,13 +34,23 @@ class PessoaFisica(Usuarios):
 
   #################################################################################
   
-  def mandarEmail(self):
+  def enviar_incidente(self):
+    ticket = Ticket(self.dadosUsuario["id"])
+    mensagem_email = ticket.criar_ticket(self.dadosUsuario["id"])
+    print("Seu chamado já foi enviado para a nossa equipe!!")
+    
+    if mensagem_email:
+      self.mandarEmail(mensagem_email)
+
+  #################################################################################
+  
+  def mandarEmail(self, mensagem):
     clearr()
-    mensagem = criarMensagem()
+    mensagem = mensagem
     if (not (self.dadosUsuario['email']) or not (self.dadosUsuario['senhaDoEmail'])):
       while True:
         clearr()
-        print('Dados não cadastrados')
+        print('Dados não cadastrados!!')
         self.cadastrarEmail()
         if (self.dadosUsuario['email'] and self.dadosUsuario['senhaDoEmail']):
           break
@@ -60,7 +70,7 @@ class PessoaFisica(Usuarios):
                             "portal de notícias", "Tutoriais",
                             "Rotas de abrigos", "Atendimento", "Sair")
       escolhaEntao(opcao, [
-          self.mandarEmail, self.verPerfil, self.opcaoNoticias,
+          self.enviar_incidente, self.verPerfil, self.opcaoNoticias,
           self.opcaoTutoriais, self.busqueRotas, chamar_atendente], 
           [[], [], [self], [self], [], [self.dadosUsuario["nome"]]])
       
