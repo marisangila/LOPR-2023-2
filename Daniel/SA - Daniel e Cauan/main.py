@@ -2,6 +2,7 @@ from pessoaFisica import PessoaFisica
 from pessoaJuridica import Administrador
 from EntradaSaida import escolherOpcao, escolhaEntao
 from textos import clearr
+from cores import Colors
 
 def EscolhaAdministrador():
   return [Administrador("juridica"), "cnpj"]
@@ -25,9 +26,9 @@ def escolherInicial(pessoa, tipoPessoa):
 
 
 def main():
-  global pessoa_global
+  color = Colors()
 
-  print(
+  print(color.PATTERN +
 """
 
                                                                               ::::::::      :::     :::::::::: :::::::::
@@ -38,7 +39,7 @@ def main():
                                                                               #+#    #+# #+#     #+# #+#        #+#    #+#
                                                                               ########  ###     ### ########## ###    ###
                                              
-""")
+""" + color.END)
   
   input("\n\n...")
   clearr()

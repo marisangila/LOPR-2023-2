@@ -7,8 +7,11 @@ from banco import Banco
 from validacoes import verificarValores, validarValoresNaoPrevisiveis, validarValoresPrevisiveis, validarTipo, validarSenhaFortitude, validar_sem_repetir
 from textos import clearr
 from time import sleep
+from cores import Colors
 
 concatenar = ""
+
+cores = Colors()
 
 class Usuarios:
 
@@ -291,17 +294,64 @@ class Usuarios:
     if self.dadosUsuario["tipoUsuario"] == "juridica":
       cpf_or_cnpj = 'CNPJ'
 
-    print(
-(f"""
+#     print(
+# (f"""
 
-  Nome: {self.dadosUsuario["nome"]}
-  {cpf_or_cnpj}: {self.dadosUsuario["cnpj"]}
-  CEP: {self.dadosUsuario["cep"]}
-  Telefone: {self.dadosUsuario["telefone"]}
-  Email: {self.dadosUsuario["email"]}
-  Tipo de usuário: {self.dadosUsuario["tipoUsuario"]}
+#   Nome: {self.dadosUsuario["nome"]}
+#   {cpf_or_cnpj}: {self.dadosUsuario["cnpj"]}
+#   CEP: {self.dadosUsuario["cep"]}
+#   Telefone: {self.dadosUsuario["telefone"]}
+#   Email: {self.dadosUsuario["email"]}
+#   Tipo de usuário: {self.dadosUsuario["tipoUsuario"]}
   
-""").center(200, ' '))
+# """).center(200, ' '))
+      
+      
+    print(cores.PATTERN +
+f"""
+                                                                                                                                                      
+                                                                          ________________________________________________________                                                             
+                                                                        |                                                          |
+                                                                        |                                                          |
+                                                                        |                       loxxxxolol,                        |
+                                                                        |                     ;nkNMMMMMMMMNk;                      |
+                                                                        |                    ,cXMMMMMMMMMMMMXc                     |
+                                                                        |                    'OMMMMMMMMMMMMMMO'                    |
+                                                                        |                    'OMMMMMMMMMMMMMMO'                    |
+                                                                        |                     'cNMKddO00OddKMX                     |
+                                                                        |                       :OKxlcccclxK                       |
+                                                                        |                         oxkkkkxo                         |
+                                                                        |                     ::okOdlllllldkko.                    |
+                                                                        |                   ;xXMMMMMMMMMMMMMMWW                    |
+                                                                        |                  :KWMMMMMMMMMMMMMMMMMNK                  |
+                                                                        |                 ;KMMMMMMMMMMMMMMMMMMMMNl                 |
+                                                                        |                                                          |
+                                                                        |                                                          |
+                                                                        |                                                          |                                                       
+                                                                        |               {f'{cores.BOLD}{self.dadosUsuario['nome']:^30}{cores.END}'}             |
+                                                                        |                                                          |
+                                                                        |                                                          |
+                                                                        |               {"CPF: "+self.dadosUsuario["cpf"]:^30}             |
+                                                                        |               {"-"*((len(self.dadosUsuario['cpf'])+5)):^30}             |
+                                                                        |                                                          |
+                                                                        |               {"CEP: "+self.dadosUsuario["cep"]:^30}             |
+                                                                        |               {"-"*((len(self.dadosUsuario['cep'])+5)):^30}             |
+                                                                        |                                                          |
+                                                                        |               {"TELEFONE: "+self.dadosUsuario["telefone"]:^30}             |
+                                                                        |               {"-"*((len(self.dadosUsuario['telefone'])+9)):^30}             |
+                                                                        |                                                          |  
+                                                                        |               {"EMAIL: "+self.dadosUsuario["email"]:^30}             |
+                                                                        |               {"-"*((len(self.dadosUsuario['telefone'])+7)):^30}             |     
+                                                                        |                                                          |
+                                                                        |                                                          |
+                                                                        |                                                          |
+                                                                        |               {self.dadosUsuario["tipoUsuario"].upper():^30}             |
+                                                                        |                                                          | 
+                                                                        |                                                          |
+                                                                          ________________________________________________________ 
 
 
+
+
+""" + cores.END)
     validar_sem_repetir("Precione qualquer tecla para continuear... ")

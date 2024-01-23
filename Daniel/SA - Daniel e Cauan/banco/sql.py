@@ -106,6 +106,11 @@ cursor = banco.cursor()
 
 # cursor.execute(""" DELETE FROM categoria_incidente """)
 
+# cursor.execute(""" SELECT * FROM chamada_emergencia """)
+# print(cursor.fetchall())
+# cursor.execute(""" DELETE FROM chamada_emergencia """)
+
+
 print("deu bom!!")
 banco.commit()
 banco.close()

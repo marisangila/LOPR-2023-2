@@ -6,9 +6,12 @@ from banco import Banco
 from textos import clearr
 from validacoes import validar_sem_repetir
 from time import sleep
+import os
 
 def criar_processo(arquivo):
-   
+    arquivo = os.path.abspath(arquivo)
+
+    print(arquivo)
     if platform.system() == "Windows":
         new_window_command = "cmd.exe /c start".split()
     else:
@@ -16,7 +19,8 @@ def criar_processo(arquivo):
 
     echo = [sys.executable, arquivo]
 
-    processes = Popen(new_window_command + echo)
+    programa = "git bash"
+    processes = Popen(new_window_command + [programa] + echo, shell=True)
 
     processes.wait()
     processes.terminate()
@@ -61,10 +65,13 @@ def chamar_atendente(nome):
     with open('nome_usuario.txt', 'w') as arq:
         arq.write(nome)
 
+    print(nome)
+    sleep(1)
     atendente = escolher_atendente()
 
     if atendente:
         criar_processo("chat/server.py")
+        sleep(1)
         criar_processo("chat/client.py")
         cliente(atendente[0][0], atendente[1])
 

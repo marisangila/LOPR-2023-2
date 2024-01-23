@@ -38,9 +38,8 @@ class Administrador(Usuarios):
   #################################################################################
   
   def verOcorrencias(self):
-    ticket = Ticket(self.dadosUsuario["id"])  
-    ticket.mostrar_tickets()
-    input("...")
+    ticket = Ticket()  
+    ticket.inspecionar_tickets()
     sleep(2)
 
   #################################################################################
@@ -51,5 +50,5 @@ class Administrador(Usuarios):
       clearr()
       opcao = escolherOpcao("Menu", "Chamados de Emergência", "Ver perfil", "Tutoriais", "Portal de Notícias", "Sair")
       escolhaEntao(opcao,
-          [self.verOcorrencias, self.verPerfil, self.opcaoTutoriais, self.opcaoNoticias],
-          [[], [], [self], [self]])
+                  [self.verOcorrencias, self.verPerfil, self.opcaoTutoriais, self.opcaoNoticias],
+                  [[], [], [self], [self]])

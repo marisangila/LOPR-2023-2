@@ -35,7 +35,7 @@ class PessoaFisica(Usuarios):
   #################################################################################
   
   def enviar_incidente(self):
-    ticket = Ticket(self.dadosUsuario["id"])
+    ticket = Ticket()
     mensagem_email = ticket.criar_ticket(self.dadosUsuario["id"])
     print("Seu chamado já foi enviado para a nossa equipe!!")
     
@@ -69,6 +69,7 @@ class PessoaFisica(Usuarios):
       opcao = escolherOpcao("Menu", "emergência", "perfil",
                             "portal de notícias", "Tutoriais",
                             "Rotas de abrigos", "Atendimento", "Sair")
+      
       escolhaEntao(opcao, [
           self.enviar_incidente, self.verPerfil, self.opcaoNoticias,
           self.opcaoTutoriais, self.busqueRotas, chamar_atendente], 

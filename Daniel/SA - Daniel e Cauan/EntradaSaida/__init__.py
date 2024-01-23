@@ -1,13 +1,17 @@
-from textos import paragrafos, titulo, clearr
+from textos import paragrafos, titulo
 from validacoes import validarTipo
+from cores import Colors
+
+cores = Colors
 
 def escolherOpcao(t=None, *opcoes):
-  
+  global cores
+
   index = 0
   if t:
     titulo(t)
   for opcao in opcoes:
-    paragrafos(f"{index+1}-{opcao}")
+    paragrafos(f"[{index+1}]  -  {opcao}")
     index += 1
     
   while True:
@@ -16,9 +20,9 @@ def escolherOpcao(t=None, *opcoes):
       escolhido = int(input("Sua escolha: "))
       if 0 < escolhido <= len(opcoes):
         break
-      print("Digite uma opção válida!")
+      print(cores.FAIL + "\nDigite uma opção válida!\n" + cores.END)
     except:
-      print("Digite um valor válido!")
+      print(cores.FAIL + "\nDigite um valor válido!\n" + cores.END)
   return escolhido
 
 

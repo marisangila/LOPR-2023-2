@@ -1,15 +1,21 @@
 import platform
 import os
+from cores import Colors
+
+cores = Colors
+
+def centralizar(texto):
+  return texto.center(180 + len(texto))
 
 def titulo(texto):
-  print(("-="*40).center(200, ' '))
-  print(texto.center(200, ' '))
-  print(("-=" * 40).center(200, ' '))
+  print(f"{cores.PATTERN} {(f"-="*40).center(200, ' ')} {cores.END}")
+  print(f"{cores.BOLD}{texto.center(200, ' ')}{cores.END}")
+  print(f"{cores.PATTERN} {(f"-="*40).center(200, ' ')} {cores.END}\n\n")
 
 def paragrafos(texto):
   texto = texto.split('\n')
   for t in texto:
-     print(t.center(200))
+     print((f"{cores.BOLD}{centralizar(t)}{cores.END}"))
 
 def espacos(int):
   for i in range(int):
@@ -21,14 +27,14 @@ def quebrarLinhas(texto, limite):
     linhaAtual = (str(" "*5))
 
     for palavra in palavras:
-        if len(linhaAtual) + len(palavra) <= limite:
-            linhaAtual += palavra + " "
-        else:
-            linhas.append(linhaAtual.rstrip())
-            linhaAtual = palavra + " "
+      if len(linhaAtual) + len(palavra) <= limite:
+          linhaAtual += palavra + " "
+      else:
+          linhas.append(linhaAtual.rstrip())
+          linhaAtual = palavra + " "
 
     if linhaAtual:
-        linhas.append(linhaAtual.rstrip())
+      linhas.append(linhaAtual.rstrip())
 
     return "\n".join(linhas)
 

@@ -4,6 +4,8 @@ from dados import Dados
 from textos import clearr, espacos
 from textos import titulo
 from time import sleep
+from EntradaSaida import escolhaEntao, escolherOpcao
+from validacoes import *
 
 import smtplib
 from email.mime.text import MIMEText
@@ -32,7 +34,7 @@ def enviarEmail(self, corpoDoEmail):
 
 
 class Ticket:
-  def __init__(self, pessoa_id):
+  def __init__(self):
     self.banco = Banco()
     self.banco.cursor.execute(f"SELECT * FROM chamada_emergencia")
     self.tickets = self.banco.cursor.fetchall()
@@ -50,14 +52,16 @@ class Ticket:
 
       if categoria <= len(categorias):
         break
-
+    
     return categoria
+
 
   def existe_chamado(self, pessoa_id):
     for ticket in self.tickets:
       if pessoa_id == str(ticket[3]):
         return False
     return True  
+
 
   def criar_ticket(self, pessoa_id):
     clearr()
@@ -84,44 +88,93 @@ class Ticket:
       self.banco.cursor.execute(f"SELECT * FROM chamada_emergencia")
       self.tickets = self.banco.cursor.fetchall()
 
-      return localizacao + '\n' + ocorrencia + '\n' + categoria + '\n'
+      print(localizacao)
+      print(ocorrencia)
+      print(categoria)
+
+      return f"{localizacao}\n {ocorrencia}\n {categoria}"
     
     print("Sua chamada já foi registrada anteriormente!!")
     sleep(2)
     return False
 
+
+  def inspecionar_tickets(self):
+    clearr()
+    ticket_id = self.mostrar_tickets()
+    if ticket_id:
+      opcao = 0
+      while opcao != 2:
+        
+        opcao = escolherOpcao(None, "Deletar Tickets", "Voltar")
+
+        escolhaEntao(opcao, [self.deletar_ticket])
+    else:
+      print("Não há chamadados no momento!!")
+      sleep(1)
+
+
+  def deletar_ticket(self):
+    clearr()
+    tickets = self.mostrar_tickets()
+
+    id_correto = False
+    resposta_id_usuario = None
+    while not id_correto:
+      resposta_id_usuario = validar_sem_clear("Digite o id do chamado a ser deletado: \n", int)
+      for ticket in tickets:
+        if resposta_id_usuario == ticket[0]:
+          id_correto = True
+
+
+    self.banco.delete("chamada_emergencia", resposta_id_usuario, "id_ticket")
+
+    clearr()
+    print("Ticket Deletado com sucesso!!")
+    sleep(1)
+
+
   def mostrar_tickets(self):
     titulo("Chamadas de Emergência")
-#     for ticket in self.tickets:
-#       print(
-# f"""
+    
+    for ticket in self.tickets:
+      self.banco.cursor.execute(f"SELECT us.nome, c.nome_categoria FROM usuarios as us JOIN categoria_incidente as c ON us.id_usuario = {ticket[3]} AND c.id_categoria_incidente = {ticket[4]};")
+      nome_categoria = self.banco.cursor.fetchall()
+      
+      texto = ticket[2]
+      ocorrencia = split_ocorrencia(texto, 50)
 
-#                                                         __________________________________________________________________
-#                                                       |                                                                      
-#                                                       |                           {}
-#                                                       |
-#                                                       |
-#                                                       |
-#                                                       |
-#                                                       |
-#                                                       |
-#                                                       |
-#                                                       |
-#                                                       |
-#                                                       |
-#                                                       |
-#                                                       |
-                                                      
-                                                      
+      print(
+f"""
+                                                                  ID: [{ticket[0]}]
+                                                                    ___________________________________________________________________
+                                                                  |                                                                     |                                                                        
+                                                                  |   [{nome_categoria[0][0]:^35}]  {nome_categoria[0][1]:^25}  |
+                                                                  |                                                                     |
+                                                                  |                                                                     |
+                                                                  |{ticket[1]:^50}                   |
+                                                                  |                                                                     |
+                                                                  |                                                                     |
+                                                                  |                                                                     |
+                                                                  |                                                                     |
+                                                                  |         {ocorrencia[0]:^50}          |
+                                                                  |         {ocorrencia[1]:^50}          |
+                                                                  |         {ocorrencia[2]:^50}          |
+                                                                  |         {ocorrencia[3]:^50}          |
+                                                                  |         {ocorrencia[4]:^50}          |
+                                                                    ____________________________________________________________________
+                                                                                                        
 
+""")
+      if self.tickets[-1] == ticket:
+        return self.tickets
+    
 
-# """)  
-    # for ticket in self.tickets:
-    #   print(f"{ticket[0]}".center(200, ' '))
-    #   print(f"{ticket[1]}".center(200, ' '))
-    #   print(f"{ticket[2]}".center(200, ' '))
-    #   print(f"{ticket[3]}".center(200, ' '))
-  input("...") 
+def split_ocorrencia(texto, tamanho):
+  texto = [texto[i:i+tamanho] for i in range(0, len(texto), tamanho)]
 
-# objeto = Ticket()
-# objeto.mostrar_tickets()
+  if len(texto) < 5:
+    for i in range(5-len(texto)):
+      texto.append('')
+
+  return texto
