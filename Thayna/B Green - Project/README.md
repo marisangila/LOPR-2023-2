@@ -7,8 +7,8 @@
 > [!TIP]
 > Lembre-se de usar a versão tal do JDK .
 
-![Java](https://img.shields.io/badge/JDK-768732?style=for-the-badge&logo=jdk&logo) ↳
-<a href="https://git.io/typing-svg"> Clique aqui para baixar o JDK. </a>
+![JDK 1.8.0_351](https://img.shields.io/badge/JDK-1.8.0_351-768732?style=for-the-badge&logo=jdk-1.8.0_351&logo) ↳
+<a href="https://web.archive.org/web/20130413163046/http://java.com/en/download/manual.jsp"> Clique aqui para baixar o JDK. </a>
 
 
 <div align="left"> <h1> MANUAL DO VISITANTE </h1> </div>
