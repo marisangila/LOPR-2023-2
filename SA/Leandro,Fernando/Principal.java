@@ -211,7 +211,7 @@ public class Principal {
                         try {
                             Recursos.limparTela();
                             EntradaSaida.exibirUsuarioConectado(bancoDeDados);
-                            exclusao_edicao = EntradaSaida.armazenarInt("\n[1] Editar\n\n[2] Excluir\naperte 2 vezes para confirmar \n\n[3] Voltar");
+                            exclusao_edicao = EntradaSaida.armazenarInt("\n[1] Editar\n[2] Excluir\n[3] Voltar");
                             switch (exclusao_edicao) {
                                 case 1:
                                     String usuarioSuporte = "";
@@ -239,14 +239,15 @@ public class Principal {
                                     bancoDeDados.definirEdicaoUsuario(bancoDeDados.usuarioAtual, usuarioSuporte);
                                     break;
                                 case 2:
-                                    bancoDeDados.procurarEExcluirUsuario();
                                     verifica = false;
                                     break;
                                 case 3:
                                     verifica = false;
-                                    break;
                                 default:
                                     break;
+                            }
+                            if(!verifica && exclusao_edicao==2){
+                                bancoDeDados.procurarEExcluirUsuario();
                             }
                         } catch (Exception e) {
                             exclusao_edicao = 0;
