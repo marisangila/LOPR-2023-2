@@ -7,11 +7,11 @@ from banco import Banco
 from validacoes import verificarValores, validarValoresNaoPrevisiveis, validarValoresPrevisiveis, validarTipo, validarSenhaFortitude, validar_sem_repetir
 from textos import clearr
 from time import sleep
-from cores import Colors
+from cores import Cores
 
 concatenar = ""
 
-cores = Colors()
+cor = Cores()
 
 class Usuarios:
 
@@ -65,7 +65,6 @@ class Usuarios:
 
           self.fortitudeSenha = validarSenhaFortitude(self.dadosUsuario["senha"])
           
-          #pessoa_global = self.dadosUsuario["nome"]
           return True
     print("CPF ou senha incorretos!!")
     return False
@@ -110,6 +109,8 @@ class Usuarios:
       texto2 = "Confirme a senha: "
     )
 
+    self.fortitudeSenha = validarSenhaFortitude(self.dadosUsuario["senha"])
+
     self.banco.insert("usuarios", [
         self.dadosUsuario["nome"], tipoUsuario[0], tipoUsuario[1],
         self.dadosUsuario["cep"], self.dadosUsuario["senha"],
@@ -121,8 +122,6 @@ class Usuarios:
         f"SELECT id_usuario from usuarios WHERE {verificarIdUsuario} = {self.dadosUsuario[verificarIdUsuario]}"
     )
     self.dadosUsuario["id"] = self.banco.cursor.fetchone()[0]
-
-    self.fortitudeSenha = validarSenhaFortitude(self.dadosUsuario["senha"])
 
     return True
 
@@ -144,7 +143,8 @@ class Usuarios:
 
   def trocarNumero(self):
     clearr()
-    self.dadosUsuario["telefone"] = input('Informe o número: ')
+    print("Informe seu novo telefone: ")
+    self.dadosUsuario["telefone"] = validarValoresPrevisiveis("(##)#####-####")
 
   #################################################################################
   #para pessoa f
@@ -293,42 +293,29 @@ class Usuarios:
     cpf_or_cnpj = 'CPF'
     if self.dadosUsuario["tipoUsuario"] == "juridica":
       cpf_or_cnpj = 'CNPJ'
-
-#     print(
-# (f"""
-
-#   Nome: {self.dadosUsuario["nome"]}
-#   {cpf_or_cnpj}: {self.dadosUsuario["cnpj"]}
-#   CEP: {self.dadosUsuario["cep"]}
-#   Telefone: {self.dadosUsuario["telefone"]}
-#   Email: {self.dadosUsuario["email"]}
-#   Tipo de usuário: {self.dadosUsuario["tipoUsuario"]}
-  
-# """).center(200, ' '))
       
-      
-    print(cores.PATTERN +
+    print(cor.PATTERN +
 f"""
                                                                                                                                                       
                                                                           ________________________________________________________                                                             
                                                                         |                                                          |
                                                                         |                                                          |
-                                                                        |                       loxxxxolol,                        |
+                                                                        |                        MMMMMMMMM                         |
                                                                         |                     ;nkNMMMMMMMMNk;                      |
                                                                         |                    ,cXMMMMMMMMMMMMXc                     |
                                                                         |                    'OMMMMMMMMMMMMMMO'                    |
                                                                         |                    'OMMMMMMMMMMMMMMO'                    |
-                                                                        |                     'cNMKddO00OddKMX                     |
-                                                                        |                       :OKxlcccclxK                       |
+                                                                        |                     'cNMMMMMMMMMMMc'                     |
+                                                                        |                       :OMMMMMMMMMK                       |
                                                                         |                         oxkkkkxo                         |
-                                                                        |                     ::okOdlllllldkko.                    |
+                                                                        |                     :MMMMMMMMMMMMMM:                     |
                                                                         |                   ;xXMMMMMMMMMMMMMMWW                    |
                                                                         |                  :KWMMMMMMMMMMMMMMMMMNK                  |
                                                                         |                 ;KMMMMMMMMMMMMMMMMMMMMNl                 |
                                                                         |                                                          |
                                                                         |                                                          |
                                                                         |                                                          |                                                       
-                                                                        |               {f'{cores.BOLD}{self.dadosUsuario['nome']:^30}{cores.END}'}             |
+                                                                        |               {f'{cor.BOLD}{self.dadosUsuario['nome']:^30}{cor.END}'}             |
                                                                         |                                                          |
                                                                         |                                                          |
                                                                         |               {"CPF: "+self.dadosUsuario["cpf"]:^30}             |
@@ -353,5 +340,5 @@ f"""
 
 
 
-""" + cores.END)
+""" + cor.END)
     validar_sem_repetir("Precione qualquer tecla para continuear... ")

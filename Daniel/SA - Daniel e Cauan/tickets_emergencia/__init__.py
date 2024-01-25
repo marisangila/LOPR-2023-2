@@ -6,9 +6,12 @@ from textos import titulo
 from time import sleep
 from EntradaSaida import escolhaEntao, escolherOpcao
 from validacoes import *
+from cores import Cores
 
 import smtplib
 from email.mime.text import MIMEText
+
+cor = Cores()
 
 # zbww lxzl idwm rzme
 def enviarEmail(self, corpoDoEmail):
@@ -75,7 +78,7 @@ class Ticket:
       origemId = validar_sem_clear("Digite o id da sua localização: \n", int)
       if origemId <= len(locais):
         break
-      print("Digite uma opção válida!!\n")  
+      print(f"\n{cor.FAIL}Digite uma opção válida!!{cor.END}\n")  
 
     
     localizacao = locais[origemId][1]
@@ -94,7 +97,7 @@ class Ticket:
 
       return f"{localizacao}\n {ocorrencia}\n {categoria}"
     
-    print("Sua chamada já foi registrada anteriormente!!")
+    print(f"\n{cor.FAIL}Sua chamada já foi registrada anteriormente!!{cor.END}\n")
     sleep(2)
     return False
 
@@ -110,7 +113,7 @@ class Ticket:
 
         escolhaEntao(opcao, [self.deletar_ticket])
     else:
-      print("Não há chamadados no momento!!")
+      print(f"{cor.FAIL}Não há chamadados no momento!!{cor.END}")
       sleep(1)
 
 
@@ -125,12 +128,15 @@ class Ticket:
       for ticket in tickets:
         if resposta_id_usuario == ticket[0]:
           id_correto = True
+      
+      if not id_correto:
+        print(f"\n{cor.FAIL}Digite uma opção válida!!{cor.END}\n")
 
 
     self.banco.delete("chamada_emergencia", resposta_id_usuario, "id_ticket")
 
     clearr()
-    print("Ticket Deletado com sucesso!!")
+    print(f"{cor.OKBLUE}Ticket Deletado com sucesso!!{cor.END}")
     sleep(1)
 
 
@@ -162,7 +168,7 @@ f"""
                                                                   |         {ocorrencia[2]:^50}          |
                                                                   |         {ocorrencia[3]:^50}          |
                                                                   |         {ocorrencia[4]:^50}          |
-                                                                    ____________________________________________________________________
+                                                                  | ____________________________________________________________________|
                                                                                                         
 
 """)

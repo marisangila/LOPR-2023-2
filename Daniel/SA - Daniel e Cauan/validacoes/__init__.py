@@ -2,11 +2,12 @@ from banco import Banco
 from re import compile, match
 from readchar import readkey, key
 from textos import clearr
+from cores import Cores
 
+cor = Cores()
 banco = Banco()
 
 def validarUsuario(pessoa):
-
   usuarios = banco.select("usuarios","nome")
   
   if pessoa.dadosUsuario['nome'] in usuarios:
@@ -16,7 +17,7 @@ def validarUsuario(pessoa):
 def verificarValores(valor1, valor2, texto1=None, texto2=None):
   while valor1 != valor2:
     clearr()
-    print("ERRO!! Valores não conferem.")
+    print(f"\n{cor.FAIL}ERRO!! Valores não conferem. {cor.END}\n")
 
     valor1 = input(f"{texto1}")
     
@@ -41,19 +42,20 @@ def validarTipo(msg,tipo):
       valor = tipo(input(msg))
       casoInvalido = False
     except:
-      print(f"ERRO!! valor inválido.")
+      print(f"\n{cor.FAIL}ERRO!! valor inválido.{cor.FAIL}\n")
   return valor
 
 def validarValoresNaoPrevisiveis(valor, chave):
   mascaras = \
   {
-    'nome':{'mask':r'(\s+)?([a-zA-Z]{3,30}\s?)+', 'message':"Digite somente caracteres alpha(a-z or A-Z)."},
-    'email':{'mask':r'(\s+)?([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-_]+\.[a-zA-Z.]+)', 'message':'Digite um email válido!(ex: daniel@gmail.com).'},
+    'nome':{'mask':r'(\s+)?([a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]{1,30}\s?)+', 'message':"Digite somente caracteres alpha(a-z or A-Z)!!."},
+    'email':{'mask':r'(\s+)?([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-_]+\.[a-zA-Z.]+)', 'message':'Digite um email válido(ex: daniel@gmail.com)!!.'},
     #'senha':{'mask':r'(?=.*[\W])(?=.*[a-zA-Z])(?=.*[0-9]){8,20}', 'message':'Sua senha deve ter pelo menos: \n1 caractere especial(@#$%*...)\n1 letra maiúscila\n1 letra minúscula\n1 número'},
-    'senha':{'mask':r'([^\s]){8,20}', 'message':'Sua senha não deve conter espaços e deve ter pelo menos 8 caracteres!'},
-    'titulo':{'mask':r'(\s+)?([a-zA-Z0-9]{3,30}\s?)+', 'message':"Digite apenas caracteres alfanuméricos(a-z or A-Z or 0-9)."},
-    'categoria':{'mask':r'(\s+)?([a-zA-Z]{3,30}\s?)+', 'message':"Digite somente caracteres alpha(a-z or A-Z)."},
-    'conteudo':{'mask':r'(\s+)?([a-zA-Z0-9\W]{10,}\s?)+', 'message':"Sua ocorrência deve ter pelo menos 10 caracteres!!."},
+    'senha':{'mask':r'([^\s]){8,20}', 'message':'Sua senha não deve conter espaços!!\n OBS: Deve ser de 8 a 20 caracteres'},
+    'titulo':{'mask':r'(\s+)?([a-zA-Z0-9]{1,30}\s?)+', 'message':"Digite apenas caracteres alfanuméricos(a-z or A-Z or 0-9)!!\n OBS: Deve ser de 3 a 30 caracteres"},
+    'categoria':{'mask':r'(\s+)?([a-zA-Z]{1,30}\s?)+', 'message':"Digite somente caracteres alpha(a-z or A-Z)!!"},
+    'conteudo':{'mask':r'(\s+)?([a-zA-Z0-9\w]{10,}\s?)+', 'message':"Sua ocorrência deve ter pelo menos 10 caracteres!!\n OBS: O conteúdo deve ter no mínimo 10 caracteres"},
+    #'nome':{'mask':r'(\s+)?([a-zA-Z0-9]{1,30}\s?)+', 'message':"Digite somente caracteres alfanuméricos(a-z or A-Z)!!\n OBS: Limite de até 30 caracteres"},
   }
 
   def verifyValues(text, pattern, correct_text, nome_campo):
@@ -138,22 +140,20 @@ def validarSenhaFortitude(senha):
 
 def validar_cpf_cnpj(mask, cpf_or_cnpj):
   global banco
-
   
   while True:
     try:
       valor = validarValoresPrevisiveis(mask)
 
-      banco.cursor.execute(f"SELECT cpf FROM usuarios WHERE cpf = {valor}")
+      banco.cursor.execute(f"SELECT {cpf_or_cnpj} FROM usuarios WHERE {cpf_or_cnpj} = {valor}")
       jaExiste = banco.cursor.fetchall()
-    
+
       if not len(jaExiste) > 0:
         return valor
 
-
-      print(f"{cpf_or_cnpj} já cadastrado!")
+      print(f"\n{cor.FAIL}{cpf_or_cnpj} já cadastrado!!{cor.END}\n")
     except Exception:
-       print("Digite um valor válido")  
+       print(f"Digite um valor válido!!")  
     
 def validar_sem_repetir(texto):
   try:
@@ -169,7 +169,7 @@ def validar_limite(limite, texto):
       if valor <= limite:
          return valor
       clearr()
-      print("ERRO! Digite uma um opção válida.")
+      print(f"\n{cor.FAIL}ERRO! Digite uma um opção válida!!{cor.END}\n")
           
 
 def validar_sem_clear(texto, tipo):
@@ -177,7 +177,7 @@ def validar_sem_clear(texto, tipo):
     try:
       return tipo(input(texto))
     except:
-      print("Digite um valor válido")
+      print(f"\n{cor.FAIL}Digite um valor válido!!{cor.END}\n")
 
     
     

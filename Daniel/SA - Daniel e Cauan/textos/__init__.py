@@ -1,21 +1,21 @@
 import platform
 import os
-from cores import Colors
+from cores import Cores
 
-cores = Colors
+cor = Cores
 
 def centralizar(texto):
   return texto.center(180 + len(texto))
 
 def titulo(texto):
-  print(f"{cores.PATTERN} {(f"-="*40).center(200, ' ')} {cores.END}")
-  print(f"{cores.BOLD}{texto.center(200, ' ')}{cores.END}")
-  print(f"{cores.PATTERN} {(f"-="*40).center(200, ' ')} {cores.END}\n\n")
+  print(f"{cor.PATTERN} {(f"-="*100).center(200, ' ')} {cor.END}")
+  print(f"{cor.BOLD}{texto.center(200, ' ')}{cor.END}")
+  print(f"{cor.PATTERN} {(f"-="*100).center(200, ' ')} {cor.END}\n\n")
 
 def paragrafos(texto):
   texto = texto.split('\n')
   for t in texto:
-     print((f"{cores.BOLD}{centralizar(t)}{cores.END}"))
+     print((f"{cor.BOLD}{centralizar(t)}{cor.END}"))
 
 def espacos(int):
   for i in range(int):
@@ -24,7 +24,7 @@ def espacos(int):
 def quebrarLinhas(texto, limite):
     palavras = texto.split()
     linhas = []
-    linhaAtual = (str(" "*5))
+    linhaAtual = ((str(" "*5)))
 
     for palavra in palavras:
       if len(linhaAtual) + len(palavra) <= limite:
@@ -40,9 +40,9 @@ def quebrarLinhas(texto, limite):
 
 def noticiaTexto(titulo,data,autor,resume,id):
   print()
-  print(("="*80).center(200, ' '))
-  paragrafos(f"\033[1m{quebrarLinhas(titulo,77)}\033[m")
-  print(("="*80).center(200, ' '))
+  print(f"{cor.PATTERN} {(f"="*80).center(200, ' ')} {cor.END}")
+  print(f"{cor.BOLD}{titulo.center(200, ' ')}{cor.END}")
+  print(f"{cor.PATTERN} {(f"="*80).center(200, ' ')} {cor.END}")
   print(quebrarLinhas(f" data: {data}, autor: {autor} ",77).center(200, ' '), end=" "*35)
   print((f"\033[1m[{id}]\033[m").center(240, ' '))
   espacos(3)
@@ -51,9 +51,9 @@ def noticiaTexto(titulo,data,autor,resume,id):
 
 def tutorialTexto(titulo,resume,link,data,categoria,id):
   print()
-  print(("="*80).center(200, ' '))
-  paragrafos(f"\033[1m{(quebrarLinhas(titulo,77))}\033[m".center(200, ' '))
-  print(("="*80).center(200, ' '))
+  print(f"{cor.PATTERN} {(f"="*80).center(200, ' ')} {cor.END}")
+  print(f"{cor.BOLD}{titulo.center(200, ' ')}{cor.END}")
+  print(f"{cor.PATTERN} {(f"="*80).center(200, ' ')} {cor.END}")
   print(quebrarLinhas(f" data: {data}",77).center(200, ' '), end=" "*35)
   print(f" categoria: {categoria}".center(110, ' '))
   print(f"\033[1m[{id}]\033[m".center(280, ' '))

@@ -1,5 +1,6 @@
 import socket
 import threading
+from time import sleep
 
 def sendClient(client_socket, client_address):
     while True:
@@ -14,6 +15,7 @@ def sendClient(client_socket, client_address):
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
+sleep(1)
 server.bind(('127.0.0.1', 55558))
 server.listen(2)
 

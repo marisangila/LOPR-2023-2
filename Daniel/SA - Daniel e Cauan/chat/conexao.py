@@ -7,11 +7,13 @@ from textos import clearr
 from validacoes import validar_sem_repetir
 from time import sleep
 import os
+from cores import Cores
+
+cor = Cores()
 
 def criar_processo(arquivo):
     arquivo = os.path.abspath(arquivo)
 
-    print(arquivo)
     if platform.system() == "Windows":
         new_window_command = "cmd.exe /c start".split()
     else:
@@ -36,26 +38,28 @@ def escolher_atendente():
         while True:
             clearr()
             endereco_atendente = []
-            enderecos_contador = 55559
+            enderecos_contador = 55560
             for atendente in atendentes:
                 print(f"[{atendentes.index(atendente)+1}] - {atendente[0]}")
                 endereco_atendente.append([atendente, enderecos_contador])
                 enderecos_contador += 1
+            
             try:
                 escolha_cliente = int(input("\n\nSelecione o atendente(Digite o 'id'):\n"))
                 if escolha_cliente <= len(atendentes):
                     return endereco_atendente[escolha_cliente-1]
+                
             except:
                 clearr()
-                print("Digite um valor válido!!")
+                print(f"{cor.FAIL}Digite um valor válido!!{cor.END}")
                 sleep(1)
                 continue
             
             clearr()
-            print("Escolha uma opção válida!!")
+            print(f"{cor.FAIL}Escolha uma opção válida!!{cor.END}")
             sleep(1)
     
-    print("Não há atendentes disponíveis!!")
+    print(f"{cor.FAIL}Não há atendentes disponíveis!!{cor.END}")
     validar_sem_repetir("...")
     return False
     
@@ -65,8 +69,6 @@ def chamar_atendente(nome):
     with open('nome_usuario.txt', 'w') as arq:
         arq.write(nome)
 
-    print(nome)
-    sleep(1)
     atendente = escolher_atendente()
 
     if atendente:
@@ -75,5 +77,6 @@ def chamar_atendente(nome):
         criar_processo("chat/client.py")
         cliente(atendente[0][0], atendente[1])
 
-        print(" -- end -- ")
+      
+      
     

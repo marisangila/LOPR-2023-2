@@ -25,8 +25,7 @@ class Banco:
     self.cursor.execute(f"DELETE FROM {tabela} WHERE {nomeId} == {id}")
     self.banco.commit()
 
-  def update(self, tabela, campo, nomeId, id):
-    valor = input("Digite o novo valor: ")
+  def update(self, tabela, campo, nomeId, id, valor):
     if type(valor) is str:
       valor = f"'{valor}'"
 

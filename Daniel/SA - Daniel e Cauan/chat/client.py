@@ -1,6 +1,8 @@
 import socket
 import threading
 import time
+from colorama import init, Back, Style
+init()
 
 def cliente(usuario, cliente_porta=None):
   def receive_messages(usuario):
@@ -13,7 +15,7 @@ def cliente(usuario, cliente_porta=None):
   client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
   if cliente_porta:
-    time.sleep(5)
+    time.sleep(2)
     client.bind(('127.0.0.1', cliente_porta))
 
 
@@ -22,7 +24,8 @@ def cliente(usuario, cliente_porta=None):
   receive_thread = threading.Thread(target=receive_messages, args=(usuario,))
   receive_thread.start()
 
-  print(f"\n\n \033[;42m Você está conversando com {usuario}\033[m \n\n\n")
+
+  print(f"\n\n {Back.MAGENTA} Você está conversando com {usuario} {Style.RESET_ALL}  \n\n\n")
   while True:
       message = input("")
 
@@ -39,5 +42,4 @@ if __name__ == "__main__":
     nome_usuario = arq.read()
 
   cliente(nome_usuario)
-
-# 
+ 

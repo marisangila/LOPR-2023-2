@@ -56,18 +56,20 @@ class Dados:
   def guardarRelacoesBanco(self, localJson):
     arquivo = self.retornarJson(localJson)
     for aresta in arquivo["arestas"]:
-      self.banco.insert("arestas",
-                        [aresta["rua_A"], aresta["rua_B"], aresta["peso"]])
+      self.banco.insert("arestas", [aresta["rua_A"], aresta["rua_B"], aresta["peso"]])
     print("Arestas cadastradas")
 
   ##################################################################################
   def mostrarLocais(self):
     espacos(2)
     locais = self.banco.select("locais", "*")
+
+    linha = ''
     for i, rua in enumerate(locais):
-      print(f"[{rua[0]:^5}] - {rua[1]:^40}", end="   ")
+      linha += f"[{rua[0]:^5}] - {rua[1]:^40}" 
       if i % 3 == 0:
-        print()
+        print(linha.center(200, ' '))
+        linha = ''
     
     return locais
 

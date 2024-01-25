@@ -4,33 +4,50 @@ from usuarios import Usuarios
 from chat.conexao import chamar_atendente
 from textos import clearr
 from tickets_emergencia import Ticket
+from validacoes import validarValoresNaoPrevisiveis, verificarValores, validarTipo, validarSenhaFortitude
+from cores import Cores
 
+cor = Cores()
 
 class PessoaFisica(Usuarios):
   def cadastrarEmail(self):
     clearr()
-    self.dadosUsuario["email"] = input('Informe o email: ')
-    self.dadosUsuario["senhaDoEmail"] = input('Informe a senha do email:')
+    self.dadosUsuario["email"] = validarValoresNaoPrevisiveis(input('Informe o email: \n'), "email")
+    self.dadosUsuario["senhaDoEmail"] = input('\nInforme a senha do email:\n')
 
-    self.banco.cursor.execute(
-        f'SELECT id_usuario FROM usuarios WHERE email = {self.dadosUsuario["email"]}'
-    )
-    id_usuario = self.banco.cursor.fetchall()
-    self.banco.update("usuarios", "email", self.dadosUsuario["email"],
-                      id_usuario[0][0])
-    self.banco.update("usuarios", "senha_email",
-                      self.dadosUsuario["senhaDoEmail"], id_usuario[0][0])
+    self.banco.update("usuarios", "email", "id_usuario", self.dadosUsuario["id"], self.dadosUsuario["email"])
+
+    # self.banco.update("usuarios", "senha_email",self.dadosUsuario["senhaDoEmail"], id_usuario[0][0])
 
   #################################################################################
+  def trocarSenha(self):
+    global cor
+
+    self.dadosUsuario["senha"] = \
+    verificarValores(
+      validarValoresNaoPrevisiveis(validarTipo('Informe a senha: \n', str), "senha"),
+      validarValoresNaoPrevisiveis(validarTipo('Confirme a senha: \n', str), "senha"),
+      texto1 = "Informe a senha: ",
+      texto2 = "Confirme a senha: "
+    )
+
+    self.fortitudeSenha = validarSenhaFortitude(self.dadosUsuario["senha"])
+    print(f"{cor.OKBLUE}Senha trocada com sucesso!{cor.END}")
   
   def verPerfil(self):
+    global cor
+
     clearr()
 
+    senhaFraca = ''
+    if not self.fortitudeSenha:
+      senhaFraca = f"{cor.FAIL} - ATENÇÃO, Senha Fraca!! {cor.END}"
+
     opcao = 0
-    while opcao != 5:
+    while opcao != 6:
       clearr()
-      opcao = escolherOpcao(self.dadosUsuario["nome"], "Trocar número","Cadastrar Email", "Sua conta", "Deletar conta", "Voltar")
-      escolhaEntao(opcao, [self.trocarNumero, self.cadastrarEmail, super().visualizarInformacoes, super().deletarConta])
+      opcao = escolherOpcao(self.dadosUsuario["nome"], "Trocar Senha"+senhaFraca, "Trocar número","Cadastrar Email", "Sua conta", "Deletar conta", "Voltar")
+      escolhaEntao(opcao, [self.trocarSenha, self.trocarNumero, self.cadastrarEmail, super().visualizarInformacoes, super().deletarConta])
 
   #################################################################################
   

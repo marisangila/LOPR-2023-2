@@ -1,11 +1,11 @@
 from textos import paragrafos, titulo
 from validacoes import validarTipo
-from cores import Colors
+from cores import Cores
 
-cores = Colors
+cor = Cores
 
 def escolherOpcao(t=None, *opcoes):
-  global cores
+  global cor
 
   index = 0
   if t:
@@ -20,9 +20,9 @@ def escolherOpcao(t=None, *opcoes):
       escolhido = int(input("Sua escolha: "))
       if 0 < escolhido <= len(opcoes):
         break
-      print(cores.FAIL + "\nDigite uma opção válida!\n" + cores.END)
+      print(cor.FAIL + "\nDigite uma opção válida!\n" + cor.END)
     except:
-      print(cores.FAIL + "\nDigite um valor válido!\n" + cores.END)
+      print(cor.FAIL + "\nDigite um valor válido!\n" + cor.END)
   return escolhido
 
 

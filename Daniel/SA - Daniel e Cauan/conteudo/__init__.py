@@ -1,10 +1,13 @@
 from textos import titulo, espacos, noticiaTexto, quebrarLinhas, tutorialTexto
 from EntradaSaida import escolherOpcao, escolhaEntao
 from banco import Banco
-from validacoes import validarUsuario, validarValoresNaoPrevisiveis, validar_sem_repetir, validar_sem_clear
+from validacoes import validarUsuario, validarValoresNaoPrevisiveis, validar_sem_repetir, validar_sem_clear, validarTipo
 from datetime import date
-from textos import clearr
+from textos import clearr, centralizar
+from cores import Cores
+from time import sleep
 
+cor = Cores()
 
 class Conteudo:
 
@@ -23,9 +26,9 @@ class Conteudo:
 
     if self.tipo == "noticias":
       self.banco.insert(self.tipo, [
-        validarValoresNaoPrevisiveis(input("Título: \n"), "titulo"),
-        input("Resumo: \n"),
-        input("Conteúdo: \n"),
+        validarValoresNaoPrevisiveis(validar_sem_clear("Título: \n"), "titulo"),
+        validarValoresNaoPrevisiveis(validar_sem_clear("\nResumo: \n")),
+        validarValoresNaoPrevisiveis(validar_sem_clear("\nConteúdo: \n")),
         str(date.today()),
         self.pessoa.dadosUsuario["nome"],
         self.pessoa.dadosUsuario["id"]
@@ -49,12 +52,12 @@ class Conteudo:
     existeTutorial = self.banco.select("tutoriais", "*")
 
     if self.tipo == "noticias" and len(existeNoticia) < 1:
-      print("Não há notícias cadastradas")
+      print(f"\n{cor.FAIL}Não há notícias cadastradas!!{cor.END}\n")
       validar_sem_repetir("...")
       return
     
     if self.tipo == "tutoriais" and len(existeTutorial) < 1:
-      print("Não há tutoriais cadastrados")
+      print(f"\n{cor.FAIL}Não há tutoriais cadastrados!!{cor.END}\n")
       validar_sem_repetir("...")
       return
     
@@ -75,7 +78,7 @@ class Conteudo:
         idConteudo = validar_sem_clear("Informe o valor do id para ver mais detalhes: ", int)
         if idConteudo in idsVerificacao:
           break
-        print("Digite uma poção válida!!")
+        print(f"\n{cor.FAIL}Digite uma poção válida!!{cor.END}\n")
     else:
       return 
     
@@ -86,26 +89,29 @@ class Conteudo:
     else:
       self.inspecionar(idConteudo, True)
 
+  def mostrarConteudo(self, idConteudo):
+    self.banco.cursor.execute(f"SELECT * FROM {self.tipo} WHERE {self.colunas[0][1]} = {idConteudo}")
+    atributo = self.banco.cursor.fetchall()[0]
+    if self.tipo == "tutoriais":
+      tutorialTexto(str(atributo[1]), str(atributo[2]), str(atributo[3]), str(atributo[4]), str(atributo[5]), str(atributo[0]))
+
+    else:
+      noticiaTexto(str(atributo[1]), str(atributo[4]), str(atributo[5]),str(atributo[2]), str(atributo[0]))
+      print(centralizar(quebrarLinhas(str(atributo[3]), 77)))
+      espacos(3)
+
 #################################################################################
 
   def inspecionar(self, idConteudo, editar=None):
     clearr()
-    self.banco.cursor.execute(
-        f"SELECT * FROM {self.tipo} WHERE {self.colunas[0][1]} = {idConteudo}")
-    atributo = self.banco.cursor.fetchall()[0]
 
-    if self.tipo == "tutoriais":
-      tutorialTexto(str(atributo[1]), str(atributo[2]), str(atributo[3]),
-                    str(atributo[4]), str(atributo[5]), str(atributo[0]))
-
-    else:
-      noticiaTexto(str(atributo[1]), str(atributo[4]), str(atributo[5]),str(atributo[2]), str(atributo[0]))
-    print(quebrarLinhas((str(atributo[3])), 77))
-    espacos(3)
+    self.mostrarConteudo(idConteudo)
 
     opcao = 0
     if editar:
       while opcao != 3:
+        clearr()
+        self.mostrarConteudo(idConteudo)
         print("[1] - Excluir [2] - Editar  [3] - Voltar".center(200, ' '))
         print()
         opcao = validar_sem_clear("Digite sua opção: ", int)
@@ -118,17 +124,35 @@ class Conteudo:
 #################################################################################
 
   def editarConteudo(self, id):
-    opcao = escolherOpcao(f"Editar {self.tipo}", "Editar título",
-                          "Editar resumo", "Editar conteúdo")
+    opcao = escolherOpcao(f"Editar {self.tipo}", "Editar título", "Editar resumo", "Editar conteúdo")
 
     conteudo = "conteudo"
     if self.tipo == "tutoriais":
       conteudo = "link"
-      escolhaEntao(opcao,
-                   [self.banco.update, self.banco.update, self.banco.update],
-                   [[f"{self.tipo}", "titulo", f"{self.colunas[0][1]}", id],
-                    [f"{self.tipo}", "resumo", f"{self.colunas[0][1]}", id],
-                    [f"{self.tipo}", conteudo, f"{self.colunas[0][1]}", id]])
+
+    escolhaEntao(opcao,
+                  [self._editar_titulo, self._editar_resumo, self._editar_texto],
+                  [[id],[id],[id, conteudo]])
+    
+    clearr()
+
+#################################################################################
+
+  def _editar_titulo(self, id):
+    valor = validarValoresNaoPrevisiveis(validarTipo("Editar titulo: \n", str), 'titulo')
+    self.banco.update(f"{self.tipo}", "titulo", f"{self.colunas[0][1]}", id, valor)
+
+#################################################################################
+
+  def _editar_resumo(self, id):
+    valor = validarValoresNaoPrevisiveis(validarTipo("Editar resumo: \n", str), 'conteudo')
+    self.banco.update(f"{self.tipo}", "resumo", f"{self.colunas[0][1]}", id, valor)
+
+#################################################################################
+
+  def _editar_texto(self, id, conteudo): 
+    valor = validarValoresNaoPrevisiveis(validarTipo("Editar conteudo: \n", str), 'conteudo')
+    self.banco.update(f"{self.tipo}", conteudo, f"{self.colunas[0][1]}", id, )
 
 #################################################################################
   def suasNoticias(self):
@@ -142,11 +166,16 @@ class Conteudo:
 
     if contNoticias:
       self.banco.cursor.execute(f"SELECT * FROM noticias WHERE {nomeId} = {self.pessoa.dadosUsuario['id']}")
+      noticiasUsuario = self.banco.cursor.fetchall()
+      if not len(noticiasUsuario) > 0:
+        print(f"{cor.FAIL}Você não tem nenhuma publicação!!{cor.END}")
+        sleep(2)
+        return
     else:
-      print("Você não tem nenhuma publicação!!")
+      print(f"{cor.FAIL}Você não tem nenhuma publicação!!{cor.END}")
+      sleep(2)
       return
-    noticiasUsuario = self.banco.cursor.fetchall()
-
+  
     clearr()
     titulo("Suas Notícias")
     for noticia in noticiasUsuario:
@@ -159,16 +188,14 @@ class Conteudo:
 #################################################################################
 
   def acessarConteudo(self):
-    
     opcao = 0
     if self.tipo == "noticias":
       while opcao != 4:
         clearr()
-        opcao = escolherOpcao("Portal de Notícias", "Ver notícias",
-                                "Cadastrar noticias", "Suas notícias", "Voltar")
+        opcao = escolherOpcao("Portal de Notícias", "Ver notícias", "Cadastrar noticias", "Suas notícias", "Voltar")
         escolhaEntao(opcao,
-                       [self.verConteudo, self.cadastrar, self.suasNoticias],
-                       [[], [], []])
+                    [self.verConteudo, self.cadastrar, self.suasNoticias],
+                    [[], [], []])
 
     else:
       if self.pessoa.dadosUsuario["tipoUsuario"] == "juridica":
