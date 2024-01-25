@@ -1,0 +1,42 @@
+- Criação de Usuário; x
+- Login do Usuário; x
+- Login do Administrador padrão com possibilidade de alteração; x
+    Alterar login de Administrador e descontos; 
+- Solicitação de salário bruto; x
+- Questionamento: é CLT? -> Caso sim, automaticamente faz o cálculo de INSS e IRRF;
+- Switches para seleção de descontos;
+- Cálculo, devolvendo o salario liquido;
+
+Como funciona? 
+Versão 0.1 17.01.2024:
+1 - Tela Inicial - Imprime opções disponíveis na tela: login de usuário, cadastro de usuário, login como admin e sair do programa;
+\> 1.1 - Tela de Login - Após inserção dos dados de login, abre uma tela para selecionar entre as opções de calcular salário ou voltar.
+         Inicia-se um prompt para inserção do salário bruto do usuário
+   \>1.1.1 - Tela de seleção de descontos - Tela onde será selecionado os descontos da folha.
+            Por hora as seleções serão realizadas por números, os números selecionados irão contribuir para um maior desconto da folha de pagamento;
+            Nesta tela também foi planejado um menu (futuramente uma lista suspensa), no qual o usuário seleciona o mês e o ano que está realizando a consuta, 
+            para que seu histórico seja montado; [Não presente nessa versão]
+            [Versão 0.1: Seleção do Vale-Transporte e cálculo automático dos descontos esseciais conforme CLT (FGTS, IRRF e INSS)]
+        \>1.1.2 - Tela de Resultados  - Será impresso na tela um menu no qual o salário bruto possa ser consultado, em conjunto do salário líquido e seus respectivos descontos.
+                Ainda na tela de resultados, quando a opção descontos forem selecionadas, será possível selecionar algum desconto e receber uma informação prévia sobre ele. [Não presente nessa versão]
+                Ainda nessa tela serão impressas as opções de calcular o salário novamente ou voltar à tela inicial.
+\> 1.2 - Tela de Cadastro - Nessa tela será possível cadastrar um novo usuário.
+            São solicitadas as informações de nome do usuário e senha, não havendo especificação de padrão, seja ele alfanumérico ou alfabético.
+\> 1.3 - Tela de Login Administrativo - Nessa tela estarão presentes as opções onde sejam realizadas modificações nos valores padrões dos descontos.
+   \>1.3.1 - Alterar Descontos - Os descontos estão dispostos tendo como base de cálculo a sua porcentagem. Ex: O desconto real do FGTS é 8%, 
+        para modificar esse valor, na opção "Alterar descontos" é necessário realizar a pesquisa do desconto pela sua sigla 
+        e inserir o novo valor no padrão de porcentagem "0,00"; (8% sendo 0,08, nesse caso).
+            Siglas dos descontos (Não utilizar as aspas!): 
+            * "VT" - vale transporte;
+            * "IRRF" - imposto de renda retido na fonte;
+            * "INSS" - desconto do instituto nacional do seguro social;
+            * "FGTS" - fundo de garantia do tempo de serviço;
+   \>1.3.2 - Alterar login Administrador - Essa tela apresenta a possibilidade da alteração do usuário e senha padrões.
+            Usuário (padrão): admin
+            Senha (padrão): admin
+   \>1.3.3 - Excluir usuários - Essa tela reseta toda parte do usuário, excluindo todos os usuários cadastrados e zerando seus valores.
+
+
+Precisa fazer:
+    - Limpar tela menus
+    - Limpar tela alterar valor desconto
