@@ -3,9 +3,29 @@ Este projeto foi realizado por alunos da instituição SESI SENAI para a SA(Situ
 
 Este projeto é pensado como um aplicativo de suporte para apoio e resgate de pessoas em situações de vulnerabilidade, no caso de desastres naturais e ambientais.
 
-## :wrench: Requisítos
+<table>
+    <tr>
+      <td><img src="https://github.com/marisangila/LOPR-2023-2/assets/130805695/8ca80934-1d0b-4137-b97a-029879f62e98" alt="Imagem 2"></td>
+      <td><img src="https://github.com/marisangila/LOPR-2023-2/assets/130805695/75e633bf-0802-41bb-83ed-693d5caaf20b" alt="Imagem 3"></td>
+    </tr>
+</table>
+<p align="center">
+    <img src="https://github.com/marisangila/LOPR-2023-2/assets/130805695/c362620f-5737-4b35-8ad4-ac4b534ded0f" alt="Imagem 1">
+</p> 
 
-O programa pode ser rodado na maioria dos terminais Linux e Windows, porém recomendamos a utilização do poweshell para que não haja eventuais problemas.
+<br>
+<br>
+<br>
+
+_________
+
+<br>
+<br>
+<br>
+
+## :wrench: Requisítos  
+
+O programa pode ser rodado na maioria dos terminais Linux e Windows, porém recomendamos a utilização do poweshell para que não haja eventuais problemas. 
 
 ### Recursos necessários:
 
@@ -29,6 +49,12 @@ A biblioteca readchar pode ser instalada pelo próprio gerenciador de pacotes "p
     pip install readchar -> Para versões menores que a 1.12
     
     py -m pip install readchar -> Da versão 1.12 para cima
+
+<br>
+
+_________
+
+<br>
 
 ## :rocket: Instalação do Programa
 
@@ -62,7 +88,13 @@ Executar o arquivo inícial de todo o programa, chamado "main.py":
 
     python main.py
 
-## :hammer: Programas Usados:
+<br>
+
+_________
+
+<br>
+
+## :hammer: Técnologias Usadas:
 
 <table>
     <tr>
@@ -79,9 +111,21 @@ Executar o arquivo inícial de todo o programa, chamado "main.py":
     </tr>
 </table>
 
+<br>
+
+_________
+
+<br>
+
 ## Licença:
 
 MIT license
+
+<br>
+
+_________
+
+<br>
 
 ## Ajuda
 
@@ -93,11 +137,25 @@ Para quaisquers dúvidas sobre a instalação e uso do programa, entrar em conta
 
 * daniel_lima3@estudante.sc.senai.br
 
+
+<br>
+
+_________
+
+<br>
+
 ## Autores:
 
 * Daniel Lima
 
 * Cauan de Souza Moreira
+
+
+<br>
+
+_________
+
+<br>
   
 ## :gift: Expressões de Gratidão
 
