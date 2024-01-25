@@ -5,11 +5,10 @@
 <img align="right" alt="Logo do projeto B Green" height="145" src="https://github.com/marisangila/LOPR-2023-2/blob/main/Sara/B%20Green%20-%20Project/images/Logo%20B%20Green.png">
 
 > [!TIP]
-> Lembre-se de usar a versão tal do JDK .
+> Lembre-se de usar a versão 1.8.0_351 do JDK.
 
-![Java](https://img.shields.io/badge/JDK-768732?style=for-the-badge&logo=jdk&logo) ↳
-<a href="https://git.io/typing-svg"> Clique aqui para baixar o JDK. </a>
-
+![JDK 1.8.0_351](https://img.shields.io/badge/JDK-1.8.0_351-768732?style=for-the-badge&logo=jdk-1.8.0_351&logo) ↳
+<a href="https://www.java.com/pt-BR/download/"> Clique aqui para baixar o JDK. </a>
 
 <div align="left"> <h1> MANUAL DO VISITANTE </h1> </div>
 
