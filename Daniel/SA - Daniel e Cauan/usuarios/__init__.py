@@ -8,6 +8,7 @@ from validacoes import verificarValores, validarValoresNaoPrevisiveis, validarVa
 from textos import clearr
 from time import sleep
 from cores import Cores
+from getpass import getpass
 
 concatenar = ""
 
@@ -103,8 +104,10 @@ class Usuarios:
 
     self.dadosUsuario["senha"] = \
     verificarValores(
-      validarValoresNaoPrevisiveis(validarTipo('Informe a senha: \n', str), "senha"),
-      validarValoresNaoPrevisiveis(validarTipo('Confirme a senha: \n', str), "senha"),
+      # validarValoresNaoPrevisiveis(validarTipo('Informe a senha: \n', str), "senha"),
+      # validarValoresNaoPrevisiveis(validarTipo('Confirme a senha: \n', str), "senha"),
+      validarValoresNaoPrevisiveis(getpass("Informe a senha: \n"), "senha"),
+      validarValoresNaoPrevisiveis(getpass("Confirme a senha: \n"), "senha"),
       texto1 = "Informe a senha: ",
       texto2 = "Confirme a senha: "
     )
@@ -218,8 +221,12 @@ class Usuarios:
       espacos(1)
 
       opcoesValidas = []
+      # contador = False
       for abrigo in pesoAbrigos:
         texto = f"[{abrigo['id']}] - Abrigo: {abrigo['nome']} - Distância: {abrigo['peso']} KM".center(80, ' ')
+
+        # if abrigo['peso'] == menorPesoAbrigo and 
+
         print((f"\033[1m{texto}\033[m").center(200, ' '))
         opcoesValidas.append(abrigo['id'])
         espacos(1)
@@ -315,7 +322,7 @@ f"""
                                                                         |                                                          |
                                                                         |                                                          |
                                                                         |                                                          |                                                       
-                                                                        |               {f'{cor.BOLD}{self.dadosUsuario['nome']:^30}{cor.END}'}             |
+                                                                        |               {f"{cor.BOLD}{self.dadosUsuario['nome']:^30}{cor.END}"}             |
                                                                         |                                                          |
                                                                         |                                                          |
                                                                         |               {"CPF: "+self.dadosUsuario["cpf"]:^30}             |

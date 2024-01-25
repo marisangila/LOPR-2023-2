@@ -1,8 +1,9 @@
 from banco import Banco
-from re import compile, match
+from re import match
 from readchar import readkey, key
 from textos import clearr
 from cores import Cores
+from getpass import getpass
 
 cor = Cores()
 banco = Banco()
@@ -65,8 +66,12 @@ def validarValoresNaoPrevisiveis(valor, chave):
         return text.strip()
     clearr()
     print(f"\n\033[31;1mERROR! {correct_text}\033[m\n")    
-  
-    text = validarTipo(f"Digite {nome_campo} novamente: \n", str)
+    
+    text = ''
+    if "senha" in correct_text:
+      text = getpass("Confirme a senha: \n")
+    else:
+      text = validarTipo(f"Digite {nome_campo} novamente: \n", str)
   
     return verifyValues(text, pattern, correct_text, nome_campo)
 

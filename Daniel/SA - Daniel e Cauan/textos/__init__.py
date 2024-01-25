@@ -8,9 +8,9 @@ def centralizar(texto):
   return texto.center(180 + len(texto))
 
 def titulo(texto):
-  print(f"{cor.PATTERN} {(f"-="*100).center(200, ' ')} {cor.END}")
+  print(f"{cor.PATTERN} {(f'-='*100).center(200, ' ')} {cor.END}")
   print(f"{cor.BOLD}{texto.center(200, ' ')}{cor.END}")
-  print(f"{cor.PATTERN} {(f"-="*100).center(200, ' ')} {cor.END}\n\n")
+  print(f"{cor.PATTERN} {(f'-='*100).center(200, ' ')} {cor.END}\n\n")
 
 def paragrafos(texto):
   texto = texto.split('\n')
@@ -40,9 +40,9 @@ def quebrarLinhas(texto, limite):
 
 def noticiaTexto(titulo,data,autor,resume,id):
   print()
-  print(f"{cor.PATTERN} {(f"="*80).center(200, ' ')} {cor.END}")
+  print(f"{cor.PATTERN} {(f'='*80).center(200, ' ')} {cor.END}")
   print(f"{cor.BOLD}{titulo.center(200, ' ')}{cor.END}")
-  print(f"{cor.PATTERN} {(f"="*80).center(200, ' ')} {cor.END}")
+  print(f"{cor.PATTERN} {(f'='*80).center(200, ' ')} {cor.END}")
   print(quebrarLinhas(f" data: {data}, autor: {autor} ",77).center(200, ' '), end=" "*35)
   print((f"\033[1m[{id}]\033[m").center(240, ' '))
   espacos(3)
@@ -51,9 +51,9 @@ def noticiaTexto(titulo,data,autor,resume,id):
 
 def tutorialTexto(titulo,resume,link,data,categoria,id):
   print()
-  print(f"{cor.PATTERN} {(f"="*80).center(200, ' ')} {cor.END}")
+  print(f"{cor.PATTERN} {(f'='*80).center(200, ' ')} {cor.END}")
   print(f"{cor.BOLD}{titulo.center(200, ' ')}{cor.END}")
-  print(f"{cor.PATTERN} {(f"="*80).center(200, ' ')} {cor.END}")
+  print(f"{cor.PATTERN} {(f'='*80).center(200, ' ')} {cor.END}")
   print(quebrarLinhas(f" data: {data}",77).center(200, ' '), end=" "*35)
   print(f" categoria: {categoria}".center(110, ' '))
   print(f"\033[1m[{id}]\033[m".center(280, ' '))
