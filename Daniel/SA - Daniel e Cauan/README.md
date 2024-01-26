@@ -3,22 +3,60 @@ Este projeto foi realizado por alunos da instituição SESI SENAI para a SA(Situ
 
 Este projeto é pensado como um aplicativo de suporte para apoio e resgate de pessoas em situações de vulnerabilidade, no caso de desastres naturais e ambientais.
 
-## :wrench: Requisítos
+<table>
+    <tr>
+      <td><img src="https://github.com/marisangila/LOPR-2023-2/assets/130805695/8ca80934-1d0b-4137-b97a-029879f62e98" alt="Imagem 2"></td>
+      <td><img src="https://github.com/marisangila/LOPR-2023-2/assets/130805695/75e633bf-0802-41bb-83ed-693d5caaf20b" alt="Imagem 3"></td>
+    </tr>
+</table>
+<p align="center">
+    <img src="https://github.com/marisangila/LOPR-2023-2/assets/130805695/c362620f-5737-4b35-8ad4-ac4b534ded0f" alt="Imagem 1">
+</p> 
 
-O programa pode ser rodado na maioria dos terminais Linux e Windows, porém recomendamos a utilização do poweshell para que não haja eventuais problemas.
+<br>
+<br>
+<br>
 
-### Recursos necessários necessários:
+_________
+
+<br>
+<br>
+<br>
+
+## :wrench: Requisítos  
+
+O programa pode ser rodado na maioria dos terminais Linux e Windows, porém recomendamos a utilização do poweshell para que não haja eventuais problemas. 
+
+### Recursos necessários:
 
 * Python versão 3.12
 * Pip
-* Biblioteca readchar
+* Biblioteca readchar 
 
-#### Instalação do Python:
-    
-    Site do Python -> Abrir o site em qualquer navegador disponível. No campo download, realizar a instalação da versão 1.12.1    
-    
+#### Instalando o Python e do Pip:
 
-## :rocket: Onde encontrar?
+[Site do Python](https://www.python.org/)
+
+    Para instalar o python, é necessário abrir o site em qualquer navegador disponível. No campo download, 
+    realizar a instalação da versão 1.10.1 ou 1.9.1, que foram as versões utilizadas e testadas no desenvolvimento.
+
+    No instalador do python, lembrar de marcar opção de "pip", no customizar instalação, para realizar a instalação do mesmo. 
+
+#### Instalando do readchar:
+
+A biblioteca readchar pode ser instalada pelo próprio gerenciador de pacotes "pip". Para que isso aconteça digite o seguinte comando no terminal do seu computador:
+
+    pip install readchar -> Para versões menores que a 1.12
+    
+    py -m pip install readchar -> Da versão 1.12 para cima
+
+<br>
+
+_________
+
+<br>
+
+## :rocket: Instalação do Programa
 
 O repositório pode ser encontrado e instalado nos seguintes GitHubs:
 * Repositório SA - Cauan e Daniel - https://github.com/daniwells - @daniewells
@@ -50,15 +88,61 @@ Executar o arquivo inícial de todo o programa, chamado "main.py":
 
     python main.py
 
-## :rocket: Programas e Recursos:
+<br>
 
-* Figma - IDE usada para o desenvolvimento do protótipo gráfico/mockup.
+_________
 
-* Visual Studio Code e Replit - IDEs escolhidas no desenvolvimento do código em si foram utilizadas as seguintes ferramentas:
+<br>
 
-* Git - Ferramenta usada para o controle de vercionamento
+## :hammer: Técnologias Usadas:
 
-DB Browser - IDE usada para o desenvolvimento do banco de dados em SQLITE - Python.
+<table>
+    <tr>
+        <td>Mockup</td>
+        <td>Desenvolvimento</td>
+        <td>Versionamento</td>
+        <td>Banco de Dados</td>
+    </tr>
+    <tr>
+        <td>Figma</td>
+        <td>Visual Studio Code e Replit</td>
+        <td>Git e Github</td>
+        <td>DB Browser</td>
+    </tr>
+</table>
+
+<br>
+
+_________
+
+<br>
+
+## Licença:
+
+MIT license
+
+<br>
+
+_________
+
+<br>
+
+## Ajuda
+
+Para quaisquers dúvidas sobre a instalação e uso do programa, entrar em contado:
+
+* saer.sa.senai@gmail.com
+
+* cauan_moreira@estudante.sesisenai.org.br
+
+* daniel_lima3@estudante.sc.senai.br
+
+
+<br>
+
+_________
+
+<br>
 
 ## Autores:
 
@@ -66,26 +150,13 @@ DB Browser - IDE usada para o desenvolvimento do banco de dados em SQLITE - Pyth
 
 * Cauan de Souza Moreira
 
-## Licença:
 
-  MIT license
+<br>
 
-## Ajuda
+_________
 
-Para quaisquers dúvidas sobre a instalação e uso do programa, entrar em contado:
-
-    saer.sa.senai@gmail.com
-
-    cauan_moreira@estudante.sesisenai.org.br
-
-    daniel_lima3@estudante.sc.senai.br
+<br>
   
 ## :gift: Expressões de Gratidão
 
-@oJoaoViktor -> Obrigado pelas ideias pelas ideias de verificação de dados e lógica do programa     
-    
-    
-
-
-
-
+@oJoaoViktor -> Agradecemos pela ajuda e ideias que tornaram o projeto melhor.    
