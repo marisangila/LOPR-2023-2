@@ -1,0 +1,58 @@
+--- Escopo projeto Java cmd
+
+# Login, cadastro, sair
+
+-> Login
+  : * Usuário
+      "1 - Cadastrar doação \n" +
+          : * Vestuário
+          : * Alimento 
+          : * Móveis
+          : * Dinheiro 
+          : * Voltar ao menu principal
+      "2 - Visualizar minhas doações cadastradas \n" +
+      "3 - Alterar descrição de alguma doação \n" +
+      "4 - Excluir cadastro \n" +
+
+  : * Admin
+      "1 - Cadastrar doação \n" +
+      "2 - Visualizar doações cadastradas \n" +
+      "3 - Alterar descrição de alguma doação \n" +
+      "4 - Excluir cadastro \n" +
+      "5 - Dar entrada em doações para o estoque \n" +
+      "6 - Dar baixa em doações para o estoque \n" +
+      "6 - Consultar doações em estoque por ID \n" +
+      "7 - Consultar doações por categoria \n" +
+      "8 - Voltar ao menu principal"
+      "0 - Sair do programa \n");
+
+-> Comunidade
+   * Últimas movimentações
+
+-> Cadastrar  # Verificar
+  : * Cadastrar doador
+      "\nDoadores:\n\n" +
+      "5 - Realizar cadastro para doador \n" +
+      "6 - Visualizar informações do meu cadastro \n" +
+      "7 - Editar informações do meu cadastro \n" +
+      "8 - Excluir meu cadastro \n" +
+      "9 - Voltar ao menu principal"
+      "0 - Sair do programa \n");
+
+--- Sugestões
+-> Adicionar comunidade, com as últimas doações realizadas por outros usuários.
+-> Perguntar se deseja que o dado do valor em dinheiro doado seja público
+  : * Se a sim, o nome do doador aparece (data - #### doou valor)
+ 
+--- Pendências
+
+> Fazer validação de que a senha do usuário deve conter caractere especial a título de segurança;
+<<<<<<< HEAD
+# OK > Quando o usuário logar, aparecer bem vindo e o nome do usuário; 
+# OK > Alterar cor das linhas de comando;
+> Verificar mensagem de confirmação ao deletar um usuário no login adm;
+=======
+> Quando o usuário logar, aparecer bem vindo e o nome do usuário; - ok!
+> Alterar cor das linhas de comando - > ok!
+> Verificar mensagem de confirmação ao deletar um usuário no login adm; 
+>>>>>>> 73b623000f2a1b58cdd857f669d3d1cce18a2460
