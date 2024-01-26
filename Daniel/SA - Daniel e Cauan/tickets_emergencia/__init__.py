@@ -7,6 +7,7 @@ from time import sleep
 from EntradaSaida import escolhaEntao, escolherOpcao
 from validacoes import *
 from cores import Cores
+from getpass import getpass
 
 import smtplib
 from email.mime.text import MIMEText
@@ -14,10 +15,9 @@ from email.mime.text import MIMEText
 cor = Cores()
 
 # zbww lxzl idwm rzme
-def enviarEmail(self, corpoDoEmail):
-    
-  remetente = self.dadosUsuario['email']
-  senha = self.dadosUsuario['senha']
+def enviarEmail(pessoa, corpoDoEmail):
+  remetente = pessoa.dadosUsuario['email']
+  senha = getpass("\nDigite a senha do email:\n")
   destinatario = 'sear.sa.senai@gmail.com'
   assunto = 'email de emergencia'
 
@@ -98,7 +98,7 @@ class Ticket:
       return f"{localizacao}\n {ocorrencia}\n {categoria}"
     
     print(f"\n{cor.FAIL}Sua chamada já foi registrada anteriormente!!{cor.END}\n")
-    sleep(2)
+    sleep(1)
     return False
 
 
@@ -107,11 +107,9 @@ class Ticket:
     ticket_id = self.mostrar_tickets()
     if ticket_id:
       opcao = 0
-      while opcao != 2:
-        
-        opcao = escolherOpcao(None, "Deletar Tickets", "Voltar")
-
-        escolhaEntao(opcao, [self.deletar_ticket])
+      
+      opcao = escolherOpcao(None, "Deletar Tickets", "Voltar")
+      escolhaEntao(opcao, [self.deletar_ticket])
     else:
       print(f"{cor.FAIL}Não há chamadados no momento!!{cor.END}")
       sleep(1)
@@ -138,6 +136,7 @@ class Ticket:
     clearr()
     print(f"{cor.OKBLUE}Ticket Deletado com sucesso!!{cor.END}")
     sleep(1)
+   
 
 
   def mostrar_tickets(self):

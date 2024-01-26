@@ -26,9 +26,9 @@ class Conteudo:
 
     if self.tipo == "noticias":
       self.banco.insert(self.tipo, [
-        validarValoresNaoPrevisiveis(validar_sem_clear("Título: \n"), "titulo"),
-        validarValoresNaoPrevisiveis(validar_sem_clear("\nResumo: \n")),
-        validarValoresNaoPrevisiveis(validar_sem_clear("\nConteúdo: \n")),
+        validarValoresNaoPrevisiveis(validar_sem_clear("Título: \n", str), "titulo"),
+        validarValoresNaoPrevisiveis(validar_sem_clear("\nResumo: \n", str), "conteudo"),
+        validarValoresNaoPrevisiveis(validar_sem_clear("\nConteúdo: \n", str), "conteudo"),
         str(date.today()),
         self.pessoa.dadosUsuario["nome"],
         self.pessoa.dadosUsuario["id"]
@@ -172,7 +172,7 @@ class Conteudo:
         sleep(2)
         return
     else:
-      print(f"{cor.FAIL}Você não tem nenhuma publicação!!{cor.END}")
+      print(f"{cor.FAIL}Não há nenhuma publicação!!{cor.END}")
       sleep(2)
       return
   

@@ -4,7 +4,7 @@ from dijkstra import Grafo
 from conteudo import Conteudo
 from dados import Dados
 from banco import Banco
-from validacoes import verificarValores, validarValoresNaoPrevisiveis, validarValoresPrevisiveis, validarTipo, validarSenhaFortitude, validar_sem_repetir
+from validacoes import *
 from textos import clearr
 from time import sleep
 from cores import Cores
@@ -15,9 +15,7 @@ concatenar = ""
 cor = Cores()
 
 class Usuarios:
-
   def __init__(self, tipoUsuario):
-
     self.dadosUsuario = {
         "id": 0,
         "nome": '',
@@ -27,15 +25,14 @@ class Usuarios:
         "senha": '',
         "telefone": '',
         "email": '',
-        "senhaDoEmail": '',
         "tipoUsuario": tipoUsuario
     }
+  
     self.fortitudeSenha = False
     self.banco = Banco()
     self.listUsuarios = self.banco.select("usuarios", "*")
     self.grafo = None
-   
-
+  
 #################################################################################
 
   def logar(self, id, objeto):
@@ -43,19 +40,20 @@ class Usuarios:
 
     usuarios = objeto.listUsuarios
     jaExiste = False
+    tipoDado = "cpf"
     print(f"{id}:")
     if id == "cpf":
       idLogin = validarValoresPrevisiveis("###.###.###-##")
     else:
       idLogin = validarValoresPrevisiveis("##.###.###/####-##")
+      tipoDado = "cnpj"
     
     clearr()
-
-    senhaLogin = validarValoresNaoPrevisiveis(input('Senha: \n'), "senha")
+    senhaLogin = validarValoresNaoPrevisiveis(getpass('Senha: \n'), "senha")
     clearr()
 
-    if verificarExistencia(usuarios, idLogin) and verificarExistencia(
-        usuarios, senhaLogin):
+    if verificarExistencia(usuarios, idLogin) and verificarSenha(idLogin, senhaLogin, tipoDado):
+      
       jaExiste = True
 
     if jaExiste:
@@ -67,7 +65,8 @@ class Usuarios:
           self.fortitudeSenha = validarSenhaFortitude(self.dadosUsuario["senha"])
           
           return True
-    print("CPF ou senha incorretos!!")
+    print(f"{cor.FAIL}CPF ou senha incorretos!!{cor.END}")
+    sleep(1)
     return False
 
 #################################################################################
@@ -178,13 +177,21 @@ class Usuarios:
     global concatenar
     concatenar = f"{origem[0]} -> "
 
-    def caminho(dest):
+    print(rotas)
+    print(rotas[destino-1][1][0][1])
+    def caminho(destino):
       global concatenar
 
-      if rotas[dest - 1]:
-        if dest != origem[1]:
-          caminho(rotas[dest - 1][1][0][1])
-          concatenar += f"{rotas[dest-1][1][1][0]} -> "
+      if rotas[destino - 1]:
+        if destino != origem[1]:
+          locasConectados = 1
+          localPartidaLista = 0
+          distanciaLocaPartida = 1
+          localDestinoLista = 1
+          localDestino = 0
+
+          caminho(rotas[destino-1][locasConectados][localPartidaLista][distanciaLocaPartida])
+          concatenar += f"{rotas[destino-1][locasConectados][localDestinoLista][localDestino]} -> "
 
     caminho(destino)
     concatenar = concatenar[:-4]
@@ -237,11 +244,12 @@ class Usuarios:
         if escolhaUsuario in opcoesValidas:
           return escolhaUsuario
         clearr()
-        print("Digite uma opcao válida!!")
+        print(f"{{cor.FAIL}}Digite uma opcao válida!!{{cor.END}}")
       except:
         clearr()
-        print("Valor inválido!!")
+        print(f"{cor.FAIL}Valor inválido!!{cor.END}")
       sleep(1)
+
   #################################################################################
 
   def escolher_origem(self):
@@ -258,10 +266,10 @@ class Usuarios:
         if origemId <= len(locais):
           return origemId
         clearr()
-        print("Digite uma opção válida!!")
+        print(f"{cor.FAIL}Digite uma opção válida!!{cor.END}")
       except:
         clearr()
-        print("Valor inválido!!")
+        print(f"{cor.FAIL}Valor inválido!!{cor.END}")
       
       sleep(1)
 
@@ -292,13 +300,34 @@ class Usuarios:
     clearr()
     self.banco.delete("usuarios", self.dadosUsuario["id"], "id_usuario")
     exit()
+  #################################################################################
+    
+  def trocarSenha(self):
+    global cor
+
+    self.dadosUsuario["senha"] = \
+    verificarValores(
+      validarValoresNaoPrevisiveis(validarTipo('Informe a senha: \n', str), "senha"),
+      validarValoresNaoPrevisiveis(validarTipo('Confirme a senha: \n', str), "senha"),
+      texto1 = "Informe a senha: ",
+      texto2 = "Confirme a senha: "
+    )
+
+    self.fortitudeSenha = validarSenhaFortitude(self.dadosUsuario["senha"])
+    self.banco.update("usuarios", "senha", "id_usuario", self.dadosUsuario["id"], self.dadosUsuario["senha"])
+    print(f"{cor.OKBLUE}Senha trocada com sucesso!{cor.END}")
+    sleep(1)
 
   #################################################################################
 
   def visualizarInformacoes(self):
     clearr()
+    print(self.dadosUsuario['id'])
+    self.banco.cursor.execute(f"SELECT tipo_usuario FROM usuarios WHERE id_usuario = {self.dadosUsuario['id']} ")
+    tipoUsuario = self.banco.cursor.fetchone()[0]
     cpf_or_cnpj = 'CPF'
-    if self.dadosUsuario["tipoUsuario"] == "juridica":
+    if tipoUsuario == "juridica":
+      
       cpf_or_cnpj = 'CNPJ'
       
     print(cor.PATTERN +
@@ -325,8 +354,8 @@ f"""
                                                                         |               {f"{cor.BOLD}{self.dadosUsuario['nome']:^30}{cor.END}"}             |
                                                                         |                                                          |
                                                                         |                                                          |
-                                                                        |               {"CPF: "+self.dadosUsuario["cpf"]:^30}             |
-                                                                        |               {"-"*((len(self.dadosUsuario['cpf'])+5)):^30}             |
+                                                                        |               {f"{cpf_or_cnpj}: "+cpf_or_cnpj:^30}             |
+                                                                        |               {"-"*((len(cpf_or_cnpj)+5)):^30}             |
                                                                         |                                                          |
                                                                         |               {"CEP: "+self.dadosUsuario["cep"]:^30}             |
                                                                         |               {"-"*((len(self.dadosUsuario['cep'])+5)):^30}             |
@@ -339,7 +368,7 @@ f"""
                                                                         |                                                          |
                                                                         |                                                          |
                                                                         |                                                          |
-                                                                        |               {self.dadosUsuario["tipoUsuario"].upper():^30}             |
+                                                                        |               {tipoUsuario.upper():^30}             |
                                                                         |                                                          | 
                                                                         |                                                          |
                                                                           ________________________________________________________ 
@@ -348,4 +377,4 @@ f"""
 
 
 """ + cor.END)
-    validar_sem_repetir("Precione qualquer tecla para continuear... ")
+    validar_sem_repetir("Precione qualquer tecla para continuar... ")

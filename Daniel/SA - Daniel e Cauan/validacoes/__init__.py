@@ -4,6 +4,7 @@ from readchar import readkey, key
 from textos import clearr
 from cores import Cores
 from getpass import getpass
+from time import sleep
 
 cor = Cores()
 banco = Banco()
@@ -27,7 +28,7 @@ def verificarValores(valor1, valor2, texto1=None, texto2=None):
 
   return valor1
 
-def verificarExistencia(list,dado, mensagem=None):
+def verificarExistencia(list, dado, mensagem=None):
   if list:
     for item in list:
       if dado in item:
@@ -35,12 +36,25 @@ def verificarExistencia(list,dado, mensagem=None):
           print(f"{mensagem}")
         return True
     return False
+  
+def verificarSenha(idUsuario, senha, tipoUsuario):
+  global banco
+ 
+  banco.cursor.execute(f"SELECT senha FROM usuarios WHERE {tipoUsuario} = {idUsuario}")
+  
+  resultados = banco.cursor.fetchall()
+  if resultados and senha in resultados[0]:
+    return True
+  return False
 
 def validarTipo(msg,tipo):
   casoInvalido = True
   while casoInvalido:    
     try:
-      valor = tipo(input(msg))
+      if "senha" in msg:
+        valor = tipo(getpass(msg))
+      else:
+        valor = tipo(getpass(msg))
       casoInvalido = False
     except:
       print(f"\n{cor.FAIL}ERRO!! valor inválido.{cor.FAIL}\n")
@@ -158,7 +172,7 @@ def validar_cpf_cnpj(mask, cpf_or_cnpj):
 
       print(f"\n{cor.FAIL}{cpf_or_cnpj} já cadastrado!!{cor.END}\n")
     except Exception:
-       print(f"Digite um valor válido!!")  
+       print(f"{cor.FAIL}Digite um valor válido!!{cor.END}")  
     
 def validar_sem_repetir(texto):
   try:

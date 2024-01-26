@@ -26,14 +26,16 @@ def escolherOpcao(t=None, *opcoes):
   return escolhido
 
 
+def quantidadeArgumentos(funcao):
+  return funcao.__code__.co_argcount
 
-def escolhaEntao(opcao, funcoes, parametros=None):
-  for index, funcao in enumerate(funcoes):
+def escolhaEntao(opcao, listaFuncoes, listaParametros=None):
+  for index, funcao in enumerate(listaFuncoes):
     if opcao == index + 1:
-      if parametros and funcao.__code__.co_argcount > 0:
-        for i, p in enumerate(parametros):
-          if i + 1 == opcao:
-            return funcao(*p)
+      if listaParametros and quantidadeArgumentos(funcao) > 0: 
+        for index_parametro, parametro in enumerate(listaParametros):
+          if index_parametro + 1 == opcao:
+            return funcao(*parametro)
       return funcao()
 
 
