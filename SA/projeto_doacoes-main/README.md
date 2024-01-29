@@ -2,16 +2,17 @@
 
  Este sistema destina-se ao controle de doações para instituições sem fins lucrativos, como ONG's.
       
-<h2> Manual de utilização</h2>
+<h2>Manual de utilização</h2>
 
 <p>Tanto o manual de usuário administrador quanto o de utilização técnica estão no link abaixo.</p>
-<a href= "Manual.pdf">Documentação</a>
+<a href= "https://github.com/marisangila/LOPR-2023-2/blob/main/SA/projeto_doacoes-main/Manual.pdf">Documentação</a>
 
-<h2> Manual de instalação JDK </h2> 
+<h2>Manual de instalação JDK </h2> 
 
-<p>Para depurar este código, é necessário ter a JDK (Java Development Kit) instalada na sua máquina. Segue manual de instalação: </p>
+<p>Para depurar este código, é necessário ter a JDK (Java Development Kit) instalada na sua máquina. Segue manual de instalação, junto ao link de acesso ao site oficial para download: </p>
+<a href = "https://www.java.com/pt-BR/download/manual.jsp">Site oficial Java</a>
    
-<h3> Instalação da JDK no Windows: </h3> 
+<h3>Instalação da JDK no Windows: </h3> 
           
    Baixar o JDK:
     
