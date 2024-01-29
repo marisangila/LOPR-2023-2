@@ -29,10 +29,14 @@ O programa pode ser rodado na maioria dos terminais Linux e Windows, porém reco
 
 ### Recursos necessários:
 
-* Python versão 3.12
-* Pip
-* Biblioteca readchar 
-
+        * Python versão 3.12
+        * Pip
+        * Biblioteca readchar 4.0.5
+        * Biblioteca getpass 0.1.7
+        * colorama 0.1.6
+        * git bash
+        
+        
 #### Instalando o Python e do Pip:
 
 [Site do Python](https://www.python.org/)
