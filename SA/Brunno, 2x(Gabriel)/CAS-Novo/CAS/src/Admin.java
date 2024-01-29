@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 
 public class Admin {
     public String usuario;
@@ -6,18 +6,15 @@ public class Admin {
     
     public boolean verificarAdmin(String usuarioAdmin, String senhaAdmin) {
         if((usuario.equals(usuarioAdmin)) && (senha.equals(senhaAdmin))){
-                System.out.println("        Entrou como administrador");
+                System.out.println(ConsoleColors.CYAN_BRIGHT + "\n======================================================================================\n" +  
+                    "|        Entrou como administrador                                                   |" + 
+                    "\n======================================================================================\n" + ConsoleColors.RESET);
                 return true;
         }else{
-                System.out.println("        Não foi possivel entrar como administrador");
+                System.out.println(ConsoleColors.RED_BRIGHT + "\n======================================================================================\n" + 
+                    "|        Não foi possivel entrar como administrador                                  |" + 
+                    "\n======================================================================================\n" + ConsoleColors.RESET);
                 return false;
         }
     }       
-        public static int menuAdmin() {
-        System.out.println("        Escolha uma opção:\n        [1] - Alterar descontos\n        [2] - Alterar login administrador\n        [3] - Voltar");
-        Scanner entradaAdmin = new Scanner(System.in);
-        int entrada = entradaAdmin.nextInt();
-        return entrada;
-        
-    }
 }
