@@ -41,28 +41,32 @@
     
    Atualizar o Sistema:
     
-    Abra um terminal e execute os seguintes comandos para garantir que o sistema esteja atualizado:
+   Abra um terminal e execute os seguintes comandos para garantir que o sistema esteja atualizado:
+
     bash
     Copy code
     sudo apt update
     sudo apt upgrade
     Instalar o JDK:
     
-    Execute o seguinte comando para instalar o OpenJDK, uma implementação gratuita e de código aberto do JDK:
+   Execute o seguinte comando para instalar o OpenJDK, uma implementação gratuita e de código aberto do JDK:
+
     bash
     Copy code
     sudo apt install default-jdk
     Configurar as Variáveis de Ambiente (Opcional):
     
-    Em alguns casos, as variáveis de ambiente já são configuradas automaticamente. Caso contrário, você pode adicionar as seguintes linhas ao final do arquivo ~/.bashrc ou 
-    ~/.zshrc:
+   Em alguns casos, as variáveis de ambiente já são configuradas automaticamente. Caso contrário, você pode adicionar as seguintes linhas ao final do arquivo ~/.bashrc ou 
+   ~/.zshrc:
+
     bash
     Copy code
     export JAVA_HOME=/usr/lib/jvm/default-java
     export PATH=$PATH:$JAVA_HOME/bin
     Use source ~/.bashrc ou source ~/.zshrc para aplicar as alterações imediatamente.
-    Verificar a Instalação:
-    
+
+   Verificar a Instalação:
+
     No terminal, execute java -version e javac -version para verificar se o Java e o compilador Java foram instalados corretamente.
 
    <h3>Ferramentas utilizadas</h3>
@@ -73,6 +77,10 @@
    
    -> Analice de Moraes Leite; <br>
    -> João Viktor Trindade.
+
+   <img src= "https://img.shields.io/badge/Status-Completed-green"/>
+
+
 
 
 
